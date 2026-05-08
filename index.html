@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>張家界旅行計劃</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+      --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;
+      --color-bg:#f4eee8;--color-surface:#f7f1eb;--color-surface-2:#fbf7f3;--color-surface-offset:#e9ddd2;--color-surface-dynamic:#ddd0c4;--color-divider:#d8cabc;--color-border:#ccbcae;
+      --color-text:#3b312a;--color-text-muted:#78685b;--color-text-faint:#a69486;--color-text-inverse:#fffaf6;
+      --color-primary:#8d6e63;--color-primary-hover:#75584f;--color-primary-highlight:#e5d7ce;--color-success:#6f7c5e;
+      --shadow-sm:0 1px 3px rgba(72,52,40,.08);--shadow-md:0 8px 28px rgba(72,52,40,.10);--shadow-lg:0 20px 60px rgba(72,52,40,.14);
+      --radius-sm:.5rem;--radius-md:.8rem;--radius-lg:1.2rem;--radius-xl:1.8rem;--radius-full:9999px;
+      --font-display:'Noto Serif TC',serif;--font-body:'Manrope','Noto Sans TC',sans-serif;
+    }
+    [data-theme="dark"]{
+      --color-bg:#231d19;--color-surface:#2a2320;--color-surface-2:#322b27;--color-surface-offset:#3b322d;--color-surface-dynamic:#473c36;--color-divider:#4b3f39;--color-border:#5f5149;
+      --color-text:#f0e8e1;--color-text-muted:#c6b9ad;--color-text-faint:#a38f84;--color-text-inverse:#221c18;--color-primary:#d2b4a2;--color-primary-hover:#e4c6b4;--color-primary-highlight:#45362f;--shadow-sm:0 1px 3px rgba(0,0,0,.25);--shadow-md:0 8px 28px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:5rem}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;background:var(--color-bg);color:var(--color-text);transition:background .3s,color .3s}
+    img{display:block;max-width:100%;height:auto}
+    button,input,select{font:inherit}
+    button{border:none;background:none;cursor:pointer;color:inherit}
+    .container{width:min(1180px,calc(100% - 2.5rem));margin-inline:auto}
+    .skip-link{position:absolute;left:-999px;top:0}.skip-link:focus{left:1rem;top:1rem;background:var(--color-primary);color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+    .site-header{position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:color-mix(in srgb,var(--color-bg) 86%,transparent);border-bottom:1px solid color-mix(in srgb,var(--color-text) 10%,transparent)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.8rem}.brand-mark{width:40px;height:40px;padding:.5rem;border-radius:1rem;background:linear-gradient(135deg,var(--color-primary-highlight),var(--color-surface-offset));box-shadow:var(--shadow-sm)}.brand-mark svg{width:100%;height:100%}
+    .brand-text strong{display:block;font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}.brand-text span{display:block;font-family:var(--font-display);font-size:var(--text-lg)}
+    nav{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap} nav a{font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none}
+    .theme-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 10%,transparent)}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.12}
+    .hero{padding:clamp(3rem,8vw,5.5rem) 0 2.5rem}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-10);align-items:end}
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .85rem;border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+    h1{font-size:var(--text-2xl)} .hero-body{margin-top:.9rem;max-width:60ch;color:var(--color-text-muted)}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);margin-top:var(--space-5)}
+    .stat-card,.hero-aside,.day-card,.hotel-card,.warn-card,.budget-card{padding:var(--space-5);border-radius:var(--radius-xl);background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 9%,transparent);box-shadow:var(--shadow-sm)}
+    .stat-card span{display:block;font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:.25rem}.stat-card strong{font-size:var(--text-base)}
+    .hero-aside h2,.section-head h2{font-size:var(--text-xl)}
+    .note-list,.day-list,.hotel-points{list-style:none;display:grid;gap:.7rem}.note-list li,.day-list li,.hotel-points li{position:relative;padding-left:1.1rem;color:var(--color-text-muted)}
+    .note-list li::before,.day-list li::before,.hotel-points li::before{content:'';position:absolute;left:0;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--color-primary)}
+    .section{padding:clamp(var(--space-8),6vw,var(--space-16)) 0}.section-head{margin-bottom:var(--space-6)}.section-head p{margin-top:.5rem;color:var(--color-text-muted);max-width:64ch}
+    .timeline{display:grid;gap:var(--space-4)}.day-card{display:grid;grid-template-columns:120px 1fr;gap:var(--space-4)}.day-meta{display:flex;flex-direction:column;gap:.35rem}.day-meta .label{font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}.day-meta strong{font-family:var(--font-display);font-size:var(--text-lg)}.day-body h3{font-size:var(--text-base);margin-bottom:.6rem}
+
+    .spot-grid{display:grid;gap:var(--space-6)} .flip-wrap{perspective:1600px} .flip-inner{position:relative;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.16,1,.3,1)} .flip-wrap.is-flipped .flip-inner{transform:rotateY(180deg)}
+    .card-face{width:100%;padding:var(--space-6);border-radius:var(--radius-xl);background:linear-gradient(165deg,var(--color-surface),var(--color-surface-2));border:1px solid color-mix(in srgb,var(--color-text) 10%,transparent);box-shadow:var(--shadow-md);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .card-face.front{position:relative}.card-face.back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;flex-direction:column;gap:var(--space-5);overflow-y:auto}
+    .spot-header,.back-header{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)} .spot-title,.back-title{font-family:var(--font-display);font-size:var(--text-xl)} .back-subtitle{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:.3rem}
+    .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}.pill{padding:.4rem .75rem;border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs)}
+    .flip-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:var(--radius-full);background:var(--color-primary);color:var(--color-text-inverse);font-size:var(--text-xs);font-weight:600;letter-spacing:.04em;box-shadow:var(--shadow-sm);white-space:nowrap}.flip-btn.back-btn{background:var(--color-surface-offset);color:var(--color-text)}
+
+    .gallery-shell{position:relative}
+    .gallery-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px, 28vw);gap:var(--space-3);overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:.5rem;margin-bottom:var(--space-4)}
+    .gallery-scroll::-webkit-scrollbar{height:10px}.gallery-scroll::-webkit-scrollbar-thumb{background:var(--color-surface-dynamic);border-radius:999px}
+    .gallery-item{border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface-offset);scroll-snap-align:start;cursor:zoom-in;min-width:0}
+    .gallery-item img{aspect-ratio:4/3;object-fit:cover;width:100%}.gallery-item figcaption{padding:.6rem .8rem;font-size:var(--text-xs);color:var(--color-text-muted)}
+    .gallery-hint{display:flex;justify-content:space-between;align-items:center;margin:-.1rem 0 1rem;color:var(--color-text-faint);font-size:var(--text-xs)}
+    .card-cols{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-5)} .fact-box,.field-box{padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)} .fact-box strong{display:block;margin-bottom:.4rem;font-size:var(--text-sm)}
+    .field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)} .field-box{border:1.5px dashed var(--color-border)} .field-label{font-size:var(--text-xs);letter-spacing:.07em;text-transform:uppercase;color:var(--color-primary);margin-bottom:.5rem;font-weight:700} .field-value{font-size:var(--text-sm);color:var(--color-text-muted);font-style:italic} .field-box.full{grid-column:1/-1}
+    .edit-hint{display:flex;align-items:center;gap:.5rem;font-size:var(--text-xs);color:var(--color-text-faint);padding:.6rem var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-offset)}
+
+    .hotel-grid,.warn-grid,.budget-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+    .budget-card h3{font-size:var(--text-base);margin-bottom:.9rem}
+    .budget-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-bottom:var(--space-4)}
+    .form-group{display:grid;gap:.45rem}.form-group label{font-size:var(--text-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted)}
+    .input,.select{width:100%;padding:.8rem .95rem;border-radius:var(--radius-lg);border:1px solid color-mix(in srgb,var(--color-text) 12%,transparent);background:var(--color-surface-2);color:var(--color-text)}
+    .budget-table{display:grid;gap:.7rem}.budget-row{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 1rem;border-radius:var(--radius-lg);background:var(--color-surface-2)} .budget-row span:last-child{font-weight:700}
+    .budget-row.total{background:var(--color-primary-highlight);color:var(--color-text)} .budget-footnote{font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-3)}
+
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:2rem;z-index:1000}.lightbox.open{display:flex}
+    .lightbox-inner{position:relative;max-width:min(1200px,92vw);max-height:90vh}.lightbox img{max-width:100%;max-height:78vh;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)} .lightbox-caption{margin-top:.85rem;color:#f7f1eb;text-align:center;font-size:var(--text-sm)}
+    .lightbox-close{position:absolute;top:-.5rem;right:-.5rem;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;font-size:1.5rem}
+    footer{padding:var(--space-8) 0;color:var(--color-text-muted);font-size:var(--text-sm);border-top:1px solid var(--color-divider)} footer p{max-width:72ch}
+    @media(max-width:960px){.hero-grid,.card-cols,.hotel-grid,.warn-grid,.budget-grid,.budget-controls{grid-template-columns:1fr}.day-card{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}.field-box.full{grid-column:1}.gallery-scroll{grid-auto-columns:minmax(260px,75vw)}}
+    @media(max-width:600px){.stats{grid-template-columns:1fr}.header-inner{flex-wrap:wrap}.spot-header,.back-header{flex-direction:column;align-items:flex-start}.gallery-scroll{grid-auto-columns:86vw}.container{width:min(100% - 1rem,1180px)}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳至主要內容</a>
+<header class="site-header"><div class="container header-inner"><div class="brand"><div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 50C18 36 22 18 32 12C41 18 46 35 54 50" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 44H46" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="26" r="4.5" fill="currentColor"/></svg></div><div class="brand-text"><strong>14 Oct – 20 Oct · 2人</strong><span>張家界旅行計劃</span></div></div><nav aria-label="頁面導覽"><a href="#overview">總覽</a><a href="#itinerary">每日行程</a><a href="#spots">景點詳情</a><a href="#budget">預算試算</a><a href="#stay">住宿推介</a><a href="#notes">注意事項</a></nav><button class="theme-btn" data-theme-toggle aria-label="切換深色模式"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></div></header>
+<main id="main">
+<section class="hero" id="overview"><div class="container hero-grid"><div><span class="eyebrow">7天6晚 · 2位成人 · 預設淺色主題</span><h1>張家界六晚七天深度旅行計劃</h1><p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」雙基地節奏規劃，涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋，並加入圖片放大檢視、橫向滑動相簿與預算試算模組。</p><div class="stats"><div class="stat-card"><span>住宿節奏</span><strong>市區 2 晚 + 武陵源 4 晚</strong></div><div class="stat-card"><span>核心門票估算</span><strong>約 ¥1,922 / 2人</strong></div><div class="stat-card"><span>香港往返參考</span><strong>飛機約 HK$1,400 / 高鐵單程約 HK$837</strong></div><div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C</strong></div></div></div><aside class="hero-aside"><h2>行程設計邏輯</h2><ul class="note-list"><li>Day 1 抵達後入住永定區，貼近天門山索道站。</li><li>Day 2 遊畢天門山後轉住武陵源，核心景區集中安排更省時。</li><li>張家界國家森林公園拆分兩天以上遊覽，避免單日過勞。</li><li>Day 6 回永定區，為 Day 7 返程預留緩衝。</li></ul></aside></div></section>
+
+<section class="section" id="itinerary"><div class="container"><div class="section-head"><h2>每日行程大要</h2><p>以下為可直接落地的 7 天節奏，保留 Day 7 為備援與返程緩衝日。</p></div><div class="timeline">
+<article class="day-card"><div class="day-meta"><span class="label">Day 1</span><strong>14/10</strong></div><div class="day-body"><h3>抵達張家界 · 入住永定區</h3><ul class="day-list"><li>按航班或高鐵時間入住市區酒店。</li><li>補給、防寒外套與景區用品準備。</li><li>晚上可輕鬆逛市區或提早休息。</li></ul></div></article>
+<article class="day-card"><div class="day-meta"><span class="label">Day 2</span><strong>15/10</strong></div><div class="day-body"><h3>天門山全日 · 晚間轉住武陵源</h3><ul class="day-list"><li>早上進入天門山，建議預訂索道套票。</li><li>遊覽天門洞、玻璃棧道、山頂步道。</li><li>下午離園後前往武陵源，車程約 45–60 分鐘。</li></ul></div></article>
+<article class="day-card"><div class="day-meta"><span class="label">Day 3</span><strong>16/10</strong></div><div class="day-body"><h3>張家界國家森林公園 I：袁家界 · 天子山</h3><ul class="day-list"><li>以百龍天梯 / 索道搭配景區車安排主峰林觀景。</li><li>重點看阿凡達峰林、天子山觀景台。</li><li>晚上回武陵源休息。</li></ul></div></article>
+<article class="day-card"><div class="day-meta"><span class="label">Day 4</span><strong>17/10</strong></div><div class="day-body"><h3>張家界國家森林公園 II：金鞭溪 · 黃石寨或楊家界</h3><ul class="day-list"><li>安排溪谷步道與第二段高位觀景。</li><li>視天氣決定黃石寨或楊家界優先。</li><li>晚上可安排武陵源小鎮自由活動。</li></ul></div></article>
+<article class="day-card"><div class="day-meta"><span class="label">Day 5</span><strong>18/10</strong></div><div class="day-body"><h3>黃龍洞 + 寶峰湖</h3><ul class="day-list"><li>黃龍洞建議早上先行，避開團客高峰。</li><li>下午安排寶峰湖遊船。</li><li>屬低強度恢復日，適合回復體力。</li></ul></div></article>
+<article class="day-card"><div class="day-meta"><span class="label">Day 6</span><strong>19/10</strong></div><div class="day-body"><h3>大峽谷玻璃橋 · 晚間回永定區</h3><ul class="day-list"><li>上午前往大峽谷玻璃橋，預留半天至大半天。</li><li>下午返回永定區，入住市區酒店。</li><li>為翌日返程或備援景點作準備。</li></ul></div></article>
+<article class="day-card"><div class="day-meta"><span class="label">Day 7</span><strong>20/10</strong></div><div class="day-body"><h3>返程日 · 彈性緩衝</h3><ul class="day-list"><li>依高鐵 / 航班時間退房與出發。</li><li>如為下午離境，可安排簡單購物或咖啡時段。</li><li>亦可作前數天未完成景點的補遊日。</li></ul></div></article>
+</div></div></section>
+
+<section class="section" id="spots"><div class="container"><div class="section-head"><h2>景點詳情與圖片檢視區</h2><p>圖片支援點擊放大檢視；若多於 3 張，會以橫向滑動方式繼續顯示。每張景點卡仍可按按鈕翻到背面查看模板欄位。</p></div><div class="spot-grid">
+
+<div class="flip-wrap" data-flip><div class="flip-inner"><div class="card-face front"><div class="spot-header"><div><h3 class="spot-title">天門山國家森林公園</h3><div class="pill-row"><span class="pill">永定區 · 市區約 8 公里</span><span class="pill">建議停留：1 整天</span><span class="pill">門票參考：約 ¥277</span></div></div><button class="flip-btn" data-flip-btn>詳細資訊 ↻</button></div><div class="gallery-shell"><div class="gallery-scroll">
+<figure class="gallery-item"><img src="https://www.ourchinastory.com/images/content/snapshot/2021/01/%E7%95%B6%E4%BB%A3%E4%B8%AD%E5%9C%8B-%E4%B8%AD%E5%9C%8B%E6%97%85%E9%81%8A-%E4%B8%AD%E5%9C%8B%E6%96%87%E5%8C%96-%E6%B9%96%E5%8D%97-%E5%BC%B5%E5%AE%B6%E7%95%8C2_x1.jpg" alt="天門山圖片 1" width="1200" height="900" loading="lazy" data-caption="天門山圖片 1"><figcaption>天門山全景</figcaption></figure>
+<figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg" alt="天門山圖片 2" width="1200" height="900" loading="lazy" data-caption="天門山圖片 2"><figcaption>天門山山勢與索道視角</figcaption></figure>
+<figure class="gallery-item"><img src="https://res.klook.com/image/upload/v1740553199/admin-markdown/lwt3svw59qqv7xridg6i.jpg" alt="天門山圖片 3" width="1200" height="900" loading="lazy" data-caption="天門山圖片 3"><figcaption>天門山官方宣傳圖</figcaption></figure>
+<figure class="gallery-item"><img src="https://cdn.hk01.com/di/media/images/1391100/org/a626a42ac4c70d284d44b65cb4f7575e.jpg/CV3SkipovqCoJNFIo9AMQAttrXu-X1KJe2qF43tqheM?v=w1280r16_9" alt="天門山圖片 4" width="1280" height="720" loading="lazy" data-caption="天門山圖片 4"><figcaption>玻璃棧道與峭壁視角</figcaption></figure>
+</div><div class="gallery-hint"><span>點擊圖片可放大</span><span>左右滑動查看更多</span></div></div><div class="card-cols"><div class="fact-box"><strong>安排建議</strong><p>位於永定區，最適合安排於 Day 2，當天遊畢後再轉往武陵源。</p></div><div class="fact-box"><strong>注意點</strong><p>熱門日子需提早預約；10 月 8 日至 12 月 31 日開放時間約 07:30–19:00。[web:26][page:1]</p></div></div></div><div class="card-face back"><div><div class="back-header"><div><h3 class="back-title">天門山國家森林公園</h3><p class="back-subtitle">詳細資訊模板</p></div><button class="flip-btn back-btn" data-flip-btn>返回圖片面</button></div><div class="edit-hint">以下欄位保留供你後續補充個人備註與實際攻略。</div><div class="field-grid"><div class="field-box"><div class="field-label">景點亮點</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">最佳拍攝時段</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">體力要求</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">排隊風險</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">雨天備案</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">個人備註</div><div class="field-value">（請填入）</div></div><div class="field-box full"><div class="field-label">詳細遊覽路線</div><div class="field-value">（請填入）</div></div></div></div></div></div></div>
+
+<div class="flip-wrap" data-flip><div class="flip-inner"><div class="card-face front"><div class="spot-header"><div><h3 class="spot-title">張家界國家森林公園</h3><div class="pill-row"><span class="pill">武陵源區 · 標誌門入口</span><span class="pill">建議停留：2–3 天</span><span class="pill">門票參考：約 ¥228（4日有效）</span></div></div><button class="flip-btn" data-flip-btn>詳細資訊 ↻</button></div><div class="gallery-shell"><div class="gallery-scroll">
+<figure class="gallery-item"><img src="https://dw-media.tkww.hk/dams/dwproduct/image/202309/30/6517737ee4b0bf231149622b.jpg" alt="張家界國家森林公園圖片 1" width="1200" height="900" loading="lazy" data-caption="張家界國家森林公園圖片 1"><figcaption>峰林全景</figcaption></figure>
+<figure class="gallery-item"><img src="https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/jszslwerw3nyads7qnvi/%E5%BC%B5%E5%AE%B6%E7%95%8C%E5%9C%8B%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92%E9%96%80%E7%A5%A8-Klook%E9%A6%99%E6%B8%AF.jpg" alt="張家界國家森林公園圖片 2" width="1200" height="630" loading="lazy" data-caption="張家界國家森林公園圖片 2"><figcaption>景區宣傳圖</figcaption></figure>
+<figure class="gallery-item"><img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1067,h_800/w_65,x_12,y_12,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/rs5w5qtwvv9bdgxxzrlj/%E5%BC%B5%E5%AE%B6%E7%95%8C%E5%9C%8B%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92%E8%8B%B1%E6%96%87%E7%A7%81%E5%AE%B6%E5%9C%98%E4%B8%80%E6%97%A5%E9%81%8A.jpg" alt="張家界國家森林公園圖片 3" width="1067" height="800" loading="lazy" data-caption="張家界國家森林公園圖片 3"><figcaption>峰林近景</figcaption></figure>
+<figure class="gallery-item"><img src="https://img3.chinadaily.com.cn/images/202212/14/63998f71a3102ada7c81badd.jpeg" alt="張家界國家森林公園圖片 4" width="1200" height="900" loading="lazy" data-caption="張家界國家森林公園圖片 4"><figcaption>山峰與雲海</figcaption></figure>
+<figure class="gallery-item"><img src="https://elephant-trip.com/wp-content/uploads/2025/11/%E5%BC%A0%E5%AE%B6%E7%95%8C%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD%E5%9C%B0%E5%9B%BE-1009x1024.jpg" alt="張家界國家森林公園圖片 5" width="1009" height="1024" loading="lazy" data-caption="張家界國家森林公園圖片 5"><figcaption>景區地圖</figcaption></figure>
+</div><div class="gallery-hint"><span>點擊圖片可放大</span><span>左右滑動查看更多</span></div></div><div class="card-cols"><div class="fact-box"><strong>遊覽節奏</strong><p>建議分兩天以上遊覽，包含袁家界、天子山、金鞭溪、黃石寨等主要區域。[web:45]</p></div><div class="fact-box"><strong>注意點</strong><p>由永定區往武陵源約 40–50 分鐘，入住景區附近可顯著減少進園時間。[web:21][web:45]</p></div></div></div><div class="card-face back"><div><div class="back-header"><div><h3 class="back-title">張家界國家森林公園</h3><p class="back-subtitle">詳細資訊模板</p></div><button class="flip-btn back-btn" data-flip-btn>返回圖片面</button></div><div class="edit-hint">以下欄位保留供你後續補充個人備註與實際攻略。</div><div class="field-grid"><div class="field-box"><div class="field-label">景點亮點</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">最佳拍攝時段</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">體力要求</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">排隊風險</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">雨天備案</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">個人備註</div><div class="field-value">（請填入）</div></div><div class="field-box full"><div class="field-label">兩天建議動線</div><div class="field-value">（請填入）</div></div></div></div></div></div></div>
+
+<div class="flip-wrap" data-flip><div class="flip-inner"><div class="card-face front"><div class="spot-header"><div><h3 class="spot-title">黃龍洞</h3><div class="pill-row"><span class="pill">武陵源區</span><span class="pill">建議停留：2–3 小時</span><span class="pill">門票參考：約 ¥121 + ¥4</span></div></div><button class="flip-btn" data-flip-btn>詳細資訊 ↻</button></div><div class="gallery-shell"><div class="gallery-scroll">
+<figure class="gallery-item"><img src="https://ak-d.tripcdn.com/images/1lo6012000odvqg7s490F_C_1200_800_Q70.webp?proc=source%2ftrip" alt="黃龍洞圖片 1" width="1200" height="800" loading="lazy" data-caption="黃龍洞圖片 1"><figcaption>洞內主廳</figcaption></figure>
+<figure class="gallery-item"><img src="https://ak-d.tripcdn.com/images/0HJ5212000s9uf25tC6DA_C_1200_800_Q70.webp?proc=source%2ftrip" alt="黃龍洞圖片 2" width="1200" height="800" loading="lazy" data-caption="黃龍洞圖片 2"><figcaption>鐘乳石景觀</figcaption></figure>
+<figure class="gallery-item"><img src="https://ak-d.tripcdn.com/images/0HJ1z12000sdonqvf87D9_C_1200_800_Q70.webp?proc=source%2ftrip" alt="黃龍洞圖片 3" width="1200" height="800" loading="lazy" data-caption="黃龍洞圖片 3"><figcaption>洞內遊覽區域</figcaption></figure>
+<figure class="gallery-item"><img src="https://ak-d.tripcdn.com/images/1lo0v12000oeirtq4F2D0.jpg" alt="黃龍洞圖片 4" width="1200" height="800" loading="lazy" data-caption="黃龍洞圖片 4"><figcaption>洞口及外景</figcaption></figure>
+<figure class="gallery-item"><img src="https://ak-d.tripcdn.com/images/0HJ1k12000sdonser6E75_C_1200_800_Q70.webp?proc=source%2ftrip" alt="黃龍洞圖片 5" width="1200" height="800" loading="lazy" data-caption="黃龍洞圖片 5"><figcaption>石柱與水道</figcaption></figure>
+</div><div class="gallery-hint"><span>點擊圖片可放大</span><span>左右滑動查看更多</span></div></div><div class="card-cols"><div class="fact-box"><strong>組合建議</strong><p>與寶峰湖組成 Day 5 輕鬆恢復日最平衡。</p></div><div class="fact-box"><strong>注意點</strong><p>洞內濕滑，建議穿防滑鞋；屬較不受天氣影響的備援景點。</p></div></div></div><div class="card-face back"><div><div class="back-header"><div><h3 class="back-title">黃龍洞</h3><p class="back-subtitle">詳細資訊模板</p></div><button class="flip-btn back-btn" data-flip-btn>返回圖片面</button></div><div class="edit-hint">以下欄位保留供你後續補充個人備註與實際攻略。</div><div class="field-grid"><div class="field-box"><div class="field-label">景點亮點</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">最佳入場時段</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">體力要求</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">裝備提醒</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">雨天適用性</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">個人備註</div><div class="field-value">（請填入）</div></div><div class="field-box full"><div class="field-label">建議遊覽動線</div><div class="field-value">（請填入）</div></div></div></div></div></div></div>
+
+<div class="flip-wrap" data-flip><div class="flip-inner"><div class="card-face front"><div class="spot-header"><div><h3 class="spot-title">寶峰湖</h3><div class="pill-row"><span class="pill">武陵源區</span><span class="pill">建議停留：2–3 小時</span><span class="pill">門票參考：約 ¥110 + ¥3</span></div></div><button class="flip-btn" data-flip-btn>詳細資訊 ↻</button></div><div class="gallery-shell"><div class="gallery-scroll">
+<figure class="gallery-item"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/ab/9f/70/5.jpg?w=1200&h=-1&s=1" alt="寶峰湖圖片 1" width="1200" height="800" loading="lazy" data-caption="寶峰湖圖片 1"><figcaption>湖面遊船視角</figcaption></figure>
+<figure class="gallery-item"><img src="https://whhlyt.hunan.gov.cn/whhlyt/wldhjqjd/202208/27583716/images/85004505593e4916a7eb6d4fc6cd6262.jpg" alt="寶峰湖圖片 2" width="1200" height="800" loading="lazy" data-caption="寶峰湖圖片 2"><figcaption>山水畫廊湖景</figcaption></figure>
+<figure class="gallery-item"><img src="https://image.cdn-eztravel.com.tw/WdGfz3pdJjSQc3QFXReMDK3Jh195WzrPSg_C9iMU85U/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L3BvaS9DTi9EWUcvQmFvZmVuZ0xha2Uvc2h1dHRlcnN0b2NrXzE4NzQyOTE5MGNvbXByZXNzLmpwZw.jpg" alt="寶峰湖圖片 3" width="1200" height="800" loading="lazy" data-caption="寶峰湖圖片 3"><figcaption>湖岸與峰林倒影</figcaption></figure>
+</div><div class="gallery-hint"><span>點擊圖片可放大</span><span>3 張圖片已全部顯示</span></div></div><div class="card-cols"><div class="fact-box"><strong>組合建議</strong><p>最適合和黃龍洞安排在同一天，形成輕鬆的半日 + 半日節奏。</p></div><div class="fact-box"><strong>注意點</strong><p>湖景受天氣與能見度影響較大，如遇陰雨可和其他日子互換。</p></div></div></div><div class="card-face back"><div><div class="back-header"><div><h3 class="back-title">寶峰湖</h3><p class="back-subtitle">詳細資訊模板</p></div><button class="flip-btn back-btn" data-flip-btn>返回圖片面</button></div><div class="edit-hint">以下欄位保留供你後續補充個人備註與實際攻略。</div><div class="field-grid"><div class="field-box"><div class="field-label">景點亮點</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">最佳拍攝時段</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">體力要求</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">天氣敏感度</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">雨天備案</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">個人備註</div><div class="field-value">（請填入）</div></div><div class="field-box full"><div class="field-label">建議遊覽動線</div><div class="field-value">（請填入）</div></div></div></div></div></div></div>
+
+<div class="flip-wrap" data-flip><div class="flip-inner"><div class="card-face front"><div class="spot-header"><div><h3 class="spot-title">張家界大峽谷玻璃橋</h3><div class="pill-row"><span class="pill">慈利 / 武陵源周邊</span><span class="pill">建議停留：半天至大半天</span><span class="pill">門票參考：約 ¥219（B線全含參考）</span></div></div><button class="flip-btn" data-flip-btn>詳細資訊 ↻</button></div><div class="gallery-shell"><div class="gallery-scroll">
+<figure class="gallery-item"><img src="https://cdn.hk01.com/di/media/images/192194/org/eb9595bad5c1e9bca5ec5db663f410be.jpg/74cX8Qxvt2aPtJWupW600dYOdYj5ZPfla2kbEmtpGxI?v=w1920" alt="大峽谷玻璃橋圖片 1" width="1920" height="1080" loading="lazy" data-caption="大峽谷玻璃橋圖片 1"><figcaption>玻璃橋全景</figcaption></figure>
+<figure class="gallery-item"><img src="https://www.zhangjiajieguide.com/images/zhangjiajie-grand-canyon-glass-bridge.jpg" alt="大峽谷玻璃橋圖片 2" width="1200" height="800" loading="lazy" data-caption="大峽谷玻璃橋圖片 2"><figcaption>峽谷俯瞰視角</figcaption></figure>
+<figure class="gallery-item"><img src="https://res.klook.com/image/upload/w_750,h_469,c_fill,q_85/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/cjflf7fyihvpnksstqr0.jpg" alt="大峽谷玻璃橋圖片 3" width="750" height="469" loading="lazy" data-caption="大峽谷玻璃橋圖片 3"><figcaption>玻璃橋近距離視角</figcaption></figure>
+</div><div class="gallery-hint"><span>點擊圖片可放大</span><span>3 張圖片已全部顯示</span></div></div><div class="card-cols"><div class="fact-box"><strong>安排位置</strong><p>建議放在 Day 6，遊畢後回永定區，減少最後一天趕路壓力。</p></div><div class="fact-box"><strong>注意點</strong><p>對懼高者壓力較大，且熱門時段需留意限流與排隊時間。[web:45][web:64]</p></div></div></div><div class="card-face back"><div><div class="back-header"><div><h3 class="back-title">張家界大峽谷玻璃橋</h3><p class="back-subtitle">詳細資訊模板</p></div><button class="flip-btn back-btn" data-flip-btn>返回圖片面</button></div><div class="edit-hint">以下欄位保留供你後續補充個人備註與實際攻略。</div><div class="field-grid"><div class="field-box"><div class="field-label">景點亮點</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">最佳拍攝時段</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">體力要求</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">懼高評估</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">雨天備案</div><div class="field-value">（請填入）</div></div><div class="field-box"><div class="field-label">個人備註</div><div class="field-value">（請填入）</div></div><div class="field-box full"><div class="field-label">建議遊覽動線</div><div class="field-value">（請填入）</div></div></div></div></div></div></div>
+
+</div></div></section>
+
+<section class="section" id="budget"><div class="container"><div class="section-head"><h2>預算試算模組</h2><p>可即時切換 CNY / HKD 顯示，並調整住宿每晚預算與房晚數。匯率預設以 1 CNY = 1.1208 HKD 作試算參考。[web:48]</p></div><div class="budget-grid"><div class="budget-card"><h3>參數設定</h3><div class="budget-controls"><div class="form-group"><label for="currency">顯示貨幣</label><select id="currency" class="select"><option value="CNY">CNY</option><option value="HKD">HKD</option></select></div><div class="form-group"><label for="exchangeRate">匯率（1 CNY = ? HKD）</label><input id="exchangeRate" class="input" type="number" step="0.0001" value="1.1208"></div><div class="form-group"><label for="hotelPerNight">住宿每晚（雙人房）</label><input id="hotelPerNight" class="input" type="number" step="1" value="500"></div><div class="form-group"><label for="hotelNights">住宿晚數</label><input id="hotelNights" class="input" type="number" step="1" value="6"></div><div class="form-group"><label for="transportMode">香港往返交通</label><select id="transportMode" class="select"><option value="flight">飛機來回（HK$1,400 / 人）</option><option value="hsr">高鐵來回（HK$837 單程 / 人）</option></select></div><div class="form-group"><label for="miscTransport">當地交通預算（CNY）</label><input id="miscTransport" class="input" type="number" step="1" value="400"></div></div><p class="budget-footnote">預設門票包括：張家界國家森林公園 2 人、天門山 2 人、黃龍洞 2 人、寶峰湖 2 人、大峽谷玻璃橋 2 人、百龍天梯 2 人。[web:45][web:26][web:31][web:64]</p></div><div class="budget-card"><h3>即時試算結果</h3><div class="budget-table"><div class="budget-row"><span>景點門票</span><span id="ticketTotal">¥1,922</span></div><div class="budget-row"><span>香港往返交通</span><span id="hkTransportTotal">¥2,499</span></div><div class="budget-row"><span>張家界當地交通</span><span id="localTransportTotal">¥400</span></div><div class="budget-row"><span>住宿合計</span><span id="hotelTotal">¥3,000</span></div><div class="budget-row total"><span>總預算</span><span id="grandTotal">¥7,821</span></div></div><p class="budget-footnote">飛機參考來回約 HK$1,400 / 人；高鐵參考單程約 HK$837 / 人，直達約 6 小時 40 分。[web:21][web:43]</p></div></div></div></section>
+
+<section class="section" id="stay"><div class="container"><div class="section-head"><h2>住宿推介</h2><p>建議採雙基地策略：前後住永定區，核心山區時段住武陵源，減少來回山區的車程成本。</p></div><div class="hotel-grid"><article class="hotel-card"><h3>永定區｜交通便利型</h3><ul class="hotel-points"><li>張家界天門山希爾頓歡朋酒店</li><li>張家界天門山溫德姆花園酒店</li><li>宜尚酒店（奇峰廣場大庸古城店）</li><li>張家界陽光酒店</li></ul></article><article class="hotel-card"><h3>武陵源｜景區步行型</h3><ul class="hotel-points"><li>張家界京武鉑爾曼酒店</li><li>張家界武陵源希爾頓花園酒店</li><li>Yoba Boutique Hotel</li><li>張家界喜見客棧－武陵源標誌門店</li></ul></article></div></div></section>
+
+<section class="section" id="notes"><div class="container"><div class="section-head"><h2>需注意事項</h2><p>以下重點適合固定放在出發前檢查區。</p></div><div class="warn-grid"><article class="warn-card"><h3>門票與營運</h3><ul class="note-list"><li>天門山 10 月至年底開放時間約 07:30–19:00，16:00 停止入場。[web:26]</li><li>張家界國家森林公園通票約 ¥228，適合拆成 2–3 天遊覽。[web:45]</li><li>高空或熱門景點建議提早鎖定時段，避免臨場排隊過久。</li></ul></article><article class="warn-card"><h3>裝備與體力</h3><ul class="note-list"><li>10 月中旬日間約 18–24°C，山頂較涼，建議洋蔥式穿搭。[web:56][web:6]</li><li>每天建議備飲水、行動電源與防滑運動鞋。</li><li>金鞭溪、山頂步道與玻璃橋日應適度保留體力。</li></ul></article><article class="warn-card"><h3>交通</h3><ul class="note-list"><li>香港直飛約 2 小時，或高鐵直達約 6 小時 40 分。[web:21][web:43]</li><li>永定區往武陵源約 40–50 分鐘，故搬一次酒店屬合理安排。[web:21]</li><li>建議核心景區段住武陵源，以減少每日進園通勤。</li></ul></article><article class="warn-card"><h3>天氣備援</h3><ul class="note-list"><li>雲霧過厚時，峰林遠景會受影響，可優先改排黃龍洞。</li><li>寶峰湖較受能見度影響，建議視天氣與黃龍洞互換。</li><li>Day 7 保留為補遊或返程緩衝，有助降低天氣風險。</li></ul></article></div></div></section>
+</main>
+<footer><div class="container"><p>此版本已整合：預設淺色主題、圖片放大燈箱、橫向滑動圖片區、翻卡模板欄位，以及 CNY / HKD 即時預算試算。</p></div></footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" aria-label="關閉圖片">×</button><img id="lightboxImage" src="" alt="放大圖片"><div class="lightbox-caption" id="lightboxCaption"></div></div></div>
+
+<script>
+  (function(){
+    const btn=document.querySelector('[data-theme-toggle]');
+    const root=document.documentElement;
+    let theme='light';
+    root.setAttribute('data-theme',theme);
+    const sun='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+    const moon='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    const update=()=>{btn.innerHTML=theme==='dark'?sun:moon;btn.setAttribute('aria-label',theme==='dark'?'切換淺色模式':'切換深色模式')};
+    update();
+    btn.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);update();});
+  })();
+
+  document.querySelectorAll('[data-flip]').forEach(wrap=>{
+    const inner=wrap.querySelector('.flip-inner');
+    const front=wrap.querySelector('.card-face.front');
+    const back=wrap.querySelector('.card-face.back');
+    function syncHeight(){inner.style.height='auto';inner.style.height=Math.max(front.scrollHeight,back.scrollHeight)+'px';}
+    syncHeight(); window.addEventListener('resize',syncHeight);
+    wrap.querySelectorAll('[data-flip-btn]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();wrap.classList.toggle('is-flipped');setTimeout(syncHeight,120);}));
+  });
+
+  const lightbox=document.getElementById('lightbox');
+  const lightboxImage=document.getElementById('lightboxImage');
+  const lightboxCaption=document.getElementById('lightboxCaption');
+  const lightboxClose=document.getElementById('lightboxClose');
+  document.querySelectorAll('.gallery-item img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      lightboxImage.src=img.src;
+      lightboxImage.alt=img.alt;
+      lightboxCaption.textContent=img.dataset.caption || img.alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    });
+  });
+  function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImage.src='';}
+  lightboxClose.addEventListener('click',closeLightbox);
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox) closeLightbox();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open')) closeLightbox();});
+
+  const dom={
+    currency:document.getElementById('currency'), exchangeRate:document.getElementById('exchangeRate'), hotelPerNight:document.getElementById('hotelPerNight'), hotelNights:document.getElementById('hotelNights'), transportMode:document.getElementById('transportMode'), miscTransport:document.getElementById('miscTransport'),
+    ticketTotal:document.getElementById('ticketTotal'), hkTransportTotal:document.getElementById('hkTransportTotal'), localTransportTotal:document.getElementById('localTransportTotal'), hotelTotal:document.getElementById('hotelTotal'), grandTotal:document.getElementById('grandTotal')
+  };
+  const ticketCny=228*2 + 277*2 + 121*2 + 110*2 + 219*2 + 56*2;
+  function formatMoney(value,currency){
+    const rounded=Math.round(value);
+    return (currency==='HKD'?'HK$':'¥') + rounded.toLocaleString('zh-HK');
+  }
+  function recalc(){
+    const currency=dom.currency.value;
+    const rate=parseFloat(dom.exchangeRate.value)||1.1208;
+    const hotelPerNight=parseFloat(dom.hotelPerNight.value)||0;
+    const hotelNights=parseFloat(dom.hotelNights.value)||0;
+    const miscTransport=parseFloat(dom.miscTransport.value)||0;
+    const transportMode=dom.transportMode.value;
+    const transportHkd = transportMode==='flight' ? 1400*2 : 837*2*2;
+    const transportCny = transportHkd / rate;
+    const hotelCny = hotelPerNight * hotelNights;
+    const grandCny = ticketCny + transportCny + miscTransport + hotelCny;
+    const fx = v => currency==='HKD' ? v*rate : v;
+    dom.ticketTotal.textContent = formatMoney(fx(ticketCny),currency);
+    dom.hkTransportTotal.textContent = formatMoney(fx(transportCny),currency);
+    dom.localTransportTotal.textContent = formatMoney(fx(miscTransport),currency);
+    dom.hotelTotal.textContent = formatMoney(fx(hotelCny),currency);
+    dom.grandTotal.textContent = formatMoney(fx(grandCny),currency);
+  }
+  ['change','input'].forEach(evt=>Object.values(dom).slice(0,6).forEach(el=>el.addEventListener(evt,recalc)));
+  recalc();
+</script>
+</body>
+</html>
