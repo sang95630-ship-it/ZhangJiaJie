@@ -377,6 +377,96 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   .site-header{position:relative}
   .header-inner{position:relative}
 }
+
+/* ===== MAP CAROUSEL ===== */
+.map-carousel{
+  position:relative;
+  background:var(--color-surface);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+.map-track{
+  display:grid;
+  grid-template-columns:100%;
+  /* slides stack on top of each other */
+}
+.map-slide{
+  grid-column:1;
+  grid-row:1;
+  opacity:0;
+  transition:opacity .45s ease, transform .45s ease;
+  transform:translateX(40px);
+  pointer-events:none;
+  cursor:zoom-in;
+}
+.map-slide.active{
+  opacity:1;
+  transform:translateX(0);
+  pointer-events:auto;
+  z-index:1;
+}
+.map-slide.exit-left{
+  opacity:0;
+  transform:translateX(-40px);
+}
+.map-slide img{
+  width:100%;
+  max-height:72vh;
+  object-fit:contain;
+  background:var(--color-surface-offset);
+  display:block;
+}
+.map-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;height:48px;
+  border-radius:var(--radius-full);
+  background:color-mix(in srgb,var(--color-surface) 90%,transparent);
+  border:1px solid var(--color-border);
+  box-shadow:var(--shadow-sm);
+  display:grid;place-items:center;
+  color:var(--color-text);
+  transition:background var(--transition-interactive),box-shadow var(--transition-interactive);
+  z-index:10;
+}
+.map-arrow svg{width:22px;height:22px}
+.map-arrow:hover{background:var(--color-surface-2);box-shadow:var(--shadow-md)}
+.map-arrow:active{transform:translateY(-50%) scale(.95)}
+.map-prev{left:var(--space-4)}
+.map-next{right:var(--space-4)}
+.map-footer{
+  display:flex;align-items:center;gap:var(--space-4);
+  padding:var(--space-3) var(--space-6) var(--space-4);
+  background:var(--color-surface);
+  border-top:1px solid var(--color-divider);
+  flex-wrap:wrap;
+}
+.map-dots{display:flex;gap:var(--space-2);flex:1}
+.map-dot{
+  width:7px;height:7px;border-radius:var(--radius-full);
+  background:var(--color-border);
+  transition:background .25s,width .25s;
+  cursor:pointer;
+}
+.map-dot.active{background:var(--color-primary);width:18px}
+.map-caption{
+  font-size:var(--text-sm);color:var(--color-text-muted);
+  text-align:center;flex:2;margin:0;max-width:none;
+}
+.map-counter{
+  font-size:var(--text-xs);color:var(--color-text-faint);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+@media(max-width:600px){
+  .map-arrow{width:38px;height:38px}
+  .map-prev{left:var(--space-2)}
+  .map-next{right:var(--space-2)}
+  .map-slide img{max-height:55vw;object-fit:contain}
+}
+
 </style>
 </head>
 <body>
@@ -422,7 +512,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
     <div>
       <span class="eyebrow">7天6晚 · 2位成人</span>
       <h1>張家界七天六晚深度旅行計劃</h1>
-      <p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」雙基地節奏規劃，涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋。</p>
+      <p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」雙基地節奏規劃，涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋。每張景點卡支援翻轉查閱，點擊圖片可放大瀏覽。</p>
       <div class="stats">
         <div class="stat-card"><span>住宿節奏</span><strong>市區 2 晚 + 武陵源 4 晚</strong></div>
         <div class="stat-card"><span>核心門票估算</span><strong>約 ¥1,922 / 2人</strong></div>
@@ -439,6 +529,36 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
         <li>Day 6 回永定區，為 Day 7 返程預留緩衝。</li>
       </ul>
     </aside>
+  </div>
+</section>
+
+<!-- MAP CAROUSEL -->
+<section class="section" id="maps">
+  <div class="container">
+    <div class="section-head">
+      <h2>旅遊地圖</h2>
+      <p>左右箭咀切換地圖，點擊圖片可全屏放大</p>
+	  <!--。如需新增地圖，在 JS 的 <code>mapSlides</code> 陣列加入圖片網址與標題即可。-->
+    </div>
+
+    <div class="map-carousel" id="mapCarousel" role="region" aria-label="旅遊地圖輪播">
+      <!-- slides injected by JS -->
+      <div class="map-track" id="mapTrack"></div>
+
+      <button class="map-arrow map-prev" id="mapPrev" type="button" aria-label="上一張地圖">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="map-arrow map-next" id="mapNext" type="button" aria-label="下一張地圖">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div class="map-footer">
+        <div class="map-dots" id="mapDots" aria-hidden="true"></div>
+        <p class="map-caption" id="mapCaption"></p>
+        <span class="map-counter" id="mapCounter"></span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -526,7 +646,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   <div class="container">
     <div class="section-head">
       <h2>景點詳情</h2>
-      <p>正面顯示景點資訊與相簿；背面有其他資訊</p>
+      <p>正面顯示景點資訊與相簿（預設顯示 3 張，左右滑動查看更多，點擊可放大）；按「編輯備註」翻到背面填寫個人計劃，按「返回正面」翻回。</p>
     </div>
     <div class="spot-grid">
 
@@ -548,7 +668,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
-                <span> </span>
+                <span>點擊圖片可放大 · 左右滑動查看更多</span>
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
@@ -638,7 +758,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
-                <span> </span>
+                <span>點擊圖片可放大 · 左右滑動查看更多</span>
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
@@ -733,7 +853,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
-                <span> </span>
+                <span>點擊圖片可放大 · 左右滑動查看更多</span>
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
@@ -823,7 +943,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
-                <span> </span>
+                <span>點擊圖片可放大 · 左右滑動查看更多</span>
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
@@ -913,7 +1033,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
-                <span> </span>
+                <span>點擊圖片可放大 · 左右滑動查看更多</span>
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
@@ -1131,7 +1251,10 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 (function(){
   const t = document.querySelector('[data-theme-toggle]');
   const r = document.documentElement;
-  let d =  'light';
+  /* match media
+  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  */
+  let d = 'light';
   r.setAttribute('data-theme', d);
   if(!t) return;
   const setIcon = (mode) => {
@@ -1399,6 +1522,130 @@ window.addEventListener('resize', () => {
       toggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     });
   });
+})();
+
+
+/* ===== MAP CAROUSEL ===== */
+(function(){
+  /* ── ADD MORE MAPS HERE ───────────────────────────────── */
+  const mapSlides = [
+    {
+      url:     'https://intranet.travel4u.com.tw/eWeb_t4u/IMGDB/000002/001283/001430/00031427.JPG',
+      caption: ''
+    },
+	
+	{ url: 'https://i.imgur.com/L2Agasi.jpeg', caption: '' },
+	
+    /* 在下方繼續新增:
+    { url: 'YOUR_URL_HERE', caption: '地圖標題' },
+    */
+  ];
+  /* ─────────────────────────────────────────────────────── */
+
+  const track   = document.getElementById('mapTrack');
+  const dotsEl  = document.getElementById('mapDots');
+  const caption = document.getElementById('mapCaption');
+  const counter = document.getElementById('mapCounter');
+  const prevBtn = document.getElementById('mapPrev');
+  const nextBtn = document.getElementById('mapNext');
+  const lb      = document.getElementById('lightbox');
+  const lbImg   = document.getElementById('lightboxImg');
+  const lbCap   = document.getElementById('lightboxCaption');
+
+  if (!track || !mapSlides.length) return;
+
+  let cur = 0;
+  let isAnimating = false;
+
+  // Build slides
+  mapSlides.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'map-slide' + (i === 0 ? ' active' : '');
+    div.dataset.idx = i;
+    div.setAttribute('role', 'img');
+    div.setAttribute('aria-label', s.caption);
+    const img = document.createElement('img');
+    img.src     = s.url;
+    img.alt     = s.caption;
+    img.loading = i === 0 ? 'eager' : 'lazy';
+    img.width   = 1200; img.height = 800;
+    div.appendChild(img);
+    // click → open lightbox with all map slides
+    div.addEventListener('click', () => {
+      if (!lb) return;
+      // Override lightbox with map slides
+      window._lbMapMode = true;
+      window._lbMapSlides = mapSlides;
+      window._lbMapCur   = i;
+      if (lbImg && lbCap) {
+        lbImg.src = s.url;
+        lbImg.alt = s.caption;
+        lbCap.textContent = s.caption;
+      }
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    track.appendChild(div);
+  });
+
+  // Build dots
+  mapSlides.forEach((s, i) => {
+    const d = document.createElement('div');
+    d.className = 'map-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
+
+  function updateUI() {
+    caption.textContent  = mapSlides[cur].caption;
+    counter.textContent  = (cur + 1) + ' / ' + mapSlides.length;
+    dotsEl.querySelectorAll('.map-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    prevBtn.disabled = mapSlides.length <= 1;
+    nextBtn.disabled = mapSlides.length <= 1;
+  }
+
+  function goTo(next) {
+    if (isAnimating || next === cur) return;
+    isAnimating = true;
+    const slides = track.querySelectorAll('.map-slide');
+    const dir    = next > cur ? 1 : -1;
+
+    // exit current
+    slides[cur].classList.add('exit-left');
+    slides[cur].classList.remove('active');
+
+    // prepare next
+    slides[next].style.transform = 'translateX(' + (dir * 40) + 'px)';
+    slides[next].style.opacity   = '0';
+    slides[next].classList.add('active');
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        slides[next].style.transform = '';
+        slides[next].style.opacity   = '';
+      });
+    });
+
+    setTimeout(() => {
+      slides[cur].classList.remove('exit-left');
+      slides[cur].style.transform = '';
+      slides[cur].style.opacity   = '';
+      cur = next;
+      isAnimating = false;
+      updateUI();
+    }, 460);
+  }
+
+  prevBtn.addEventListener('click', () => goTo((cur - 1 + mapSlides.length) % mapSlides.length));
+  nextBtn.addEventListener('click', () => goTo((cur + 1) % mapSlides.length));
+
+  // Keyboard when carousel is focused
+  document.getElementById('mapCarousel').addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo((cur - 1 + mapSlides.length) % mapSlides.length);
+    if (e.key === 'ArrowRight') goTo((cur + 1) % mapSlides.length);
+  });
+
+  updateUI();
 })();
 
 </script>
