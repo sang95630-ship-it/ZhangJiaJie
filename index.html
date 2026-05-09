@@ -180,7 +180,7 @@ h1{font-size:var(--text-2xl)}
 .gallery-scroll::-webkit-scrollbar-thumb{background:var(--color-surface-dynamic);border-radius:999px}
 /* FIX: 每張固定 calc((100% - 2 * gap) / 3)，viewport 只顯示3張，其餘滾動 */
 .gallery-item{
-  flex:0 0 calc(33.333% - var(--space-2));  /* 精確佔 1/3 寬 */
+  flex:0 0 calc(25% - var(--space-2));  /* 精確佔 1/3 寬 */
   min-width:0;
   border-radius:var(--radius-lg);overflow:hidden;
   background:var(--color-surface-offset);
@@ -673,6 +673,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
+				  <span class="gallery-dot"></span>
                   <span class="gallery-dot"></span>
                   <span class="gallery-dot"></span>
                 </div>
@@ -1391,7 +1392,7 @@ document.querySelectorAll('[data-gallery-id]').forEach(gallery => {
 
   const updateDots = () => {
     const scrollLeft = gallery.scrollLeft;
-    const itemWidth  = gallery.offsetWidth / 3;
+    const itemWidth  = gallery.offsetWidth / 4;
     const idx = Math.round(scrollLeft / itemWidth);
     dots.forEach((d, i) => d.classList.toggle('active', i === idx));
   };
