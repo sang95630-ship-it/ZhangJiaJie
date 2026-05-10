@@ -180,7 +180,7 @@ h1{font-size:var(--text-2xl)}
 .gallery-scroll::-webkit-scrollbar-thumb{background:var(--color-surface-dynamic);border-radius:999px}
 /* FIX: 每張固定 calc((100% - 2 * gap) / 3)，viewport 只顯示3張，其餘滾動 */
 .gallery-item{
-  flex:0 0 calc(25% - var(--space-2));  /* 精確佔 1/3 寬 */
+  flex:0 0 calc(33.333% - var(--space-2));  /* 精確佔 1/3 寬 */
   min-width:0;
   border-radius:var(--radius-lg);overflow:hidden;
   background:var(--color-surface-offset);
@@ -194,66 +194,21 @@ h1{font-size:var(--text-2xl)}
 .gallery-dot{width:6px;height:6px;border-radius:50%;background:var(--color-surface-dynamic);transition:background .2s,width .2s}
 .gallery-dot.active{background:var(--color-primary);width:18px;border-radius:3px}
 
-/* BACK FACE EDITABLE */
+/* INFO BOXES (static read-only) */
 .back-intro{padding:var(--space-4);border-radius:var(--radius-lg);
   background:var(--color-surface-2);
   border:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)}
 .back-intro strong{display:block;margin-bottom:.5rem;font-size:var(--text-sm)}
-.intro-edit{width:100%;min-height:80px;padding:.75rem .9rem;
-  border-radius:var(--radius-md);border:1.5px solid var(--color-editable-border);
-  background:var(--color-editable);color:var(--color-text);resize:vertical;
-  font-size:var(--text-sm);line-height:1.6;transition:border-color .18s,background .18s}
-.intro-edit:focus{outline:none;border-color:var(--color-primary);background:var(--color-editable-filled)}
-.intro-edit.has-content{background:var(--color-editable-filled)}
-.field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
-.field-box{padding:var(--space-4);border-radius:var(--radius-lg);
-  background:var(--color-surface-2);border:1.5px dashed var(--color-border);
-  position:relative;transition:border-color .18s}
-.field-box:focus-within{border-color:var(--color-primary);border-style:solid}
-.field-box.full{grid-column:1/-1}
-.field-label{font-size:var(--text-xs);letter-spacing:.07em;text-transform:uppercase;
-  color:var(--color-primary);margin-bottom:.5rem;font-weight:700;
-  display:flex;justify-content:space-between;align-items:center}
-.field-del-btn{width:22px;height:22px;border-radius:50%;
-  background:color-mix(in srgb,var(--color-text) 8%,transparent);
-  color:var(--color-text-muted);font-size:.85rem;display:grid;place-items:center;
-  opacity:0;transition:opacity .2s;flex-shrink:0}
-.field-box:hover .field-del-btn{opacity:1}
-.field-edit{width:100%;min-height:44px;padding:.65rem .85rem;
-  border-radius:var(--radius-md);border:1px solid transparent;
-  background:var(--color-editable);color:var(--color-text);
-  font-size:var(--text-sm);line-height:1.55;resize:vertical;
-  transition:border-color .18s,background .18s}
-.field-edit:focus{outline:none;border-color:var(--color-primary);background:var(--color-editable-filled)}
-.field-edit.has-content{background:var(--color-editable-filled)}
-.field-edit::placeholder{color:var(--color-text-faint)}
-.add-field-row{display:flex;justify-content:flex-end;gap:.6rem;padding-top:var(--space-2);position:relative}
-.add-field-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1rem;
-  border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);
-  font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;
-  border:1px solid color-mix(in srgb,var(--color-primary) 20%,transparent);transition:background .18s}
-.add-field-btn:hover{background:color-mix(in srgb,var(--color-primary) 25%,transparent)}
-.add-field-dialog{position:absolute;bottom:calc(100% + .5rem);right:0;
-  background:var(--color-surface-2);border:1px solid var(--color-border);
-  border-radius:var(--radius-lg);padding:var(--space-4);
-  box-shadow:var(--shadow-lg);z-index:10;min-width:260px;
-  display:none;flex-direction:column;gap:var(--space-3)}
-.add-field-dialog.open{display:flex}
-.add-field-dialog input{padding:.7rem .9rem;border-radius:var(--radius-md);
-  border:1px solid var(--color-editable-border);background:var(--color-editable);
-  color:var(--color-text);font-size:var(--text-sm)}
-.add-field-dialog input:focus{outline:none;border-color:var(--color-primary)}
-.dialog-btns{display:flex;gap:.5rem;justify-content:flex-end}
-.dialog-confirm{padding:.5rem .9rem;border-radius:var(--radius-full);
-  background:var(--color-primary);color:var(--color-text-inverse);font-size:var(--text-xs);font-weight:700}
-.dialog-cancel{padding:.5rem .9rem;border-radius:var(--radius-full);
-  background:var(--color-surface-offset);color:var(--color-text);font-size:var(--text-xs)}
-.card-cols{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-5)}
-.fact-box{padding:var(--space-4);border-radius:var(--radius-lg);
+.info-text{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:none}
+.intro-static{margin-top:.4rem}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
+.info-box{padding:var(--space-4);border-radius:var(--radius-lg);
   background:var(--color-surface-2);
   border:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)}
-.fact-box strong{display:block;margin-bottom:.4rem;font-size:var(--text-sm)}
-.fact-box p{font-size:var(--text-sm);color:var(--color-text-muted)}
+.info-box .info-label{font-size:var(--text-xs);letter-spacing:.07em;text-transform:uppercase;
+  color:var(--color-primary);margin-bottom:.5rem;font-weight:700}
+.info-box .info-text{margin-top:.2rem}
+.info-box.full{grid-column:1/-1}
 
 /* BUDGET */
 .hotel-grid,.warn-grid,.budget-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
@@ -467,6 +422,70 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   .map-slide img{max-height:55vw;object-fit:contain}
 }
 
+
+/* ===== HERO + MAP SIDE-BY-SIDE (desktop) ===== */
+.hero-map-wrap {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 2rem;
+}
+.hero-map-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+/* Prevent old .hero-grid interfering */
+.hero-map-wrap .hero-grid { display: block; }
+
+/* Stats stay 2-col inside hero-main */
+.hero-map-wrap .stats {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* RIGHT: map panel */
+.hero-map-panel {
+  position: sticky;
+  top: calc(var(--space-16) + var(--space-2));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.hero-map-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+/* Compact map image height */
+.hero-map-panel .map-slide img {
+  max-height: 50vh;
+  object-fit: contain;
+}
+
+/* Tablet ≤ 1024px: stack vertically */
+@media (max-width: 1024px) {
+  .hero-map-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-map-panel {
+    position: static;
+  }
+}
+/* Mobile: stats 2×2 */
+@media (max-width: 600px) {
+  .hero-map-wrap .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -506,10 +525,12 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" id="overview">
-  <div class="container hero-grid">
-    <div>
+<!-- HERO + MAP SIDE BY SIDE -->
+<section class="hero hero-map-wrap" id="overview">
+  <div class="container hero-map-grid">
+
+    <!-- LEFT col: hero content -->
+    <div class="hero-main">
       <span class="eyebrow">7天6晚 · 2位成人</span>
       <h1>張家界七天六晚深度旅行計劃</h1>
       <p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」雙基地節奏規劃，涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋。每張景點卡支援翻轉查閱，點擊圖片可放大瀏覽。</p>
@@ -519,48 +540,43 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
         <div class="stat-card"><span>香港往返</span><strong>飛機約 HK$1,400 / 高鐵單程約 HK$837</strong></div>
         <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
       </div>
-    </div>
-    <aside class="hero-aside">
-      <h2>行程設計邏輯</h2>
-      <ul class="note-list">
-        <li>Day 1 抵達後入住永定區，貼近天門山索道站。</li>
-        <li>Day 2 遊畢天門山後轉住武陵源，由永定區到武陵源距離大約35公里, 需時40 - 50分鍾</li>
-        <li>張家界國家森林公園拆分兩天遊覽。</li>
-        <li>Day 6 回永定區，為 Day 7 返程預留緩衝。</li>
-      </ul>
-    </aside>
-  </div>
-</section>
-
-<!-- MAP CAROUSEL -->
-<section class="section" id="maps">
-  <div class="container">
-    <div class="section-head">
-      <h2>旅遊地圖</h2>
-      <p>左右箭咀切換地圖，點擊圖片可全屏放大</p>
-	  <!--。如需新增地圖，在 JS 的 <code>mapSlides</code> 陣列加入圖片網址與標題即可。-->
+      <aside class="hero-aside">
+        <h2>行程設計邏輯</h2>
+        <ul class="note-list">
+          <li>Day 1 抵達後入住永定區，貼近天門山索道站。</li>
+          <li>Day 2 遊畢天門山後轉住武陵源，由永定區到武陵源距離大約35公里, 需時40 - 50分鍾</li>
+          <li>張家界國家森林公園拆分兩天遊覽。</li>
+          <li>Day 6 回永定區，為 Day 7 返程預留緩衝。</li>
+        </ul>
+      </aside>
     </div>
 
-    <div class="map-carousel" id="mapCarousel" role="region" aria-label="旅遊地圖輪播">
-      <!-- slides injected by JS -->
-      <div class="map-track" id="mapTrack"></div>
-
-      <button class="map-arrow map-prev" id="mapPrev" type="button" aria-label="上一張地圖">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="map-arrow map-next" id="mapNext" type="button" aria-label="下一張地圖">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-
-      <div class="map-footer">
-        <div class="map-dots" id="mapDots" aria-hidden="true"></div>
-        <p class="map-caption" id="mapCaption"></p>
-        <span class="map-counter" id="mapCounter"></span>
+    <!-- RIGHT col: compact map carousel -->
+    <div class="hero-map-panel">
+      <div class="hero-map-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        旅遊地圖
+      </div>
+      <div class="map-carousel" id="mapCarousel" role="region" aria-label="旅遊地圖輪播">
+        <!-- slides injected by JS -->
+        <div class="map-track" id="mapTrack"></div>
+        <button class="map-arrow map-prev" id="mapPrev" type="button" aria-label="上一張地圖">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="map-arrow map-next" id="mapNext" type="button" aria-label="下一張地圖">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="map-footer">
+          <div class="map-dots" id="mapDots" aria-hidden="true"></div>
+          <p class="map-caption" id="mapCaption"></p>
+          <span class="map-counter" id="mapCounter"></span>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
+
 
 <!-- ITINERARY -->
 <section class="section" id="itinerary">
@@ -665,7 +681,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <span class="pill">門票 ¥278（含索道）</span>
                 </div>
               </div>
-              <button class="flip-btn" type="button" data-flip-open>編輯備註</button>
+              <button class="flip-btn" type="button" data-flip-open>其他資訊</button>
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
@@ -673,7 +689,6 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <div class="gallery-dots" aria-hidden="true">
                   <span class="gallery-dot active"></span>
                   <span class="gallery-dot"></span>
-				  <span class="gallery-dot"></span>
                   <span class="gallery-dot"></span>
                   <span class="gallery-dot"></span>
                 </div>
@@ -705,38 +720,27 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="card-face back">
             <div class="back-header">
               <div>
-                <h3 class="back-title">天門山｜個人備註</h3>
-                <p class="back-subtitle">內容保留於當前 session，重新整頁不延續。</p>
+                <h3 class="back-title">天門山｜其他資訊</h3>
               </div>
               <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <textarea class="intro-edit" data-field-key="intro" placeholder="例如：以索道、天門洞與玻璃棧道聞名，適合作為首個重點高空景觀景點。"></textarea>
+              <p class="info-text intro-static">以索道、天門洞與玻璃棧道聞名，適合作為首個重點高空景觀景點。全程建議預留大半天，可串連鬼谷棧道、西線索道及天門洞三大核心體驗。</p>
             </div>
-            <div class="field-grid" data-fields-container>
-              <div class="field-box">
-                <div class="field-label">交通安排</div>
-                <textarea class="field-edit" data-field-key="transport" placeholder="可填：酒店出發時間、叫車安排、索道站位置"></textarea>
+            <div class="info-grid">
+              <div class="info-box">
+                <div class="info-label">交通安排</div>
+                <p class="info-text">由永定區酒店步行或打車約10分鐘至天門山索道站（荷花廣場）。建議早上8時前出發，避開人流高峰。</p>
               </div>
-              <div class="field-box">
-                <div class="field-label">遊覽重點</div>
-                <textarea class="field-edit" data-field-key="highlights" placeholder="可填：天門洞、鬼谷棧道、玻璃棧道"></textarea>
+              <div class="info-box">
+                <div class="info-label">遊覽重點</div>
+                <p class="info-text">天門洞（999級石階可選步行或轎子）、鬼谷棧道（玻璃棧道）、西線索道觀景、山頂步行道</p>
               </div>
-              <div class="field-box full">
-                <div class="field-label">個人備註</div>
-                <textarea class="field-edit" data-field-key="notes" placeholder="可填：是否帶外套、預約 A/B 線、想避開人流的時段"></textarea>
+              <div class="info-box">
+                <div class="info-label">注意事項</div>
+                <p class="info-text">山頂氣溫較市區低約5-8°C，務必帶薄外套。濃霧天氣觀景效果下降但雲海機率高。高空棧道畏高人士需留意。玻璃橋需提前預約。</p>
               </div>
-            </div>
-            <div class="add-field-row">
-              <div class="add-field-dialog">
-                <input type="text" maxlength="20" placeholder="輸入新欄位名稱">
-                <div class="dialog-btns">
-                  <button class="dialog-cancel" type="button">取消</button>
-                  <button class="dialog-confirm" type="button">新增</button>
-                </div>
-              </div>
-              <button class="add-field-btn" type="button" data-add-field>＋ 新增欄位</button>
             </div>
           </div>
         </div>
@@ -756,7 +760,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <span class="pill">大門票 ¥227（4天有效）</span>
                 </div>
               </div>
-              <button class="flip-btn" type="button" data-flip-open>編輯備註</button>
+              <button class="flip-btn" type="button" data-flip-open>其他資訊</button>
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
@@ -800,38 +804,27 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="card-face back">
             <div class="back-header">
               <div>
-                <h3 class="back-title">張家界國家森林公園｜個人備註</h3>
-                <p class="back-subtitle">建議把 Day 3 / Day 4 的分工寫在這裡，方便現場調整。</p>
+                <h3 class="back-title">張家界國家森林公園｜其他資訊</h3>
               </div>
               <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <textarea class="intro-edit" data-field-key="intro" placeholder="例如：以袁家界、天子山、金鞭溪等不同海拔景觀構成，屬張家界核心區。"></textarea>
+              <p class="info-text intro-static">世界自然遺產核心區，以石英砂岩峰林聞名。建議拆分 Day 3 與 Day 4 兩段，分別遊覽高位峰林（袁家界/天子山）與低位溪谷（黃石寨/金鞭溪）。</p>
             </div>
-            <div class="field-grid" data-fields-container>
-              <div class="field-box">
-                <div class="field-label">Day 3 動線</div>
-                <textarea class="field-edit" data-field-key="day3route" placeholder="可填：百龍天梯 → 袁家界 → 天子山"></textarea>
+            <div class="info-grid">
+              <div class="info-box">
+                <div class="info-label">Day 3 建議路線</div>
+                <p class="info-text">袁家界（哈利路亞山、迷魂台）→ 天子山（御筆峰、賀龍公園）→ 百龍天梯下山。環保車及索道需另購票。</p>
               </div>
-              <div class="field-box">
-                <div class="field-label">Day 4 動線</div>
-                <textarea class="field-edit" data-field-key="day4route" placeholder="可填：金鞭溪 → 黃石寨 / 楊家界"></textarea>
+              <div class="info-box">
+                <div class="info-label">Day 4 建議路線</div>
+                <p class="info-text">黃石寨（纜車上/下）→ 金鞭溪步道（全程約5.7km，輕鬆平路，約2小時）→ 楊家界可選遊。</p>
               </div>
-              <div class="field-box full">
-                <div class="field-label">體力 / 天氣備註</div>
-                <textarea class="field-edit" data-field-key="weather" placeholder="可填：落雨改走低位步道、體力不足時刪減某段索道"></textarea>
+              <div class="info-box">
+                <div class="info-label">注意事項</div>
+                <p class="info-text">景區範圍大，結合環保車+索道+步行規劃。大門票¥227含4天有效；環保車另購¥80，索道另計。雨天路滑需注意。</p>
               </div>
-            </div>
-            <div class="add-field-row">
-              <div class="add-field-dialog">
-                <input type="text" maxlength="20" placeholder="輸入新欄位名稱">
-                <div class="dialog-btns">
-                  <button class="dialog-cancel" type="button">取消</button>
-                  <button class="dialog-confirm" type="button">新增</button>
-                </div>
-              </div>
-              <button class="add-field-btn" type="button" data-add-field>＋ 新增欄位</button>
             </div>
           </div>
         </div>
@@ -851,7 +844,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <span class="pill">門票 ¥100</span>
                 </div>
               </div>
-              <button class="flip-btn" type="button" data-flip-open>編輯備註</button>
+              <button class="flip-btn" type="button" data-flip-open>其他資訊</button>
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
@@ -890,38 +883,27 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="card-face back">
             <div class="back-header">
               <div>
-                <h3 class="back-title">黃龍洞｜個人備註</h3>
-                <p class="back-subtitle">可記錄團客時段、想拍照區域、鞋履安排等。</p>
+                <h3 class="back-title">黃龍洞｜其他資訊</h3>
               </div>
               <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <textarea class="intro-edit" data-field-key="intro" placeholder="例如：大型石灰岩溶洞，步道與燈光區豐富，適合搭配低強度觀光日。"></textarea>
+              <p class="info-text intro-static">亞洲最大的溶洞之一，洞內面積逾10萬平方米，以定海神針、龍宮等景觀著名。適合 Day 5 上午安排，配合下午寶峰湖組成輕鬆恢復日。</p>
             </div>
-            <div class="field-grid" data-fields-container>
-              <div class="field-box">
-                <div class="field-label">入場時間</div>
-                <textarea class="field-edit" data-field-key="entrytime" placeholder="可填：上午第一場 / 避開中午團客"></textarea>
+            <div class="info-grid">
+              <div class="info-box">
+                <div class="info-label">交通安排</div>
+                <p class="info-text">由武陵源景區酒店乘景區環保車或打車約15-20分鐘可達。門票¥100，含導覽約1.5-2小時。</p>
               </div>
-              <div class="field-box">
-                <div class="field-label">鞋履裝備</div>
-                <textarea class="field-edit" data-field-key="gear" placeholder="可填：防滑鞋、薄外套"></textarea>
+              <div class="info-box">
+                <div class="info-label">遊覽重點</div>
+                <p class="info-text">定海神針（世界最高石筍）、龍宮水景、天柱廳、迷宮景觀。洞內有船遊部分路段。</p>
               </div>
-              <div class="field-box full">
-                <div class="field-label">拍照備註</div>
-                <textarea class="field-edit" data-field-key="photo" placeholder="可填：洞內暗，手機夜景模式、避免長時間排隊"></textarea>
+              <div class="info-box">
+                <div class="info-label">注意事項</div>
+                <p class="info-text">洞內地面濕滑，建議穿防滑鞋。溫度較外面低約5°C，帶薄外套。攝影三腳架禁止攜入。</p>
               </div>
-            </div>
-            <div class="add-field-row">
-              <div class="add-field-dialog">
-                <input type="text" maxlength="20" placeholder="輸入新欄位名稱">
-                <div class="dialog-btns">
-                  <button class="dialog-cancel" type="button">取消</button>
-                  <button class="dialog-confirm" type="button">新增</button>
-                </div>
-              </div>
-              <button class="add-field-btn" type="button" data-add-field>＋ 新增欄位</button>
             </div>
           </div>
         </div>
@@ -941,7 +923,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <span class="pill">門票 ¥82</span>
                 </div>
               </div>
-              <button class="flip-btn" type="button" data-flip-open>編輯備註</button>
+              <button class="flip-btn" type="button" data-flip-open>其他資訊</button>
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
@@ -980,38 +962,27 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="card-face back">
             <div class="back-header">
               <div>
-                <h3 class="back-title">寶峰湖｜個人備註</h3>
-                <p class="back-subtitle">適合寫上船班安排、午後備用方案與拍攝時間。</p>
+                <h3 class="back-title">寶峰湖｜其他資訊</h3>
               </div>
               <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <textarea class="intro-edit" data-field-key="intro" placeholder="例如：以高山湖泊與遊船觀景為主，適合安排在低強度半日行程。"></textarea>
+              <p class="info-text intro-static">人工湖與峰林結合的湖光山色景觀，以遊船穿梭峽谷著名。適合 Day 5 下午搭配黃龍洞，整體強度低，適合恢復型半天遊。</p>
             </div>
-            <div class="field-grid" data-fields-container>
-              <div class="field-box">
-                <div class="field-label">船班 / 排隊</div>
-                <textarea class="field-edit" data-field-key="boat" placeholder="可填：想坐哪個時段、是否避開旅行團"></textarea>
+            <div class="info-grid">
+              <div class="info-box">
+                <div class="info-label">交通安排</div>
+                <p class="info-text">由黃龍洞打車或景區環保車約10分鐘。門票¥82含遊船，遊覽約1-1.5小時。</p>
               </div>
-              <div class="field-box">
-                <div class="field-label">天氣觀察</div>
-                <textarea class="field-edit" data-field-key="weather" placeholder="可填：陰天拍霧景、晴天拍倒影"></textarea>
+              <div class="info-box">
+                <div class="info-label">遊覽重點</div>
+                <p class="info-text">峽谷遊船（約30分鐘）、湖畔步道、土家族表演（部分時段有）</p>
               </div>
-              <div class="field-box full">
-                <div class="field-label">同行偏好</div>
-                <textarea class="field-edit" data-field-key="preference" placeholder="可填：偏向休閒拍照、是否想快閃離開"></textarea>
+              <div class="info-box">
+                <div class="info-label">注意事項</div>
+                <p class="info-text">陰霧天氣湖景氛圍更佳。若風大或落雨，拍照效果與等船時間可能受影響。船班約每30分鐘一班。</p>
               </div>
-            </div>
-            <div class="add-field-row">
-              <div class="add-field-dialog">
-                <input type="text" maxlength="20" placeholder="輸入新欄位名稱">
-                <div class="dialog-btns">
-                  <button class="dialog-cancel" type="button">取消</button>
-                  <button class="dialog-confirm" type="button">新增</button>
-                </div>
-              </div>
-              <button class="add-field-btn" type="button" data-add-field>＋ 新增欄位</button>
             </div>
           </div>
         </div>
@@ -1031,7 +1002,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <span class="pill">門票 ¥128–141</span>
                 </div>
               </div>
-              <button class="flip-btn" type="button" data-flip-open>編輯備註</button>
+              <button class="flip-btn" type="button" data-flip-open>其他資訊</button>
             </div>
             <div class="gallery-shell">
               <div class="gallery-hint">
@@ -1070,38 +1041,27 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="card-face back">
             <div class="back-header">
               <div>
-                <h3 class="back-title">大峽谷玻璃橋｜個人備註</h3>
-                <p class="back-subtitle">適合記錄是否怕高、是否帶相機袋、回市區時程。</p>
+                <h3 class="back-title">大峽谷玻璃橋｜其他資訊</h3>
               </div>
               <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <textarea class="intro-edit" data-field-key="intro" placeholder="例如：以高空透明玻璃橋跨越峽谷聞名，是張家界具代表性的刺激型景點之一。"></textarea>
+              <p class="info-text intro-static">世界最長、最高玻璃橋之一，全長430米，橋面高達300米。適合 Day 6 上午重點行程，完成後回永定區休整，為 Day 7 返港預留緩衝。</p>
             </div>
-            <div class="field-grid" data-fields-container>
-              <div class="field-box">
-                <div class="field-label">出發時間</div>
-                <textarea class="field-edit" data-field-key="departure" placeholder="可填：早上 8:00 出發、預約第一時段"></textarea>
+            <div class="info-grid">
+              <div class="info-box">
+                <div class="info-label">交通安排</div>
+                <p class="info-text">由武陵源打車約50-70分鐘至張家界大峽谷景區。建議提前一周於官網或攜程預約，早場人較少。門票¥128-141。</p>
               </div>
-              <div class="field-box">
-                <div class="field-label">怕高評估</div>
-                <textarea class="field-edit" data-field-key="heightfear" placeholder="可填：誰可能不走到中段、是否只拍照"></textarea>
+              <div class="info-box">
+                <div class="info-label">遊覽重點</div>
+                <p class="info-text">玻璃橋步行（建議留45-60分鐘）、峽谷步道、高空秋千（另收費）</p>
               </div>
-              <div class="field-box full">
-                <div class="field-label">返程安排</div>
-                <textarea class="field-edit" data-field-key="returntrip" placeholder="可填：返回永定區酒店、晚餐安排、行李轉移"></textarea>
+              <div class="info-box">
+                <div class="info-label">注意事項</div>
+                <p class="info-text">遇風雨或霧大橋上體驗受影響。禁止攜帶尖銳物品上橋。畏高人士慎選。週一至五人流明顯較少。</p>
               </div>
-            </div>
-            <div class="add-field-row">
-              <div class="add-field-dialog">
-                <input type="text" maxlength="20" placeholder="輸入新欄位名稱">
-                <div class="dialog-btns">
-                  <button class="dialog-cancel" type="button">取消</button>
-                  <button class="dialog-confirm" type="button">新增</button>
-                </div>
-              </div>
-              <button class="add-field-btn" type="button" data-add-field>＋ 新增欄位</button>
             </div>
           </div>
         </div>
@@ -1316,72 +1276,6 @@ document.querySelectorAll('.flip-wrap').forEach(wrap => {
 });
 
 /* ===== TEXTAREA CONTENT DETECTION ===== */
-document.querySelectorAll('.intro-edit, .field-edit').forEach(ta => {
-  const update = () => ta.classList.toggle('has-content', ta.value.trim() !== '');
-  ta.addEventListener('input', update);
-  update();
-});
-
-/* ===== ADD FIELD (DIALOG) ===== */
-document.querySelectorAll('[data-add-field]').forEach(btn => {
-  const row    = btn.closest('.add-field-row');
-  const dialog = row.querySelector('.add-field-dialog');
-  const input  = dialog.querySelector('input');
-  const confirmBtn = dialog.querySelector('.dialog-confirm');
-  const cancelBtn  = dialog.querySelector('.dialog-cancel');
-  const container  = btn.closest('.card-face.back').querySelector('[data-fields-container]');
-  const wrap       = btn.closest('.flip-wrap');
-
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dialog.classList.toggle('open');
-    if (dialog.classList.contains('open')) input.focus();
-  });
-
-  cancelBtn.addEventListener('click', () => {
-    dialog.classList.remove('open');
-    input.value = '';
-  });
-
-  const addField = () => {
-    const label = input.value.trim();
-    if (!label) return;
-    const box = document.createElement('div');
-    box.className = 'field-box full';
-    const delId = 'del-' + Math.random().toString(36).slice(2);
-    box.innerHTML =
-      '<div class="field-label">' + label +
-      '<button class="field-del-btn" type="button" aria-label="刪除此欄位" id="' + delId + '">✕</button></div>' +
-      '<textarea class="field-edit" placeholder="可在這裡填寫內容…"></textarea>';
-    container.appendChild(box);
-    dialog.classList.remove('open');
-    input.value = '';
-    // Wire up textarea events
-    const ta = box.querySelector('textarea');
-    ta.addEventListener('input', () => {
-      ta.classList.toggle('has-content', ta.value.trim() !== '');
-      syncFlipHeight(wrap);
-    });
-    // Wire up delete button
-    box.querySelector('.field-del-btn').addEventListener('click', () => {
-      box.remove();
-      syncFlipHeight(wrap);
-    });
-    ta.focus();
-    syncFlipHeight(wrap);
-  };
-
-  confirmBtn.addEventListener('click', addField);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') addField(); });
-});
-
-// Close dialog on outside click
-document.addEventListener('click', e => {
-  if (!e.target.closest('.add-field-row')) {
-    document.querySelectorAll('.add-field-dialog.open').forEach(d => d.classList.remove('open'));
-  }
-});
-
 /* ===== GALLERY DOTS ===== */
 document.querySelectorAll('[data-gallery-id]').forEach(gallery => {
   const shell = gallery.closest('.gallery-shell');
@@ -1392,7 +1286,7 @@ document.querySelectorAll('[data-gallery-id]').forEach(gallery => {
 
   const updateDots = () => {
     const scrollLeft = gallery.scrollLeft;
-    const itemWidth  = gallery.offsetWidth / 4;
+    const itemWidth  = gallery.offsetWidth / 3;
     const idx = Math.round(scrollLeft / itemWidth);
     dots.forEach((d, i) => d.classList.toggle('active', i === idx));
   };
