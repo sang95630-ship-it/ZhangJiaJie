@@ -211,9 +211,15 @@ h1{font-size:var(--text-2xl)}
 .info-box.full{grid-column:1/-1}
 
 /* BUDGET */
-.hotel-grid,.warn-grid,.budget-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+.hotel-grid,.warn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+.budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+.ticket-row{align-items:center}
+.ticket-check{display:flex;align-items:center;gap:.4rem;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.ticket-check input[type="checkbox"]{width:16px;height:16px;accent-color:var(--color-primary);cursor:pointer;flex-shrink:0}
 .budget-card h3{font-size:var(--text-base);margin-bottom:.9rem}
 .budget-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-bottom:var(--space-4)}
+.budget-controls .form-group:nth-last-child(2),
+.budget-controls .form-group:nth-last-child(1){grid-column:1/-1}
 .form-group{display:grid;gap:.45rem}
 .form-group label{font-size:var(--text-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted)}
 .input,.select{width:100%;padding:.8rem .95rem;border-radius:var(--radius-lg);
@@ -281,6 +287,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr}
   .card-cols{grid-template-columns:1fr}
+  .budget-grid{grid-template-columns:1fr}
   .hotel-grid,.warn-grid,.budget-grid{grid-template-columns:1fr}
   .budget-controls{grid-template-columns:1fr 1fr}
   .field-grid{grid-template-columns:1fr}
@@ -552,7 +559,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
         <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
       </div>
       <aside class="hero-aside">
-        <h2>行程設計邏輯</h2>
+        <h2>行程設計邏輯</h2><p> &nbsp;</p>
         <ul class="note-list">
           <li>Day 1 抵達後入住永定區，貼近天門山索道站。</li>
           <li>Day 2 遊畢天門山後轉住武陵源，由永定區到武陵源距離大約35公里, 需時40 - 50分鍾</li>
@@ -863,7 +870,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <p class="info-text">景區範圍大，結合環保車+索道+步行規劃。大門票¥227含4天有效；環保車另購¥80，索道另計。雨天路滑需注意。</p>
               </div>
 			  
-			  			  <div class="info-box">
+			  <div class="info-box">
                 <div class="info-label">套票資訊</div>
                 <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/101803-zhangjiajie-national-forest-park/" target="_blank" rel="noopener noreferrer">Klook 張家界國家森林公園門票↗</a> HKD$574</p>
 				<p class="info-text">
@@ -949,6 +956,12 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <div class="info-label">注意事項</div>
                 <p class="info-text">洞內地面濕滑，建議穿防滑鞋。溫度較外面低約5°C，帶薄外套。攝影三腳架禁止攜入。</p>
               </div>
+			  
+			  <div class="info-box">
+                <div class="info-label">套票資訊</div>
+                <p class="info-text"><a href="https://hk.trip.com/travel-guide/attraction/zhangjiajie/huanglong-cave-75851/" target="_blank" rel="noopener noreferrer">Trip.com 黃龍洞景區門票 ↗</a> HKD$136</p>
+				<p class="info-text">					</p>
+			  </div>
             </div>
           </div>
         </div>
@@ -985,17 +998,17 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b1fd8318fd7a8a0fbd4c1c279f96c79d7fedce8b.jpg" alt="寶峰湖主湖景" width="900" height="600" loading="lazy">
                   <figcaption>寶峰湖主湖景</figcaption>
                 </figure>
-                <figure class="gallery-item" data-idx="1" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/308ab2403160002f761b78d21b879158ce73e402.jpg" data-caption="湖面倒影">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/308ab2403160002f761b78d21b879158ce73e402.jpg" alt="寶峰湖湖面倒影" width="800" height="571" loading="lazy">
-                  <figcaption>湖面倒影</figcaption>
+                <figure class="gallery-item" data-idx="1" data-full="https://dimg04.c-ctrip.com/images/10040y000000m0hsm0A6A_Q90.jpg" data-caption="湖面">
+                  <img src="https://dimg04.c-ctrip.com/images/10040y000000m0hsm0A6A_Q90.jpg" alt="寶峰湖湖面" width="4410" height="2867" loading="lazy">
+                  <figcaption>湖面</figcaption>
                 </figure>
                 <figure class="gallery-item" data-idx="2" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c5bb143f793e74cad3da6f9ab46f636d9ecd0f9.jpg" data-caption="湖邊船景">
                   <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c5bb143f793e74cad3da6f9ab46f636d9ecd0f9.jpg" alt="寶峰湖湖邊船景" width="800" height="534" loading="lazy">
                   <figcaption>湖邊船景</figcaption>
                 </figure>
-                <figure class="gallery-item" data-idx="3" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/308ab2403160002f761b78d21b879158ce73e402.jpg" data-caption="湖面靜景">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/308ab2403160002f761b78d21b879158ce73e402.jpg" alt="寶峰湖靜態山水" width="800" height="571" loading="lazy">
-                  <figcaption>湖面靜景</figcaption>
+                <figure class="gallery-item" data-idx="3" data-full="http://www.hnzjj.com/Uploads/201411/54655a9c31149.jpg" data-caption="湖面遠景">
+                  <img src="http://www.hnzjj.com/Uploads/201411/54655a9c31149.jpg" alt="寶峰湖山水" width="800" height="571" loading="lazy">
+                  <figcaption>湖面遠景</figcaption>
                 </figure>
               </div>
             </div>
@@ -1013,7 +1026,8 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <p class="info-text intro-static">人工湖與峰林結合的湖光山色景觀，以遊船穿梭峽谷著名。適合 Day 5 下午搭配黃龍洞，整體強度低，適合恢復型半天遊。</p>
+              <p class="info-text intro-static">寶峯湖為攔峽建壩修築而成的人工湖，海拔400多米，水面達30公頃、水深72米，水闊處150公尺、長2.5公里、蓄水量400多萬立方公尺。寶峰湖四面環山，湖面平靜寬廣，湖水清澈見底
+			  <br>人工湖與峰林結合的湖光山色景觀，以遊船穿梭峽谷著名。適合 Day 5 下午搭配黃龍洞，整體強度低，適合恢復型半天遊。</p>
             </div>
             <div class="info-grid">
               <div class="info-box">
@@ -1028,6 +1042,16 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <div class="info-label">注意事項</div>
                 <p class="info-text">陰霧天氣湖景氛圍更佳。若風大或落雨，拍照效果與等船時間可能受影響。船班約每30分鐘一班。</p>
               </div>
+			
+				<div class="info-box">
+                <div class="info-label">套票資訊</div>
+                <p class="info-text"><a href="https://hk.trip.com/travel-guide/attraction/zhangjiajie/baofeng-lake-10558605/" target="_blank" rel="noopener noreferrer">Trip.com 寶峯湖景點門票↗</a> HKD$127</p>
+				<p class="info-text">
+					<br>
+					</p>
+			  </div>
+			  
+			  
             </div>
           </div>
         </div>
@@ -1107,6 +1131,12 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <div class="info-label">注意事項</div>
                 <p class="info-text">遇風雨或霧大橋上體驗受影響。禁止攜帶尖銳物品上橋。畏高人士慎選。週一至五人流明顯較少。</p>
               </div>
+			  <div class="info-box">
+                <div class="info-label">套票資訊</div>
+                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/6602-grand-canyon-glass-bridge-tickets-zhangjiajie/" target="_blank" rel="noopener noreferrer">Klook 張家界大峽谷玻璃橋景區門票 ↗</a> HKD$205</p>
+				<p class="info-text">				</p>
+			  </div>
+			  
             </div>
           </div>
         </div>
@@ -1124,6 +1154,55 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       <p>支援 CNY / HKD 即時換算，住宿、交通與人數可即時調整。預設以 2 位成人、6 晚計算。</p>
     </div>
     <div class="budget-grid">
+
+      <!-- 第1欄：景點門票 -->
+      <div class="budget-card">
+        <h3>景點門票</h3>
+        <div class="budget-table">
+          <div class="budget-row ticket-row">
+            <span>天門山</span>
+            <label class="ticket-check">
+              <input type="checkbox" id="tk_tianmen" data-hkd="332" checked>
+              <span>HK$332</span>
+            </label>
+          </div>
+          <div class="budget-row ticket-row">
+            <span>張家界國家森林公園</span>
+            <label class="ticket-check">
+              <input type="checkbox" id="tk_forest" data-hkd="574" checked>
+              <span>HK$574</span>
+            </label>
+          </div>
+          <div class="budget-row ticket-row">
+            <span>黃龍洞</span>
+            <label class="ticket-check">
+              <input type="checkbox" id="tk_huanglong" data-hkd="136" checked>
+              <span>HK$136</span>
+            </label>
+          </div>
+          <div class="budget-row ticket-row">
+            <span>寶峰湖</span>
+            <label class="ticket-check">
+              <input type="checkbox" id="tk_baofeng" data-hkd="127" checked>
+              <span>HK$127</span>
+            </label>
+          </div>
+          <div class="budget-row ticket-row">
+            <span>大峽谷玻璃橋</span>
+            <label class="ticket-check">
+              <input type="checkbox" id="tk_canyon" data-hkd="205" checked>
+              <span>HK$205</span>
+            </label>
+          </div>
+          <div class="budget-row total">
+            <span>門票小計（全團）</span>
+            <span id="ticketSubtotal">HK$2,756</span>
+          </div>
+        </div>
+        <p class="budget-footnote">勾選出行景點，金額將乘以人數計入總預算。</p>
+      </div>
+
+      <!-- 第2欄：輸入參數 -->
       <div class="budget-card">
         <h3>輸入參數</h3>
         <div class="budget-controls">
@@ -1146,8 +1225,8 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="form-group">
             <label for="transportMode">香港往返方式</label>
             <select id="transportMode" class="select">
-              <option value="flight">飛機來回（HK$1,400 / 人）</option>
-              <option value="rail">高鐵估算（HK$1,674 / 人）</option>
+              <option value="flight">飛機來回<br>（HK$1,400 / 人）</option>
+              <option value="rail">高鐵估算<br>（HK$1,674 / 人）</option>
             </select>
           </div>
           <div class="form-group">
@@ -1159,17 +1238,20 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           </div>
         </div>
       </div>
+
+      <!-- 第3欄：預算結果 -->
       <div class="budget-card">
         <h3>預算結果</h3>
         <div class="budget-table" id="budgetTable">
-          <div class="budget-row"><span>核心門票</span><span id="ticketCost">¥1,922</span></div>
+          <div class="budget-row"><span>核心門票</span><span id="ticketCost">-</span></div>
           <div class="budget-row"><span>香港往返交通</span><span id="crossBorderCost">-</span></div>
-          <div class="budget-row"><span>當地交通</span><span id="localTrafficCost">¥600</span></div>
-          <div class="budget-row"><span>住宿</span><span id="hotelCost">¥3,000</span></div>
+          <div class="budget-row"><span>當地交通</span><span id="localTrafficCost">-</span></div>
+          <div class="budget-row"><span>住宿</span><span id="hotelCost">-</span></div>
           <div class="budget-row total"><span>總計（估算）</span><span id="totalCost">-</span></div>
         </div>
-        <p class="budget-footnote">預設匯率：1 CNY ≈ 1.1208 HKD。門票包含天門山、張家界國家森林公園、黃龍洞、寶峰湖、大峽谷玻璃橋。</p>
+        <p class="budget-footnote">預設匯率：1 CNY ≈ 1.1208 HKD。門票以 HKD 計，其餘費用以 CNY 換算。</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -1417,49 +1499,59 @@ document.addEventListener('keydown', e => {
 });
 
 /* ===== BUDGET CALCULATOR ===== */
-const CNY_TO_HKD = 1.1208;
-const BASE_TICKETS_CNY = 1922;  // ¥961 / 人 x 2
+const CNYTOHKD = 1.1208;
 
-function calcBudget() {
-  const travelers  = parseInt(document.getElementById('travelerCount')?.value || 2);
-  const nights     = parseInt(document.getElementById('nightCount')?.value || 6);
-  const hotelNight = parseFloat(document.getElementById('hotelPerNight')?.value || 500);
-  const localT     = parseFloat(document.getElementById('localTraffic')?.value || 600);
-  const transport  = document.getElementById('transportMode')?.value || 'flight';
-  const currency   = document.getElementById('currencyMode')?.value || 'CNY';
-
-  const HKD_PER_PERSON = transport === 'flight' ? 1400 : 1674;
-  const crossBorderHKD = HKD_PER_PERSON * travelers;
-  const crossBorderCNY = crossBorderHKD / CNY_TO_HKD;
-
-  const ticketCNY = (BASE_TICKETS_CNY / 2) * travelers;  // scale per person
-  const hotelCNY  = hotelNight * nights;
-
-  const totalCNY = ticketCNY + crossBorderCNY + localT + hotelCNY;
-  const totalHKD = totalCNY * CNY_TO_HKD;
-
-  const fmt = (cny) => currency === 'HKD'
-    ? 'HK$' + Math.round(cny * CNY_TO_HKD).toLocaleString()
-    : '¥' + Math.round(cny).toLocaleString();
-
-  const fmtHKD = (hkd) => currency === 'HKD'
-    ? 'HK$' + Math.round(hkd).toLocaleString()
-    : '¥' + Math.round(hkd / CNY_TO_HKD).toLocaleString();
-
-  const el = (id) => document.getElementById(id);
-  if (!el('ticketCost')) return;
-  el('ticketCost').textContent      = fmt(ticketCNY);
-  el('crossBorderCost').textContent = fmtHKD(crossBorderHKD);
-  el('localTrafficCost').textContent = fmt(localT);
-  el('hotelCost').textContent       = fmt(hotelCNY);
-  el('totalCost').textContent       = currency === 'HKD'
-    ? 'HK$' + Math.round(totalHKD).toLocaleString()
-    : '¥' + Math.round(totalCNY).toLocaleString();
+function calcTicketSubtotal() {
+  const checkboxes = document.querySelectorAll('.ticket-check input[type="checkbox"]');
+  let totalHKD = 0;
+  checkboxes.forEach(cb => { if (cb.checked) totalHKD += parseFloat(cb.dataset.hkd) || 0; });
+  return totalHKD;
 }
 
-['travelerCount','nightCount','hotelPerNight','localTraffic','transportMode','currencyMode'].forEach(id => {
-  document.getElementById(id)?.addEventListener('input', calcBudget);
-});
+function calcBudget() {
+  const travelers    = parseInt(document.getElementById('travelerCount')?.value)  || 2;
+  const nights       = parseInt(document.getElementById('nightCount')?.value)     || 6;
+  const hotelNight   = parseFloat(document.getElementById('hotelPerNight')?.value)|| 500;
+  const localT       = parseFloat(document.getElementById('localTraffic')?.value) || 600;
+  const transport    = document.getElementById('transportMode')?.value  || 'flight';
+  const currency     = document.getElementById('currencyMode')?.value   || 'CNY';
+
+  const HKD_PER_PERSON   = transport === 'flight' ? 1400 : 1674;
+  const crossBorderHKD   = HKD_PER_PERSON * travelers;
+  const crossBorderCNY   = crossBorderHKD / CNYTOHKD;
+
+  // 景點門票：HKD 小計 × 人數，再換算 CNY
+  const ticketPerPersonHKD = calcTicketSubtotal();
+  const ticketTotalHKD     = ticketPerPersonHKD * travelers;
+  const ticketTotalCNY     = ticketTotalHKD / CNYTOHKD;
+
+  // 更新門票小計顯示（固定 HKD）
+  document.getElementById('ticketSubtotal').textContent =
+    'HK$' + Math.round(ticketPerPersonHKD).toLocaleString() + ' × ' + travelers + ' = HK$' + Math.round(ticketTotalHKD).toLocaleString();
+
+  const hotelCNY  = hotelNight * nights;
+  const totalCNY  = ticketTotalCNY + crossBorderCNY + localT + hotelCNY;
+  const totalHKD  = totalCNY * CNYTOHKD;
+
+  const fmt = cny => currency === 'HKD'
+    ? 'HK$' + Math.round(cny * CNYTOHKD).toLocaleString()
+    : '¥'   + Math.round(cny).toLocaleString();
+
+  document.getElementById('ticketCost').textContent      = fmt(ticketTotalCNY);
+  document.getElementById('crossBorderCost').textContent = fmt(crossBorderCNY);
+  document.getElementById('localTrafficCost').textContent= fmt(localT);
+  document.getElementById('hotelCost').textContent       = fmt(hotelCNY);
+  document.getElementById('totalCost').textContent       = fmt(totalCNY);
+}
+
+// 監聽所有輸入
+document.querySelectorAll('#travelerCount,#nightCount,#hotelPerNight,#localTraffic,#transportMode,#currencyMode')
+  .forEach(el => el.addEventListener('input', calcBudget));
+
+// 監聽門票 checkbox
+document.querySelectorAll('.ticket-check input[type="checkbox"]')
+  .forEach(cb => cb.addEventListener('change', calcBudget));
+
 calcBudget();
 
 /* ===== RE-SYNC FLIP HEIGHT ON WINDOW RESIZE ===== */
