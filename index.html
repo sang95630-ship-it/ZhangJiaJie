@@ -244,12 +244,13 @@ h1{font-size:var(--text-2xl)}
   display:grid;place-items:center;font-size:1.6rem;
   transition:background .18s;z-index:1}
 .lightbox-close:hover{background:rgba(255,255,255,.35)}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);
   width:48px;height:48px;border-radius:50%;
   background:rgba(255,255,255,.18);color:#fff;
-  display:grid;place-items:center;font-size:1.6rem;transition:background .18s}
+  display:grid;place-items:center;font-size:1.6rem;
+  transition:background .18s;z-index:10000}
 .lb-nav:hover{background:rgba(255,255,255,.32)}
-.lb-prev{left:-4rem}.lb-next{right:-4rem}
+.lb-prev{left: 1rem}.lb-next{right: 1rem}
 
 /* FOOTER */
 footer{padding:var(--space-8) 0;color:var(--color-text-muted);
@@ -541,8 +542,9 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
     <!-- LEFT col: hero content -->
     <div class="hero-main">
       <span class="eyebrow">7天6晚 · 2位成人</span>
-      <h1>張家界七天六晚深度旅行計劃</h1>
-      <p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」雙基地節奏規劃，涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋。每張景點卡支援翻轉查閱，點擊圖片可放大瀏覽。</p>
+      <h1>張家界七天六晚旅行計劃</h1>
+      <p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」兩地節奏規劃<br>
+	  涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋</p>
       <div class="stats">
         <div class="stat-card"><span>住宿節奏</span><strong>市區 2 晚 + 武陵源 4 晚</strong></div>
         <div class="stat-card"><span>核心門票估算</span><strong>約 ¥1,922 / 2人</strong></div>
@@ -719,6 +721,19 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                   <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1080,h_1440/w_66,x_12,y_12,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/oc38srj6dqewmtk26nwf/%E5%BC%B5%E5%AE%B6%E7%95%8C%E5%A4%A9%E9%96%80%E5%B1%B1%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92%E5%85%A8%E6%97%A5%E5%B0%8E%E8%A6%BD%E9%81%8A.jpg" alt="仰望天門洞" width="800" height="600" loading="lazy">
                   <figcaption>冬天天門洞</figcaption>
                 </figure>
+
+                <figure class="gallery-item" data-idx="4" data-full="https://ak-d.tripcdn.com/images/1mi4c12000s0852360BD3_W_640_0_R5_Q80.jpg?proc=source/trip" data-caption="索道">
+                  <img src="https://ak-d.tripcdn.com/images/1mi4c12000s0852360BD3_W_640_0_R5_Q80.jpg?proc=source/trip" alt="索道" width="800" height="600" loading="lazy">
+                  <figcaption>天門山索道</figcaption>
+                </figure>
+				<figure class="gallery-item" data-idx="4" data-full="https://dimg04.tripcdn.com/images/0351q12000pr8qz5lE75C.png" data-caption="地圖">
+                  <img src="https://dimg04.tripcdn.com/images/0351q12000pr8qz5lE75C.png" style="background:#ffffff;" alt="地圖" width="800" height="600" loading="lazy">
+                  <figcaption>天門山地圖</figcaption>
+                </figure>
+				<figure class="gallery-item" data-idx="5" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg/1280px-Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg" data-caption="天門洞">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg/1280px-Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg" alt="張家界天門山天門洞" width="1280" height="852" loading="lazy">
+                  <figcaption>天門洞</figcaption>
+                </figure>
               </div>
             </div>
             <div class="card-cols">
@@ -735,7 +750,9 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <p class="info-text intro-static">以索道、天門洞與玻璃棧道聞名，適合作為首個重點高空景觀景點。全程建議預留大半天，可串連鬼谷棧道、西線索道及天門洞三大核心體驗。</p>
+              <p class="info-text intro-static">以索道、天門洞與玻璃棧道聞名，適合作為首個重點高空景觀景點。全程建議預留大半天，可串連鬼谷棧道、西線索道及天門洞三大核心體驗。
+			  <br>
+			  天門山的主峰海拔為1518.6米，平均海拔在1400米之上。天門山國家森林公園面積達190多平方公里。天門山索道線路斜長7455米，上、下站水平高差1279米，是世界最長的單線循環脫掛抱索器車廂式索道。</p>
             </div>
             <div class="info-grid">
               <div class="info-box">
@@ -748,12 +765,16 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
               </div>
               <div class="info-box">
                 <div class="info-label">注意事項</div>
-                <p class="info-text">山頂氣溫較市區低約5-8°C，務必帶薄外套。濃霧天氣觀景效果下降但雲海機率高。高空棧道畏高人士需留意。玻璃橋需提前預約。</p>
+                <p class="info-text">山頂氣溫較市區低約5-8°C，務必帶薄外套。<br>濃霧天氣觀景效果下降但雲海機率高。高空棧道畏高人士需留意。玻璃橋需提前預約。</p>
               </div>
 			  <div class="info-box">
-                <div class="info-label">購票鏈結</div>
-                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/6613-tianmen-mountain-cable-car-gallery-road-zhangjiajie/" target="_blank" rel="noopener noreferrer">Klook 天門山景區套票 ↗</a></p>
-              </div>
+                <div class="info-label">套票資訊</div>
+                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/6613-tianmen-mountain-cable-car-gallery-road-zhangjiajie/" target="_blank" rel="noopener noreferrer">Klook 天門山景區套票 ↗</a> HKD$332</p>
+				<p class="info-text">✅ A線: 市區天門山索道下站憑票上車 > 天門山索道中站下車 > 換乘環保車上行至天門洞遊覽 > 自天門洞口後方乘7級穿山自動扶梯上山頂 > 遊覽山頂各景點 > 乘7級穿山自動扶梯下至天門洞 > 乘天門洞快線索道下山
+					<br>B線: 反向 直接從山門入園,乘坐快線索道直到天門洞,再乘扶梯上山,遊覽山頂,最後乘索道下山返回市區。 
+					<br>C線:全程快線索道往返,山門進、山門出,不用往返市區。
+					</p>
+			  </div>
 			  
             </div>
           </div>
@@ -824,7 +845,9 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </div>
             <div class="back-intro">
               <strong>景點簡介</strong>
-              <p class="info-text intro-static">世界自然遺產核心區，以石英砂岩峰林聞名。建議拆分 Day 3 與 Day 4 兩段，分別遊覽高位峰林（袁家界/天子山）與低位溪谷（黃石寨/金鞭溪）。</p>
+              <p class="info-text intro-static">張家界國家森林公園是世界自然遺產核心區，以石英砂岩峰林聞名。建議拆分 Day 3 與 Day 4 兩段，分別遊覽高位峰林（袁家界/天子山）與低位溪谷（黃石寨/金鞭溪）。
+			  位於中華人民共和國湖南省張家界市的國家森林公園。它是武陵源風景名勝區內的幾個國家公園之一。張家界國家森林公園面積一百三十平方公里，是中國第一個國家森林公園，建於1982年。
+			  </p>
             </div>
             <div class="info-grid">
               <div class="info-box">
@@ -839,6 +862,14 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
                 <div class="info-label">注意事項</div>
                 <p class="info-text">景區範圍大，結合環保車+索道+步行規劃。大門票¥227含4天有效；環保車另購¥80，索道另計。雨天路滑需注意。</p>
               </div>
+			  
+			  			  <div class="info-box">
+                <div class="info-label">套票資訊</div>
+                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/101803-zhangjiajie-national-forest-park/" target="_blank" rel="noopener noreferrer">Klook 張家界國家森林公園門票↗</a> HKD$574</p>
+				<p class="info-text">
+					<br>
+					</p>
+			  </div>
             </div>
           </div>
         </div>
@@ -1331,16 +1362,29 @@ function openLightbox(figure) {
 }
 
 function showLbItem(i) {
-  lbIdx = (i + lbItems.length) % lbItems.length;
-  const fig = lbItems[lbIdx];
-  lbImg.src           = fig.dataset.full || fig.querySelector('img').src;
-  lbImg.alt           = fig.querySelector('img').alt;
-  lbCaption.textContent = fig.dataset.caption || '';
+  if (window.lbMapMode) {
+    const slides = window.lbMapSlides;
+    window.lbMapCur = (i + slides.length) % slides.length;
+    const s = slides[window.lbMapCur];
+    lbImg.src = s.url;
+    lbImg.alt = s.caption;
+    lbCaption.textContent = s.caption;
+  } else {
+    lbIdx = (i + lbItems.length) % lbItems.length;
+    const fig = lbItems[lbIdx];
+    lbImg.src = fig.dataset.full || fig.querySelector('img').src;
+    lbImg.alt = fig.querySelector('img').alt;
+    lbCaption.textContent = fig.dataset.caption;
+  }
+  	const isPng = lbImg.src && lbImg.src.includes('tripcdn.com');
+	lbImg.style.background = isPng ? '#ffffff' : 'transparent';
+	lbImg.style.borderRadius = isPng ? '8px' : '';
 }
 
 function closeLightbox() {
   lb.classList.remove('open');
   document.body.style.overflow = '';
+  window.lbMapMode = false; 
 }
 
 document.querySelectorAll('.gallery-item').forEach(fig => {
@@ -1349,15 +1393,27 @@ document.querySelectorAll('.gallery-item').forEach(fig => {
 });
 
 lbClose && lbClose.addEventListener('click', closeLightbox);
-lbPrev  && lbPrev.addEventListener('click', () => showLbItem(lbIdx - 1));
-lbNext  && lbNext.addEventListener('click', () => showLbItem(lbIdx + 1));
+lbPrev && lbPrev.addEventListener('click', () => {
+  if (window.lbMapMode) showLbItem(window.lbMapCur - 1);
+  else showLbItem(lbIdx - 1);
+});
+lbNext && lbNext.addEventListener('click', () => {
+  if (window.lbMapMode) showLbItem(window.lbMapCur + 1);
+  else showLbItem(lbIdx + 1);
+});
 
 lb && lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 document.addEventListener('keydown', e => {
   if (!lb || !lb.classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft')  showLbItem(lbIdx - 1);
-  if (e.key === 'ArrowRight') showLbItem(lbIdx + 1);
+  if (e.key === 'ArrowLeft')  {
+    if (window.lbMapMode) showLbItem(window.lbMapCur - 1);
+    else showLbItem(lbIdx - 1);
+  }
+  if (e.key === 'ArrowRight') {
+    if (window.lbMapMode) showLbItem(window.lbMapCur + 1);
+    else showLbItem(lbIdx + 1);
+  }
 });
 
 /* ===== BUDGET CALCULATOR ===== */
@@ -1484,9 +1540,9 @@ window.addEventListener('resize', () => {
     div.addEventListener('click', () => {
       if (!lb) return;
       // Override lightbox with map slides
-      window._lbMapMode = true;
-      window._lbMapSlides = mapSlides;
-      window._lbMapCur   = i;
+      window.lbMapMode = true;
+      window.lbMapSlides = mapSlides;
+      window.lbMapCur   = i;
       if (lbImg && lbCap) {
         lbImg.src = s.url;
         lbImg.alt = s.caption;
