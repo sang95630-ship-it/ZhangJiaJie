@@ -555,7 +555,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       <div class="stats">
         <div class="stat-card"><span>住宿節奏</span><strong>市區 2 晚 + 武陵源 4 晚</strong></div>
         <div class="stat-card"><span>核心門票估算</span><strong>約 ¥1,922 / 2人</strong></div>
-        <div class="stat-card"><span>香港往返</span><strong>飛機約 HK$1,400 / 高鐵單程約 HK$837</strong></div>
+        <div class="stat-card"><span>香港往返</span><strong>飛機約 HK$2,500 / 高鐵單程約 HK$837</strong></div>
         <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
       </div>
       <aside class="hero-aside">
@@ -1225,7 +1225,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="form-group">
             <label for="transportMode">香港往返方式</label>
             <select id="transportMode" class="select">
-              <option value="flight">飛機來回<br>（HK$1,400 / 人）</option>
+              <option value="flight">飛機來回<br>（HK$2,500 / 人）</option>
               <option value="rail">高鐵估算<br>（HK$1,674 / 人）</option>
             </select>
           </div>
@@ -1516,7 +1516,7 @@ function calcBudget() {
   const transport    = document.getElementById('transportMode')?.value  || 'flight';
   const currency     = document.getElementById('currencyMode')?.value   || 'CNY';
 
-  const HKD_PER_PERSON   = transport === 'flight' ? 1400 : 1674;
+  const HKD_PER_PERSON   = transport === 'flight' ? 2500 : 1674;
   const crossBorderHKD   = HKD_PER_PERSON * travelers;
   const crossBorderCNY   = crossBorderHKD / CNYTOHKD;
 
