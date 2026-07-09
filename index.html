@@ -1379,7 +1379,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   const r = document.documentElement;
   let saved = null;
   try { saved = localStorage.getItem('zjj-theme'); } catch(e){}
-  let d = saved || (typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  let d = 'light'
   r.setAttribute('data-theme', d);
   if(!t) return;
   const setIcon = (mode) => {
@@ -1392,7 +1392,6 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
     d = d === 'dark' ? 'light' : 'dark';
     r.setAttribute('data-theme', d);
     setIcon(d);
-    try { localStorage.setItem('zjj-theme', d); } catch(e){}
   });
 })();
 
