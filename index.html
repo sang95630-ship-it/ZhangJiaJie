@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>張家界旅行計劃</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>東京家庭旅行計劃</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
 /* ===== TOKENS ===== */
 :root,[data-theme="light"]{
   --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
@@ -19,28 +19,28 @@
   --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
   --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
   --space-12:3rem;--space-16:4rem;
-  --color-bg:#f4eee8;--color-surface:#f7f1eb;--color-surface-2:#fbf7f3;
-  --color-surface-offset:#e9ddd2;--color-surface-dynamic:#ddd0c4;
-  --color-divider:#d8cabc;--color-border:#ccbcae;
-  --color-text:#3b312a;--color-text-muted:#78685b;--color-text-faint:#a69486;
-  --color-text-inverse:#fffaf6;
-  --color-primary:#8d6e63;--color-primary-hover:#75584f;
-  --color-primary-highlight:#e5d7ce;
-  --shadow-sm:0 1px 3px rgba(72,52,40,.08);
-  --shadow-md:0 8px 28px rgba(72,52,40,.10);
-  --shadow-lg:0 20px 60px rgba(72,52,40,.14);
+  --color-bg:#eef2f4;--color-surface:#f5f8f9;--color-surface-2:#fbfcfd;
+  --color-surface-offset:#dfe7ea;--color-surface-dynamic:#cfdbe0;
+  --color-divider:#d3dee2;--color-border:#c2d0d5;
+  --color-text:#28343a;--color-text-muted:#5f7178;--color-text-faint:#8fa0a6;
+  --color-text-inverse:#f7fbfc;
+  --color-primary:#3f6e7a;--color-primary-hover:#325963;
+  --color-primary-highlight:#d7e6e9;
+  --shadow-sm:0 1px 3px rgba(20,40,48,.08);
+  --shadow-md:0 8px 28px rgba(20,40,48,.10);
+  --shadow-lg:0 20px 60px rgba(20,40,48,.14);
   --radius-sm:.5rem;--radius-md:.8rem;--radius-lg:1.2rem;
   --radius-xl:1.8rem;--radius-full:9999px;
   --font-display:'Noto Serif TC',serif;
   --font-body:'Manrope','Noto Sans TC',sans-serif;
 }
 [data-theme="dark"]{
-  --color-bg:#231d19;--color-surface:#2a2320;--color-surface-2:#322b27;
-  --color-surface-offset:#3b322d;--color-surface-dynamic:#473c36;
-  --color-divider:#4b3f39;--color-border:#5f5149;
-  --color-text:#f0e8e1;--color-text-muted:#c6b9ad;--color-text-faint:#a38f84;
-  --color-text-inverse:#221c18;--color-primary:#d2b4a2;
-  --color-primary-hover:#e4c6b4;--color-primary-highlight:#45362f;
+  --color-bg:#161d20;--color-surface:#1c2528;--color-surface-2:#222c2f;
+  --color-surface-offset:#2a3539;--color-surface-dynamic:#354247;
+  --color-divider:#37454a;--color-border:#46565b;
+  --color-text:#e7eff1;--color-text-muted:#b0c1c6;--color-text-faint:#82969c;
+  --color-text-inverse:#16201f;--color-primary:#9fd0da;
+  --color-primary-hover:#bfe2ea;--color-primary-highlight:#2c4247;
   --shadow-sm:0 1px 3px rgba(0,0,0,.25);
   --shadow-md:0 8px 28px rgba(0,0,0,.35);
   --shadow-lg:0 20px 60px rgba(0,0,0,.45);
@@ -52,8 +52,8 @@ html{scroll-behavior:smooth;scroll-padding-top:5rem}
 body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
   background:var(--color-bg);color:var(--color-text);transition:background .3s,color .3s}
 img{display:block;max-width:100%;height:auto}
-button,input,select,textarea{font:inherit}
-button{border:none;background:none;cursor:pointer;color:inherit}
+button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
+a{color:var(--color-primary)}
 .container{width:min(85vw,calc(100% - 3rem));margin-inline:auto}
 .skip-link{position:absolute;left:-999px;top:0}
 .skip-link:focus{left:1rem;top:1rem;background:var(--color-primary);
@@ -77,6 +77,7 @@ nav{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
 nav a{font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;transition:color .18s}
 nav a:hover{color:var(--color-primary)}
 nav a.active{color:var(--color-primary);font-weight:700}
+.nav-toggle{display:none;width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center;background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 10%,transparent)}
 .theme-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
   background:var(--color-surface);
   border:1px solid color-mix(in srgb,var(--color-text) 10%,transparent);
@@ -84,35 +85,40 @@ nav a.active{color:var(--color-primary);font-weight:700}
 
 /* HERO */
 .hero{padding:clamp(2.5rem,6vw,4.5rem) 0 2rem}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-10);align-items:start}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .85rem;
   border-radius:var(--radius-full);background:var(--color-primary-highlight);
   color:var(--color-primary);font-size:var(--text-xs);letter-spacing:.08em;
   text-transform:uppercase;margin-bottom:1rem}
 h1,h2,h3{font-family:var(--font-display);line-height:1.12}
 h1{font-size:var(--text-2xl)}
-@media(max-width:600px){
-  h1{font-size:clamp(1.5rem,5.5vw,2rem);}
-}
+@media(max-width:600px){ h1{font-size:clamp(1.5rem,5.5vw,2rem);} }
 .hero-body{margin-top:.9rem;max-width:68ch;color:var(--color-text-muted)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);margin-top:var(--space-5)}
-.stat-card,.hero-aside,.day-card,.hotel-card,.warn-card,.budget-card{
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-top:var(--space-5)}
+.stat-card,.info-card,.warn-card{
   padding:var(--space-5);border-radius:var(--radius-xl);
   background:var(--color-surface);
   border:1px solid color-mix(in srgb,var(--color-text) 9%,transparent);
   box-shadow:var(--shadow-sm)}
 .stat-card span{display:block;font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:.25rem}
 .stat-card strong{font-size:var(--text-base)}
-.hero-aside h2,.section-head h2{font-size:var(--text-xl)}
-.hero-aside h2{margin-bottom:.6rem}
-.stay-badge{display:inline-block;margin-left:.55rem;padding:.16rem .65rem;border-radius:var(--radius-full);
-  font-size:var(--text-xs);font-weight:600;background:var(--color-primary-highlight);
-  color:var(--color-primary-hover);vertical-align:.12em;white-space:nowrap;font-family:var(--font-body)}
-.note-list,.day-list,.hotel-points{list-style:none;display:grid;gap:.7rem}
-.note-list li,.day-list li,.hotel-points li{position:relative;padding-left:1.1rem;color:var(--color-text-muted)}
-.note-list li::before,.day-list li::before,.hotel-points li::before{
+.hero-aside{margin-top:var(--space-6);padding:var(--space-5);border-radius:var(--radius-xl);
+  background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 9%,transparent);box-shadow:var(--shadow-sm)}
+.hero-aside h2{font-size:var(--text-lg);margin-bottom:.6rem}
+.note-list,.day-list,.info-points{list-style:none;display:grid;gap:.55rem}
+.note-list li,.day-list li,.info-points li{position:relative;padding-left:1.1rem;color:var(--color-text-muted)}
+.note-list li::before,.day-list li::before,.info-points li::before{
   content:'';position:absolute;left:0;top:.72em;width:7px;height:7px;
   border-radius:50%;background:var(--color-primary)}
+.bnb-block{margin-top:var(--space-5);display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;
+  padding:var(--space-4) var(--space-5);border-radius:var(--radius-lg);
+  background:var(--color-primary-highlight)}
+.bnb-block strong{font-size:var(--text-sm)}
+.bnb-block a{font-size:var(--text-sm);font-weight:600}
+.charter-table{width:100%;border-collapse:collapse;margin-top:var(--space-3);font-size:var(--text-sm)}
+.charter-table th,.charter-table td{padding:.6rem .7rem;text-align:left;border-bottom:1px solid var(--color-divider);white-space:nowrap}
+.charter-table td:nth-child(2){white-space:normal;min-width:220px}
+.charter-table th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-muted)}
+.charter-table td.tbc{color:var(--color-text-faint);font-style:italic}
 
 /* SECTIONS */
 .section{padding:clamp(var(--space-8),5vw,var(--space-12)) 0}
@@ -120,445 +126,61 @@ h1{font-size:var(--text-2xl)}
 .section-head p{margin-top:.5rem;color:var(--color-text-muted);max-width:64ch}
 
 /* ITINERARY */
-.timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
-.day-card{display:grid;grid-template-columns:120px 1fr;gap:var(--space-4)}
-.day-meta{display:flex;flex-direction:column;gap:.35rem}
-.day-meta .label{font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}
-.day-meta strong{font-family:var(--font-display);font-size:var(--text-lg)}
-.day-body h3{font-size:var(--text-base);margin-bottom:.6rem}
-
-/* ===== FLIP CARD (FIX: flip-inner needs explicit min-height) ===== */
-.spot-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:var(--space-6)}
-.flip-wrap{perspective:1600px}
-/* FIX: flip-inner must have a set height so .back (position:absolute) can size correctly */
-.flip-inner{
-  position:relative;
-  transform-style:preserve-3d;
-  transition:transform .72s cubic-bezier(.16,1,.3,1);
-  /* min-height ensures back face has a frame to fill */
-}
-.flip-wrap.is-flipped .flip-inner{transform:rotateY(180deg)}
-.card-face{
-  width:100%;padding:var(--space-6);border-radius:var(--radius-xl);
+.timeline{display:grid;grid-template-columns:1fr;gap:var(--space-4)}
+.day-card{padding:var(--space-5);border-radius:var(--radius-xl);
   background:linear-gradient(165deg,var(--color-surface),var(--color-surface-2));
-  border:1px solid color-mix(in srgb,var(--color-text) 10%,transparent);
-  box-shadow:var(--shadow-md);
-  backface-visibility:hidden;
-  -webkit-backface-visibility:hidden}
-/* FIX: front must be relative so flip-inner auto-sizes to it */
-.card-face.front{position:relative}
-/* FIX: back is absolute, matching the front face exactly */
-.card-face.back{
-  position:absolute;inset:0;
-  transform:rotateY(180deg);
-  display:flex;flex-direction:column;gap:var(--space-5);
-  overflow-y:auto;
-  /* FIX: border-radius must match parent */
-  border-radius:var(--radius-xl)}
-.spot-header,.back-header{display:flex;justify-content:space-between;
-  align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
-.spot-title,.back-title{font-family:var(--font-display);font-size:var(--text-xl)}
-.back-subtitle{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:.3rem}
-.pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
-.pill{padding:.4rem .75rem;border-radius:var(--radius-full);
+  border:1px solid color-mix(in srgb,var(--color-text) 9%,transparent);box-shadow:var(--shadow-sm)}
+.day-head{display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-3)}
+.day-head .label{font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}
+.day-head strong{font-family:var(--font-display);font-size:var(--text-lg)}
+.day-head h3{font-size:var(--text-base);flex:1 1 auto}
+.split-badge{display:inline-block;padding:.16rem .65rem;border-radius:var(--radius-full);
+  font-size:var(--text-xs);font-weight:600;background:var(--color-primary-highlight);
+  color:var(--color-primary-hover);white-space:nowrap;font-family:var(--font-body)}
+.track-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-top:var(--space-2)}
+.track-grid-3{grid-template-columns:repeat(3,1fr)}
+.track{padding:var(--space-4);border-radius:var(--radius-md);background:var(--color-surface-2);
+  border:1px dashed color-mix(in srgb,var(--color-text) 14%,transparent)}
+.track-title{font-size:var(--text-sm);font-weight:700;color:var(--color-primary);margin-bottom:.5rem;
+  display:flex;align-items:center;gap:.4rem}
+.track-title .unsure{font-weight:400;font-size:var(--text-xs);color:var(--color-text-faint)}
+.time-tag{display:inline-block;min-width:3.6em;font-size:var(--text-xs);color:var(--color-text-faint);margin-right:.4em}
+.reconvene{margin-top:var(--space-3);padding-top:var(--space-3);border-top:1px solid var(--color-divider);
+  font-size:var(--text-sm);color:var(--color-text-muted)}
+
+/* SPOT INFO CARDS (non-flip, simplified) */
+.spot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+.info-card h3{font-size:var(--text-lg);margin-bottom:.4rem}
+.pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0 var(--space-4)}
+.pill{padding:.35rem .7rem;border-radius:var(--radius-full);
   background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs)}
-.flip-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;
-  border-radius:var(--radius-full);background:var(--color-primary);
-  color:var(--color-text-inverse);font-size:var(--text-xs);font-weight:600;
-  letter-spacing:.04em;box-shadow:var(--shadow-sm);white-space:nowrap;transition:background .18s}
-.flip-btn:hover{background:var(--color-primary-hover)}
-.flip-btn.back-btn{background:var(--color-surface-offset);color:var(--color-text)}
-.flip-btn.back-btn:hover{background:var(--color-surface-dynamic)}
+.info-grid{display:grid;gap:var(--space-3);margin-top:var(--space-3)}
+.info-box .info-label{font-size:var(--text-xs);letter-spacing:.05em;text-transform:uppercase;
+  color:var(--color-text-muted);margin-bottom:.25rem;font-weight:700}
+.info-box p{font-size:var(--text-sm);color:var(--color-text)}
+.info-box p a{font-weight:600}
+.metro-tag{display:inline-flex;align-items:center;gap:.35em;margin-top:.5em;
+  font-size:var(--text-xs);font-weight:600;color:var(--color-primary);
+  background:var(--color-primary-highlight);padding:.28em .7em;border-radius:var(--radius-full)}
+.verified{display:inline-flex;align-items:center;gap:.3em;font-size:var(--text-xs);
+  color:var(--color-primary);margin-left:.4em}
 
-/* ===== GALLERY FIX: 固定 3 欄寬度，多餘橫向滾動 ===== */
-.gallery-shell{position:relative;margin-bottom:var(--space-4);overflow:hidden}
-.gallery-scroll{
-  display:flex;          /* FIX: 改用 flex 代替 grid，避免自動展開 */
-  gap:var(--space-3);
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding-bottom:.5rem;
-  /* FIX: 禁止收縮，確保每張圖寬度固定 */
-  -webkit-overflow-scrolling:touch;
-}
-.gallery-scroll::-webkit-scrollbar{height:6px}
-.gallery-scroll::-webkit-scrollbar-thumb{background:var(--color-surface-dynamic);border-radius:999px}
-/* FIX: 每張固定 calc((100% - 2 * gap) / 3)，viewport 只顯示3張，其餘滾動 */
-.gallery-item{
-  flex:0 0 calc(33.333% - var(--space-2));  /* 精確佔 1/3 寬 */
-  min-width:0;
-  border-radius:var(--radius-lg);overflow:hidden;
-  background:var(--color-surface-offset);
-  scroll-snap-align:start;cursor:zoom-in}
-.gallery-item img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .3s}
-.gallery-item:hover img{transform:scale(1.04)}
-.gallery-item figcaption{padding:.6rem .8rem;font-size:var(--text-xs);color:var(--color-text-muted)}
-.gallery-hint{display:flex;justify-content:space-between;
-  align-items:center;color:var(--color-text-faint);font-size:var(--text-xs);margin-bottom:var(--space-3)}
-.gallery-dots{display:flex;gap:.4rem;align-items:center}
-.gallery-dot{width:6px;height:6px;border-radius:50%;background:var(--color-surface-dynamic);transition:background .2s,width .2s}
-.gallery-dot.active{background:var(--color-primary);width:18px;border-radius:3px}
+/* NOTES */
+.warn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+.warn-card h3{font-size:var(--text-base);margin-bottom:.6rem}
 
-/* INFO BOXES (static read-only) */
-.back-intro{padding:var(--space-4);border-radius:var(--radius-lg);
-  background:var(--color-surface-2);
-  border:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)}
-.back-intro strong{display:block;margin-bottom:.5rem;font-size:var(--text-sm)}
-.info-text{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:none}
-.intro-static{margin-top:.4rem}
-.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
-.info-box{padding:var(--space-4);border-radius:var(--radius-lg);
-  background:var(--color-surface-2);
-  border:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)}
-.info-box .info-label{font-size:var(--text-xs);letter-spacing:.07em;text-transform:uppercase;
-  color:var(--color-primary);margin-bottom:.5rem;font-weight:700}
-.info-box .info-text{margin-top:.2rem}
-.info-box.full{grid-column:1/-1}
+footer{padding:var(--space-8) 0;color:var(--color-text-faint);font-size:var(--text-sm);text-align:center}
 
-/* BUDGET */
-.hotel-grid,.warn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
-.budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
-.ticket-row{align-items:center}
-.ticket-check{display:flex;align-items:center;gap:.4rem;cursor:pointer;white-space:nowrap;flex-shrink:0}
-.ticket-check input[type="checkbox"]{width:16px;height:16px;accent-color:var(--color-primary);cursor:pointer;flex-shrink:0}
-.budget-card h3{font-size:var(--text-base);margin-bottom:.9rem}
-.budget-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-bottom:var(--space-4)}
-.budget-controls .form-group:nth-last-child(2),
-.budget-controls .form-group:nth-last-child(1){grid-column:1/-1}
-.form-group{display:grid;gap:.45rem}
-.form-group label{font-size:var(--text-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted)}
-.input,.select{width:100%;padding:.8rem .95rem;border-radius:var(--radius-lg);
-  border:1px solid color-mix(in srgb,var(--color-text) 12%,transparent);
-  background:var(--color-surface-2);color:var(--color-text);transition:border-color .18s}
-.input:focus,.select:focus{outline:none;border-color:var(--color-primary)}
-.budget-table{display:grid;gap:.7rem}
-.budget-row{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 1rem;
-  border-radius:var(--radius-lg);background:var(--color-surface-2)}
-.budget-row span:last-child{font-weight:700}
-.budget-row.total{background:var(--color-primary-highlight);color:var(--color-text)}
-.budget-footnote{font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-3)}
-
-/* ===== LIGHTBOX FIX ===== */
-.lightbox{
-  position:fixed;inset:0;background:rgba(0,0,0,.85);
-  display:none;  /* hidden by default */
-  align-items:center;justify-content:center;
-  padding:2rem;z-index:9999}
-/* FIX: use display:flex only when .open class present */
-.lightbox.open{display:flex}
-.lightbox-inner{position:relative;max-width:min(1200px,90vw)}
-.lightbox img{max-width:100%;max-height:80vh;border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-lg);display:block}
-.lightbox-caption{margin-top:.85rem;color:#f7f1eb;text-align:center;font-size:var(--text-sm)}
-.lightbox-close{position:absolute;top:-.8rem;right:-.8rem;width:44px;height:44px;
-  border-radius:50%;background:rgba(255,255,255,.22);color:#fff;
-  display:grid;place-items:center;font-size:1.6rem;
-  transition:background .18s;z-index:1}
-.lightbox-close:hover{background:rgba(255,255,255,.35)}
-.lb-nav{position:fixed;top:50%;transform:translateY(-50%);
-  width:48px;height:48px;border-radius:50%;
-  background:rgba(255,255,255,.18);color:#fff;
-  display:grid;place-items:center;font-size:1.6rem;
-  transition:background .18s;z-index:10000}
-.lb-nav:hover{background:rgba(255,255,255,.32)}
-.lb-prev{left: 1rem}.lb-next{right: 1rem}
-
-/* FOOTER */
-footer{padding:var(--space-8) 0;color:var(--color-text-muted);
-  font-size:var(--text-sm);border-top:1px solid var(--color-divider)}
-
-/* RESPONSIVE */
-/* ===== WIDE DESKTOP (1280px+) ===== */
-@media(min-width:1280px){
-  /* Hero: give body text more breathing room */
-  .hero-body{max-width:72ch}
-  /* Stats: 4-col row */
-  .stats{grid-template-columns:repeat(4,1fr)}
-  /* Itinerary: 2-col grid */
-  .timeline{grid-template-columns:repeat(2,1fr)}
-  /* day-card keeps its 120px meta + content layout */
-  /* Budget: side-by-side already, keep */
-  /* Hotel / warn: already 2-col */
-}
-
-/* ===== TABLET / SMALL DESKTOP (769px – 1279px) ===== */
-@media(max-width:1279px) and (min-width:769px){
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .timeline{grid-template-columns:repeat(2,1fr)}
-  .spot-grid{grid-template-columns:repeat(1,1fr)}
-}
-
-/* ===== TABLET (max 960px) ===== */
-@media(max-width:960px){
-  .hero-grid{grid-template-columns:1fr}
-  .card-cols{grid-template-columns:1fr}
-  .budget-grid{grid-template-columns:1fr}
-  .hotel-grid,.warn-grid,.budget-grid{grid-template-columns:1fr}
-  .budget-controls{grid-template-columns:1fr 1fr}
-  .field-grid{grid-template-columns:1fr}
-  .field-box.full{grid-column:1}
-  .gallery-item{flex:0 0 calc(70% - var(--space-2))}
-}
-
-/* ===== MOBILE (max 600px) ===== */
-@media(max-width:600px){
+@media(max-width:760px){
+  .stats{grid-template-columns:1fr}
+  .track-grid{grid-template-columns:1fr}
   .spot-grid{grid-template-columns:1fr}
-  .timeline{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
-  .budget-controls{grid-template-columns:1fr}
-  .header-inner{flex-wrap:wrap;gap:var(--space-3)}
-  nav{gap:.8rem}
-  .spot-header,.back-header{flex-direction:column;align-items:flex-start}
-  .day-card{
-    grid-template-columns:1fr;
-    gap:0;
-  }
-  .day-meta{
-    flex-direction:row;
-    align-items:baseline;
-    justify-content:space-between;
-    padding:.6rem var(--space-4) .45rem;
-    background:var(--color-primary-highlight);
-    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
-    margin:-var(--space-5);
-    margin:-1.25rem -1.25rem 0 -1.25rem;
-    border-bottom:1px solid color-mix(in srgb,var(--color-primary) 18%,transparent);
-  }
-  .day-meta .label{
-    font-size:clamp(1.1rem,4vw,1.4rem);
-    font-family:var(--font-display);
-    font-weight:700;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-    color:var(--color-primary);
-    margin:0;
-  }
-  .day-meta strong{
-    font-family:var(--font-body);
-    font-size:var(--text-xs);
-    font-weight:500;
-    color:var(--color-text-muted);
-    letter-spacing:.06em;
-  }
-  .day-body{padding-top:var(--space-3);}
-  .container{width:calc(100% - 1rem)}
-  .lb-prev{left:.25rem;width:56px;height:56px;font-size:1.8rem;}
-  .lb-next{right:.25rem;width:56px;height:56px;font-size:1.8rem;}
-  .lightbox-close{width:52px;height:52px;top:-.5rem;right:-.5rem;font-size:1.8rem;}
-  .lightbox-inner{max-width:100vw;}
-  .lightbox img{max-height:70vh;border-radius:var(--radius-md);}
-  /* Mobile: full-width single-image gallery (Option A) */
-  .gallery-scroll{
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-  }
-  .gallery-item{
-    flex:0 0 100%;        /* one image fills the full width */
-    scroll-snap-align:center;
-  }
-  .gallery-item img{aspect-ratio:16/9;}  /* wider ratio for phone landscape feel */
-  /* Budget grid 1-col */
-  .budget-grid,.hotel-grid,.warn-grid{grid-template-columns:1fr}
-  /* iOS: prevent auto-zoom on input focus (font-size must be ≥16px) */
-  .input,.select{font-size:1rem;}
-  /* flip card: reduce padding on mobile */
-  .card-face{padding:var(--space-4);}
-  /* info-grid: 1-col on mobile */
-  .info-grid{grid-template-columns:1fr;}
-  /* spot-header: stack vertically already handled, ensure pill-row wraps */
-  .pill-row{gap:.4rem;}
-  .pill{font-size:.7rem;padding:.3rem .6rem;}
-}
-  
-/* ===== EXTRA WIDE (1600px+) ===== */
-@media(min-width:1600px){
-  .spot-grid{grid-template-columns:repeat(1,1fr)}
-  .hotel-grid,.warn-grid{grid-template-columns:repeat(2,1fr)}
-  .stats{grid-template-columns:repeat(4,1fr)}
-}
-
-/* ===== MOBILE NAV ===== */
-.nav-toggle{display:none;width:44px;height:44px;border-radius:var(--radius-md);
-  background:var(--color-surface);
-  border:1px solid color-mix(in srgb,var(--color-text) 10%,transparent);
-  place-items:center;flex-shrink:0}
-@media(max-width:768px){
-  .nav-toggle{display:grid}
-  nav{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;align-items:flex-start;gap:.5rem;
-    background:var(--color-surface);
-    border-bottom:1px solid var(--color-divider);
-    padding:var(--space-4) var(--space-6);
-    box-shadow:var(--shadow-md);z-index:29;
-  }
+  .warn-grid{grid-template-columns:1fr}
+  nav{position:fixed;inset:0 0 auto auto;top:64px;right:1rem;background:var(--color-surface);
+    flex-direction:column;align-items:flex-start;padding:1rem 1.4rem;border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-lg);display:none;gap:.8rem;border:1px solid var(--color-divider)}
   nav.nav-open{display:flex}
-  nav a{font-size:var(--text-base);padding:.6rem 0;border-bottom:1px solid var(--color-divider);width:100%}
-  .site-header{position:relative}
-  .header-inner{position:relative}
-}
-
-/* ===== MAP CAROUSEL ===== */
-.map-carousel{
-  position:relative;
-  background:var(--color-surface);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius-xl);
-  overflow:hidden;
-  box-shadow:var(--shadow-md);
-}
-.map-track{
-  display:grid;
-  grid-template-columns:100%;
-  /* slides stack on top of each other */
-}
-.map-slide{
-  grid-column:1;
-  grid-row:1;
-  opacity:0;
-  transition:opacity .45s ease, transform .45s ease;
-  transform:translateX(40px);
-  pointer-events:none;
-  cursor:zoom-in;
-}
-.map-slide.active{
-  opacity:1;
-  transform:translateX(0);
-  pointer-events:auto;
-  z-index:1;
-}
-.map-slide.exit-left{
-  opacity:0;
-  transform:translateX(-40px);
-}
-.map-slide img{
-  width:100%;
-  max-height:72vh;
-  object-fit:contain;
-  background:var(--color-surface-offset);
-  display:block;
-}
-.map-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:48px;height:48px;
-  border-radius:var(--radius-full);
-  background:color-mix(in srgb,var(--color-surface) 90%,transparent);
-  border:1px solid var(--color-border);
-  box-shadow:var(--shadow-sm);
-  display:grid;place-items:center;
-  color:var(--color-text);
-  transition:background var(--transition-interactive),box-shadow var(--transition-interactive);
-  z-index:10;
-}
-.map-arrow svg{width:22px;height:22px}
-.map-arrow:hover{background:var(--color-surface-2);box-shadow:var(--shadow-md)}
-.map-arrow:active{transform:translateY(-50%) scale(.95)}
-.map-prev{left:var(--space-4)}
-.map-next{right:var(--space-4)}
-.map-footer{
-  display:flex;align-items:center;gap:var(--space-4);
-  padding:var(--space-3) var(--space-6) var(--space-4);
-  background:var(--color-surface);
-  border-top:1px solid var(--color-divider);
-  flex-wrap:wrap;
-}
-.map-dots{display:flex;gap:var(--space-2);flex:1}
-.map-dot{
-  width:7px;height:7px;border-radius:var(--radius-full);
-  background:var(--color-border);
-  transition:background .25s,width .25s;
-  cursor:pointer;
-}
-.map-dot.active{background:var(--color-primary);width:18px}
-.map-caption{
-  font-size:var(--text-sm);color:var(--color-text-muted);
-  text-align:center;flex:2;margin:0;max-width:none;
-}
-.map-counter{
-  font-size:var(--text-xs);color:var(--color-text-faint);
-  font-variant-numeric:tabular-nums;white-space:nowrap;
-}
-@media(max-width:600px){
-  .map-arrow{width:38px;height:38px}
-  .map-prev{left:var(--space-2)}
-  .map-next{right:var(--space-2)}
-  .map-slide img{max-height:55vw;object-fit:contain}
-}
-
-
-/* ===== HERO + MAP SIDE-BY-SIDE (desktop) ===== */
-.hero-map-wrap {
-  padding: clamp(2.5rem, 6vw, 4.5rem) 0 2rem;
-}
-.hero-map-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: var(--space-8);
-  align-items: start;
-}
-.hero-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-/* Prevent old .hero-grid interfering */
-.hero-map-wrap .hero-grid { display: block; }
-
-/* Stats stay 2-col inside hero-main */
-.hero-map-wrap .stats {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* RIGHT: map panel */
-.hero-map-panel {
-  position: sticky;
-  top: calc(var(--space-16) + var(--space-2));
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-.hero-map-label {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-/* Compact map image height */
-.hero-map-panel .map-slide img {
-  max-height: 50vh;
-  object-fit: contain;
-}
-
-/* Tablet ≤ 1024px: stack vertically */
-@media (max-width: 1024px) {
-  .hero-map-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-map-panel {
-    position: static;
-  }
-}
-/* Mobile: stats 2×2 */
-@media (max-width: 600px) {
-  .hero-map-wrap .stats {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.info-text a {
-  color:#e7892b;
-  /*color: var(--color-primary);*/
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color var(--transition-interactive);
-}
-.info-text a:hover {
-  color: var(--color-primary-hover);
+  .nav-toggle{display:grid;place-items:center}
 }
 </style>
 </head>
@@ -570,22 +192,19 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
     <div class="brand">
       <div class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 50C18 36 22 18 32 12C41 18 46 35 54 50" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M18 44H46" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="32" cy="26" r="4.5" fill="currentColor"/>
+          <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="4"/>
+          <path d="M10 46C18 40 46 40 54 46" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="brand-text">
-        <strong>14 Oct – 20 Oct · 2 位成人</strong>
-        <span>張家界旅行計劃</span>
+        <strong>25 Jul – 1 Aug 2026 · 家庭旅行</strong>
+        <span>東京家庭旅行計劃</span>
       </div>
     </div>
     <nav aria-label="頁面導覽">
       <a href="#overview">總覽</a>
       <a href="#itinerary">每日行程</a>
-      <a href="#spots">景點詳情</a>
-      <a href="#budget">預算試算</a>
-      <a href="#stay">住宿推介</a>
+      <a href="#spots">重點地點</a>
       <a href="#notes">注意事項</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="開啟導覽選單" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
@@ -599,137 +218,173 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 
 <main id="main">
 
-<!-- HERO + MAP SIDE BY SIDE -->
-<section class="hero hero-map-wrap" id="overview">
-  <div class="container hero-map-grid">
-
-    <!-- LEFT col: hero content -->
-    <div class="hero-main">
-      <span class="eyebrow">7天6晚 · 2位成人</span>
-      <h1>張家界七天六晚旅行計劃</h1>
-      <p class="hero-body">以「永定區 2 晚 + 武陵源 4 晚」兩地節奏規劃<br>
-	  涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋</p>
-      <div class="stats">
-        <div class="stat-card"><span>住宿節奏</span><strong>市區 2 晚 + 武陵源 4 晚</strong></div>
-        <div class="stat-card"><span>核心門票估算（Klook 套票）</span><strong id="heroTicketStat">約 HK$2,748 / 2人</strong></div>
-        <div class="stat-card"><span>香港往返</span><strong>飛機約 HK$2,500 / 高鐵單程約 HK$837</strong></div>
-        <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
-      </div>
-      <aside class="hero-aside">
-        <h2>行程設計邏輯</h2>
-        <ul class="note-list">
-          <li>Day 1 抵達後入住永定區，貼近天門山索道站</li>
-          <li>Day 2 遊畢天門山後轉住武陵源，由永定區到武陵源距離大約35公里, 需時40 - 50分鍾</li>
-          <li>張家界國家森林公園拆分兩天遊覽</li>
-          <li>Day 6 回永定區，為 Day 7 返程預留緩衝</li>
-		  <li><strong>買高鐵車票前留意大灣區航空機票優惠作最後比較</strong></li>
-        </ul>
-      </aside>
+<!-- HERO -->
+<section class="hero" id="overview">
+  <div class="container">
+    <span class="eyebrow">8天7晚 · 6位家庭成員</span>
+    <h1>東京家庭旅行計劃</h1>
+    <p class="hero-body">以東京都心（江東區大島 Airbnb）為單一住宿基地，涵蓋熱海花火大會、表參道商圈、東京迪士尼海洋、淺草／晴空塔、箱根一日包車、神保町書街與銀座購物，部分日子將分組行動。</p>
+    <div class="pill-row">
+      <span class="pill">Lyann</span><span class="pill">Cherry</span><span class="pill">LokSang</span>
+      <span class="pill">Eunice</span><span class="pill">duodu</span><span class="pill">Joan</span>
+    </div>
+    <div class="stats">
+      <div class="stat-card"><span>行程日期</span><strong>2026/7/25（六）– 8/1（六）</strong></div>
+      <div class="stat-card"><span>去程航班</span><strong>CX526 · HKG T1 08:15 → NRT T2 13:40</strong></div>
+      <div class="stat-card"><span>回程航班</span><strong>CX505 · NRT T2 18:30 → HKG T1 22:20</strong></div>
+      <div class="stat-card"><span>7月下旬天氣</span><strong>日均高溫約 31–34°C，濕度高，慎防中暑</strong></div>
+    </div>
+    <aside class="hero-aside">
+      <h2>行程設計重點</h2>
+      <ul class="note-list">
+        <li>26/7（日）為熱海海上花火大會確定舉辦日，晚上 20:15–20:40 熱海灣施放；當日全程為私人包車，途經鎌倉高校前、江之島、熱海城。</li>
+        <li>27/7 分組：🅰 Cherry + LokSang（表參道SIDAS／Onodera）　🅱 Lyann + Eunice + duodu + Joan（Maisen／明治神宮）　🅲 皮褸巡店（上野→惠比壽→神宮前，個人／自由參加，終點與🅰🅱同區可彈性會合）</li>
+        <li>31/7 分組：🅰 Eunice + Joan（神保町／日本橋／銀座路線）　🅱 Lyann + Cherry + LokSang + duodu（銀座shopping）</li>
+        <li>30/7 箱根為私人包車全日遊，涵蓋蘆之湖遊船、大涌谷、雕刻之森美術館、箱根神社。</li>
+        <li>8/1 回程日：私人專車先送往酒酒井 Outlet，購物後自行搭接駁巴士往機場（此安排可能調整）。</li>
+      </ul>
+    </aside>
+    <div class="bnb-block">
+      <strong>🏠 住宿地址（Airbnb）：</strong>
+      <span>136-0072 東京都江東區大島4-12-6 林ビル3F</span>
+      <a href="https://maps.app.goo.gl/UXmCZGojpAoJ5yV16" target="_blank" rel="noopener noreferrer">Google Maps 開啟位置 ↗</a>
     </div>
 
-    <!-- RIGHT col: compact map carousel -->
-    <div class="hero-map-panel">
-      <div class="hero-map-label">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-        旅遊地圖
+    <div class="hero-aside" style="margin-top:var(--space-4)">
+      <h2>接送包車一覽 <span style="font-weight:400;font-size:var(--text-xs);color:var(--color-text-faint)">訂單號 1128147752969857</span></h2>
+      <div style="overflow-x:auto">
+      <table class="charter-table">
+        <thead><tr><th>日期</th><th>內容</th><th>車型</th><th>出發時間</th><th>超時費</th></tr></thead>
+        <tbody>
+          <tr><td>7/25</td><td>成田機場→Airbnb 單接機（CX526）</td><td>10座海獅</td><td>依航班落地（13:40）</td><td>¥5/分鐘（免費等待90分）</td></tr>
+          <tr><td>7/26</td><td>Airbnb⇄鎌倉⇄江之島⇄熱海⇄Airbnb（10小時）</td><td>豪華7座</td><td>13:00</td><td>¥5,000日圓/小時</td></tr>
+          <tr><td>7/30</td><td>Airbnb⇄箱根（蘆之湖／大涌谷／雕刻之森／箱根神社）⇄Airbnb（10小時）</td><td>豪華7座</td><td class="tbc">待確認</td><td>¥5,000日圓/小時</td></tr>
+          <tr><td>8/1</td><td>Airbnb→酒酒井Outlet 單程專送</td><td>10座海獅</td><td class="tbc">待確認</td><td>¥5/分鐘（免費等待30分）</td></tr>
+        </tbody>
+      </table>
       </div>
-      <div class="map-carousel" id="mapCarousel" role="region" aria-label="旅遊地圖輪播">
-        <!-- slides injected by JS -->
-        <div class="map-track" id="mapTrack"></div>
-        <button class="map-arrow map-prev" id="mapPrev" type="button" aria-label="上一張地圖">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="map-arrow map-next" id="mapNext" type="button" aria-label="下一張地圖">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="map-footer">
-          <div class="map-dots" id="mapDots" aria-hidden="true"></div>
-          <p class="map-caption" id="mapCaption"></p>
-          <span class="map-counter" id="mapCounter"></span>
-        </div>
-      </div>
+      <p class="reconvene">全車均6位乘客。7/25、8/1超時費幣別原始資料未註明，建議與車行確認是否為人民幣。</p>
     </div>
-
   </div>
 </section>
-
 
 <!-- ITINERARY -->
 <section class="section" id="itinerary">
   <div class="container">
-    <div class="section-head"><h2>每日行程大要</h2><p>可直接落地的 7 天節奏，Day 7 保留為備援與返程緩衝日。</p></div>
+    <div class="section-head"><h2>每日行程時間軸</h2><p>27/7 與 31/7 分組行動的日子，以「分軌」呈現各組活動；其餘日子為全員同行。</p></div>
     <div class="timeline">
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 1</span><strong>14/10</strong></div>
-        <div class="day-body"><h3>抵達張家界 · 入住永定區<span class="stay-badge">宿：永定區</span></h3>
-          <ul class="day-list">
-            <li>按航班或高鐵時間入住市區酒店。</li>
-            <li>補給防寒外套與景區用品。</li>
-			<li>附近輕鬆逛或選擇到七十二奇樓</li>
-            <li>晚上可輕鬆逛南門口美食街或提早休息。</li>
-          </ul>
-        </div>
+        <div class="day-head"><span class="label">Day 1</span><strong>7/25（六）</strong><h3>抵達東京 · 入住江東區大島</h3></div>
+        <ul class="day-list">
+          <li><span class="time-tag">08:15</span>CX526 HKG T1 起飛。</li>
+          <li><span class="time-tag">13:40</span>抵達 NRT T2，私人接機專車（10座海獅）於機場等候，免費等待90分鐘。</li>
+          <li><span class="time-tag">午後</span>專車直送 Airbnb（大島）辦理入住，視體力安排周邊超市補給或早休息，為翌日花火大會保留體力。</li>
+        </ul>
       </article>
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 2</span><strong>15/10</strong></div>
-        <div class="day-body"><h3>天門山全日 · 晚間轉住武陵源<span class="stay-badge">宿：武陵源（第 1 晚）</span></h3>
-          <ul class="day-list">
-            <li>早上進入天門山，建議預訂索道套票。</li>
-            <li>遊覽天門洞、玻璃棧道、山頂步道。</li>
-            <li>下午離園後前往武陵源，車程約 45–60 分鐘。</li>
-          </ul>
-        </div>
+        <div class="day-head"><span class="label">Day 2</span><strong>7/26（日）</strong><h3>鎌倉 · 江之島 · 熱海海上花火大會<span class="split-badge">私人包車</span></h3></div>
+        <ul class="day-list">
+          <li><span class="time-tag">13:00</span>Airbnb出發，豪華7座私人包車（10小時，往返Airbnb）。</li>
+          <li>路線：鎌倉高校前（灌籃高手平交道打卡點）→ 江之島 → 熱海城 → 熱海海上花火大會。</li>
+          <li><span class="time-tag">20:15</span>熱海海上花火大會施放（至20:40），會場熱海灣。</li>
+          <li>花火散場後周邊交通擁擠，包車直接接送回Airbnb可省去公共交通排隊時間；如超過約定10小時，超時費¥5,000日圓/小時。</li>
+        </ul>
       </article>
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 3</span><strong>16/10</strong></div>
-        <div class="day-body"><h3>張家界國家森林公園 I：袁家界 · 天子山<span class="stay-badge">宿：武陵源（第 2 晚）</span></h3>
-          <ul class="day-list">
-            <li>以百龍天梯 / 索道搭配景區車安排主峰林觀景。</li>
-            <li>重點看阿凡達峰林、天子山觀景台。</li>
-            <li>晚上回武陵源休息。</li>
-          </ul>
+        <div class="day-head"><span class="label">Day 3</span><strong>7/27（一）</strong><h3>表參道商圈 · 皮褸巡店<span class="split-badge">分組行動</span></h3></div>
+        <div class="track-grid track-grid-3">
+          <div class="track">
+            <div class="track-title">🅰 Cherry + LokSang</div>
+            <ul class="day-list">
+              <li><span class="time-tag">11:30</span>SIDAS Fitting Lab 表參道店（客製鞋墊檢測）</li>
+              <li><span class="time-tag">17:30</span>Onodera 表參道（廻轉鮨銀座おのでら本店）晚市</li>
+            </ul>
+          </div>
+          <div class="track">
+            <div class="track-title">🅱 Lyann + Eunice + duodu + Joan</div>
+            <ul class="day-list">
+              <li><span class="time-tag">11:00</span>Maisen 豬排 青山本店 午餐</li>
+              <li><span class="time-tag">13:30</span>明治神宮參拜</li>
+              <li><span class="time-tag">15:30</span>表參道一帶自由購物</li>
+            </ul>
+          </div>
+          <div class="track">
+            <div class="track-title">🅲 皮褸巡店 <span class="unsure">（個人／自由參加）</span></div>
+            <ul class="day-list">
+              <li><span class="time-tag">10:30</span>上野 AMERICAYA GENERAL GARDEN（Aero Leather）</li>
+              <li><span class="time-tag">12:00</span>惠比壽西 JELADO Flagship Store</li>
+              <li><span class="time-tag">13:00</span>神宮前 The Real McCoy's</li>
+            </ul>
+          </div>
         </div>
+        <p class="reconvene">備註：🅲皮褸巡店路線終點就在神宮前，與🅰🅱兩組同一街區，約14:00逛完後可直接步行銜接、彈性加入任一組；三組行程同在表參道／原宿一帶，步行可互相銜接。Onodera 為迴轉壽司形式，一般無需預約。</p>
       </article>
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 4</span><strong>17/10</strong></div>
-        <div class="day-body"><h3>張家界國家森林公園 II：金鞭溪 · 黃石寨<span class="stay-badge">宿：武陵源（第 3 晚）</span></h3>
-          <ul class="day-list">
-            <li>安排溪谷步道與第二段高位觀景。</li>
-            <li>視天氣決定黃石寨或楊家界優先。</li>
-            <li>晚上可安排武陵源小鎮自由活動。</li>
-          </ul>
-        </div>
+        <div class="day-head"><span class="label">Day 4</span><strong>7/28（二）</strong><h3>東京迪士尼海洋 全日</h3></div>
+        <ul class="day-list">
+          <li><span class="time-tag">全日</span>官方開園時間 9:00–21:00，惟現場實際開放常提早至 8:45，建議預留排隊緩衝。</li>
+          <li>建議事前於官方 App 完成入園時段 / 優先入場預約。</li>
+        </ul>
       </article>
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 5</span><strong>18/10</strong></div>
-        <div class="day-body"><h3>黃龍洞 + 寶峰湖<span class="stay-badge">宿：武陵源（第 4 晚）</span></h3>
-          <ul class="day-list">
-            <li>黃龍洞建議早上先行，避開團客高峰。</li>
-            <li>下午安排寶峰湖遊船。</li>
-            <li>屬低強度恢復日，適合回復體力。</li>
-          </ul>
-        </div>
+        <div class="day-head"><span class="label">Day 5</span><strong>7/29（三）</strong><h3>淺草寺 · 晴空塔 · 銀座<span class="split-badge">全員同行</span></h3></div>
+        <ul class="day-list">
+          <li><span class="time-tag">10:00</span>淺草寺參拜（境內全日開放，本堂約 6:00–17:00）</li>
+          <li><span class="time-tag">12:00</span>午餐：淺草周邊迴轉壽司（元祖壽司 / 壽司郎可選）</li>
+          <li><span class="time-tag">13:30</span>東京晴空塔（平日 10:00–22:00）＋ 寶可夢中心晴空塔城店（10:00–21:00）</li>
+          <li><span class="time-tag">15:30</span>銀座shopping</li>
+          <li><span class="time-tag">16:00</span>藥妝店補給</li>
+          <li><span class="time-tag">19:00</span>晚餐：串燒</li>
+        </ul>
       </article>
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 6</span><strong>19/10</strong></div>
-        <div class="day-body"><h3>大峽谷玻璃橋 · 晚間回永定區<span class="stay-badge">宿：永定區</span></h3>
-          <ul class="day-list">
-            <li>上午前往大峽谷玻璃橋，預留半天至大半天。</li>
-            <li>下午返回永定區，入住市區酒店。</li>
-            <li>為翌日返程或備援景點作準備。</li>
-          </ul>
-        </div>
+        <div class="day-head"><span class="label">Day 6</span><strong>7/30（四）</strong><h3>箱根一日包車<span class="split-badge">私人包車</span></h3></div>
+        <ul class="day-list">
+          <li><span class="time-tag">時間待確認</span>Airbnb出發，豪華7座私人包車（10小時，往返Airbnb），超時費¥5,000日圓/小時。</li>
+          <li>路線：蘆之湖遊船（元箱根港可望見箱根神社水中鳥居＋富士山）→ 大涌谷（黑蛋名物，如遇纜車停駛包車可直接由公路接駁）→ 箱根雕刻之森美術館（9:00–17:00，入館至閉館前30分）→ 箱根神社。</li>
+          <li><span class="time-tag">傍晚</span>返回Airbnb，晚餐可自由安排。</li>
+        </ul>
       </article>
+
       <article class="day-card">
-        <div class="day-meta"><span class="label">Day 7</span><strong>20/10</strong></div>
-        <div class="day-body"><h3>返程日 · 彈性緩衝</h3>
-          <ul class="day-list">
-            <li>依高鐵 / 航班時間退房與出發。</li>
-            <li>如為下午離境，可安排購手信或咖啡時段。</li>
-            <li>亦可作前數天未完成景點的補遊日。</li>
-          </ul>
+        <div class="day-head"><span class="label">Day 7</span><strong>7/31（五）</strong><h3>神保町 · 銀座<span class="split-badge">分組行動</span></h3></div>
+        <div class="track-grid">
+          <div class="track">
+            <div class="track-title">🅰 Eunice + Joan</div>
+            <ul class="day-list">
+              <li><span class="time-tag">10:00</span>神保町書街，含 BUNGUBOX（BBX）文具店</li>
+              <li><span class="time-tag">12:00</span>午餐：咖喱</li>
+              <li><span class="time-tag">14:00</span>東京站 → traveler's factory</li>
+              <li><span class="time-tag">15:00</span>丸善書店（日本橋分店）→ 日本橋三越百貨</li>
+              <li><span class="time-tag">17:00</span>銀座站 → itoya 文具店</li>
+            </ul>
+          </div>
+          <div class="track">
+            <div class="track-title">🅱 Lyann + Cherry + LokSang + duodu</div>
+            <ul class="day-list">
+              <li><span class="time-tag">15:30</span>銀座shopping</li>
+            </ul>
+          </div>
         </div>
+        <p class="reconvene">備註：兩組於傍晚在銀座一帶會合，晚上一同享用壽喜燒晚餐（19:30）。</p>
       </article>
+
+      <article class="day-card">
+        <div class="day-head"><span class="label">Day 8</span><strong>8/1（六）</strong><h3>酒酒井 Outlet · 返程<span class="split-badge">計畫可能調整</span></h3></div>
+        <ul class="day-list">
+          <li><span class="time-tag">時間待確認</span>私人專車（10座海獅）從Airbnb出發，單程送往酒酒井 Premium Outlet，免費等待30分鐘。</li>
+          <li>Outlet購物後，暫定自行搭乘酒酒井⇄機場接駁巴士前往成田機場（T1第30號／T2第3號乘車處，單程¥1,300，無需預約、先到先上車；原定15:45有一班，需視抵達Outlet時間調整）。</li>
+          <li>此段安排可能會更改，建議出發前與家人再確認一次。</li>
+          <li><span class="time-tag">18:30</span>CX505 NRT T2 起飛 → 22:20 抵達 HKG T1。</li>
+        </ul>
+      </article>
+
     </div>
   </div>
 </section>
@@ -738,587 +393,228 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 <section class="section" id="spots">
   <div class="container">
     <div class="section-head">
-      <h2>景點詳情</h2>
-      <p>正面顯示景點資訊與相簿；背面查看交通與訂票詳情</p>
+      <h2>重點地點資訊</h2>
+      <p>已核實各景點交通、開放時間、訂位資訊，並標示最近地鐵站／路線／出口；出發前建議再次確認官方最新公告。</p>
     </div>
     <div class="spot-grid">
 
-      <!-- SPOT 1: 天門山 -->
-      <article class="flip-wrap" data-spot-id="tianmen">
-        <div class="flip-inner">
-          <div class="card-face front">
-            <div class="spot-header">
-              <div>
-                <h3 class="spot-title">天門山</h3>
-                <div class="pill-row">
-                  <span class="pill">永定區</span>
-                  <span class="pill">市區車程約 15–20 分鐘</span>
-                  <span class="pill">建議遊覽 5–8 小時</span>
-                  <span class="pill">Klook 套票 HK$332</span>
-                </div>
-              </div>
-              <button class="flip-btn" type="button" data-flip-open>交通・訂票資訊</button>
-            </div>
-            <div class="gallery-shell">
-              <div class="gallery-hint">
-                <span>點擊圖片可放大 · 左右滑動查看更多</span>
-                <div class="gallery-dots" aria-hidden="true"></div>
-              </div>
-              <div class="gallery-scroll" data-gallery-id="tianmen">
-                <figure class="gallery-item" data-idx="0" data-full="https://www.ourchinastory.com/images/content/snapshot/2021/01/%E7%95%B6%E4%BB%A3%E4%B8%AD%E5%9C%8B-%E4%B8%AD%E5%9C%8B%E6%97%85%E9%81%8A-%E4%B8%AD%E5%9C%8B%E6%96%87%E5%8C%96-%E6%B9%96%E5%8D%97-%E5%BC%B5%E5%AE%B6%E7%95%8C2_x1.jpg" data-caption="天門洞與 999 級天梯">
-                  <img src="https://www.ourchinastory.com/images/content/snapshot/2021/01/%E7%95%B6%E4%BB%A3%E4%B8%AD%E5%9C%8B-%E4%B8%AD%E5%9C%8B%E6%97%85%E9%81%8A-%E4%B8%AD%E5%9C%8B%E6%96%87%E5%8C%96-%E6%B9%96%E5%8D%97-%E5%BC%B5%E5%AE%B6%E7%95%8C2_x1.jpg" alt="張家界天門山天門洞" width="800" height="600" loading="lazy">
-                  <figcaption>天門洞與 999 級天梯</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="1" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/179966c3f46df439f28deb4176eff9813bfca622.jpg" data-caption="天門山玻璃棧道">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/179966c3f46df439f28deb4176eff9813bfca622.jpg" alt="天門山玻璃棧道" width="976" height="720" loading="lazy">
-                  <figcaption>天門山玻璃棧道</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="2" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/45df000b813041916f0e3ed93858df78f3d39841.jpg" data-caption="崖邊玻璃步道">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/45df000b813041916f0e3ed93858df78f3d39841.jpg" alt="天門山崖邊玻璃步道" width="1200" height="1800" loading="lazy">
-                  <figcaption>崖邊玻璃步道</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="3" data-full="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1080,h_1440/w_66,x_12,y_12,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/oc38srj6dqewmtk26nwf/%E5%BC%B5%E5%AE%B6%E7%95%8C%E5%A4%A9%E9%96%80%E5%B1%B1%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92%E5%85%A8%E6%97%A5%E5%B0%8E%E8%A6%BD%E9%81%8A.jpg" data-caption="由下而上望向天門洞">
-                  <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1080,h_1440/w_66,x_12,y_12,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/oc38srj6dqewmtk26nwf/%E5%BC%B5%E5%AE%B6%E7%95%8C%E5%A4%A9%E9%96%80%E5%B1%B1%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92%E5%85%A8%E6%97%A5%E5%B0%8E%E8%A6%BD%E9%81%8A.jpg" alt="仰望天門洞" width="800" height="600" loading="lazy">
-                  <figcaption>冬天天門洞</figcaption>
-                </figure>
-
-                <figure class="gallery-item" data-idx="4" data-full="https://ak-d.tripcdn.com/images/1mi4c12000s0852360BD3_W_640_0_R5_Q80.jpg?proc=source/trip" data-caption="索道">
-                  <img src="https://ak-d.tripcdn.com/images/1mi4c12000s0852360BD3_W_640_0_R5_Q80.jpg?proc=source/trip" alt="索道" width="800" height="600" loading="lazy">
-                  <figcaption>天門山索道</figcaption>
-                </figure>
-				<figure class="gallery-item" data-idx="5" data-full="https://dimg04.tripcdn.com/images/0351q12000pr8qz5lE75C.png" data-caption="地圖">
-                  <img src="https://dimg04.tripcdn.com/images/0351q12000pr8qz5lE75C.png" style="background:#ffffff;" alt="地圖" width="800" height="600" loading="lazy">
-                  <figcaption>天門山地圖</figcaption>
-                </figure>
-				<figure class="gallery-item" data-idx="6" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg/1280px-Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg" data-caption="天門洞">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg/1280px-Tianmen_38330-Zhangjiajie_%2849047525877%29.jpg" alt="張家界天門山天門洞" width="1280" height="852" loading="lazy">
-                  <figcaption>天門洞</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="card-cols">
-              <div class="fact-box"><strong>行程定位</strong><p>適合 Day 2 全日安排。山頂步道、玻璃棧道、天門洞與索道系統可串成完整動線，建議預留大半天以上。</p></div>
-              <div class="fact-box"><strong>注意</strong><p>高空棧道對畏高人士較刺激；遇濃霧時觀景效果下降，但雲海機率較高。</p></div>
-            </div>
-          </div>
-          <div class="card-face back">
-            <div class="back-header">
-              <div>
-                <h3 class="back-title">天門山｜交通・訂票資訊</h3>
-              </div>
-              <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
-            </div>
-            <div class="back-intro">
-              <strong>景點簡介</strong>
-              <p class="info-text intro-static">以索道、天門洞與玻璃棧道聞名，適合作為首個重點高空景觀景點。全程建議預留大半天，可串連鬼谷棧道、西線索道及天門洞三大核心體驗。
-			  <br>
-			  天門山的主峰海拔為1518.6米，平均海拔在1400米之上。天門山國家森林公園面積達190多平方公里。天門山索道線路斜長7455米，上、下站水平高差1279米，是世界最長的單線循環脫掛抱索器車廂式索道。</p>
-            </div>
-            <div class="info-grid">
-              <div class="info-box">
-                <div class="info-label">交通安排</div>
-                <p class="info-text">由永定區酒店步行或打車約10分鐘至天門山索道站（荷花廣場）。建議早上8時前出發，避開人流高峰。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">遊覽重點</div>
-                <p class="info-text">天門洞（999級石階可選步行或轎子）、鬼谷棧道（玻璃棧道）、西線索道觀景、山頂步行道</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">注意事項</div>
-                <p class="info-text">山頂氣溫較市區低約5-8°C，務必帶薄外套。<br>濃霧天氣觀景效果下降但雲海機率高。高空棧道畏高人士需留意。玻璃橋需提前預約。</p>
-              </div>
-			  <div class="info-box">
-                <div class="info-label">套票資訊</div>
-                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/6613-tianmen-mountain-cable-car-gallery-road-zhangjiajie/" target="_blank" rel="noopener noreferrer">Klook 天門山景區套票 ↗</a> HKD$332</p>
-				<p class="info-text">✅ A線: 市區天門山索道下站憑票上車 > 天門山索道中站下車 > 換乘環保車上行至天門洞遊覽 > 自天門洞口後方乘7級穿山自動扶梯上山頂 > 遊覽山頂各景點 > 乘7級穿山自動扶梯下至天門洞 > 乘天門洞快線索道下山
-					<br>B線: 反向 直接從山門入園,乘坐快線索道直到天門洞,再乘扶梯上山,遊覽山頂,最後乘索道下山返回市區。 
-					<br>C線:全程快線索道往返,山門進、山門出,不用往返市區。
-					</p>
-			  </div>
-			  
-            </div>
+      <article class="info-card">
+        <h3>🏠 住宿：江東區大島 BNB</h3>
+        <div class="pill-row"><span class="pill">單一住宿基地</span></div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">最近地鐵站</div>
+            <p><strong>都營新宿線「西大島駅」</strong>A3出口步行約5–6分鐘（次選：都營新宿線「大島駅」步行約8分鐘）。</p>
+            <span class="metro-tag">🚇 都營新宿線</span>
           </div>
         </div>
       </article>
 
-      <!-- SPOT 2: 張家界國家森林公園 -->
-      <article class="flip-wrap" data-spot-id="forestpark">
-        <div class="flip-inner">
-          <div class="card-face front">
-            <div class="spot-header">
-              <div>
-                <h3 class="spot-title">張家界國家森林公園</h3>
-                <div class="pill-row">
-                  <span class="pill">武陵源核心區</span>
-                  <span class="pill">酒店區約 10–20 分鐘</span>
-                  <span class="pill">建議分 2 天以上</span>
-                  <span class="pill">Klook 套票 HK$574</span>
-                </div>
-              </div>
-              <button class="flip-btn" type="button" data-flip-open>交通・訂票資訊</button>
-            </div>
-            <div class="gallery-shell">
-              <div class="gallery-hint">
-                <span>點擊圖片可放大 · 左右滑動查看更多</span>
-                <div class="gallery-dots" aria-hidden="true"></div>
-              </div>
-              <div class="gallery-scroll" data-gallery-id="forestpark">
-                <figure class="gallery-item" data-idx="0" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/361d4cbed0db095c3d95dc609fdbe06ee9c3074c.jpg" data-caption="袁家界峰林">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/361d4cbed0db095c3d95dc609fdbe06ee9c3074c.jpg" alt="袁家界石英砂岩峰林" width="1080" height="1418" loading="lazy">
-                  <figcaption>袁家界峰林</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="1" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b9c7cb253d82823be1493f92493bc252fe3be952.jpg" data-caption="阿凡達山峰林遠景">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b9c7cb253d82823be1493f92493bc252fe3be952.jpg" alt="阿凡達山峰林" width="800" height="565" loading="lazy">
-                  <figcaption>阿凡達山峰林遠景</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="2" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5512be51f20ab23eb33b10d0c64dd568b69f80ac.jpg" data-caption="金鞭溪步道">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5512be51f20ab23eb33b10d0c64dd568b69f80ac.jpg" alt="金鞭溪溪谷步道" width="1080" height="1440" loading="lazy">
-                  <figcaption>金鞭溪步道</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="3" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3bc6a013404385b050b8eabe7b3de1f9a5b46e77.jpg" data-caption="山頂觀景亭與峰林">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3bc6a013404385b050b8eabe7b3de1f9a5b46e77.jpg" alt="山頂觀景亭" width="800" height="552" loading="lazy">
-                  <figcaption>山頂觀景亭與峰林</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="4" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/421e1bcd0addf0fdd8f538ed8493d2aacc7c0ce4.jpg" data-caption="溪谷另一角度">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/421e1bcd0addf0fdd8f538ed8493d2aacc7c0ce4.jpg" alt="金鞭溪綠林溪水" width="1080" height="1440" loading="lazy">
-                  <figcaption>溪谷另一角度</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="card-cols">
-              <div class="fact-box"><strong>行程定位</strong><p>建議拆成 Day 3 與 Day 4 兩段，分別處理高位峰林與低位溪谷步道，兼顧體力分配與天氣彈性。</p></div>
-              <div class="fact-box"><strong>注意</strong><p>景區範圍大，須結合環保車、索道或百龍天梯；若只安排一天，容易走馬看花。</p></div>
-            </div>
+      <article class="info-card">
+        <h3>鎌倉 · 江之島 · 熱海城 · 熱海海上花火大會</h3>
+        <div class="pill-row">
+          <span class="pill">私人包車 10小時</span>
+          <span class="pill">7/26（日）花火確定舉辦</span>
+          <span class="pill">20:15–20:40</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">交通方式</div>
+            <p>全程豪華7座私人包車，Airbnb往返，13:00出發，不需自行轉乘電車；鎌倉高校前僅作短暫下車拍照。</p>
           </div>
-          <div class="card-face back">
-            <div class="back-header">
-              <div>
-                <h3 class="back-title">張家界國家森林公園｜交通・訂票資訊</h3>
-              </div>
-              <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
-            </div>
-            <div class="back-intro">
-              <strong>景點簡介</strong>
-              <p class="info-text intro-static">張家界國家森林公園是世界自然遺產核心區，以石英砂岩峰林聞名。建議拆分 Day 3 與 Day 4 兩段，分別遊覽高位峰林（袁家界/天子山）與低位溪谷（黃石寨/金鞭溪）。
-			  位於中華人民共和國湖南省張家界市的國家森林公園。它是武陵源風景名勝區內的幾個國家公園之一。張家界國家森林公園面積一百三十平方公里，是中國第一個國家森林公園，建於1982年。
-			  </p>
-            </div>
-            <div class="info-grid">
-              <div class="info-box">
-                <div class="info-label">Day 3 建議路線</div>
-                <p class="info-text">袁家界（哈利路亞山、迷魂台）→ 天子山（御筆峰、賀龍公園）→ 百龍天梯下山。環保車及索道需另購票。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">Day 4 建議路線</div>
-                <p class="info-text">黃石寨（纜車上/下）→ 金鞭溪步道（全程約5.7km，輕鬆平路，約2小時）→ 楊家界可選遊。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">注意事項</div>
-                <p class="info-text">景區範圍大，結合環保車+索道+步行規劃。大門票¥227含4天有效；環保車另購¥80，索道另計。雨天路滑需注意。</p>
-              </div>
-			  
-			  <div class="info-box">
-                <div class="info-label">套票資訊</div>
-                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/101803-zhangjiajie-national-forest-park/" target="_blank" rel="noopener noreferrer">Klook 張家界國家森林公園門票↗</a> HKD$574</p>
-				<p class="info-text">
-					<br>
-					</p>
-			  </div>
-            </div>
+          <div class="info-box">
+            <div class="info-label">江之島</div>
+            <p>湘南地標小島，可遠眺富士山與相模灣，島上有江島神社、展望燈塔，建議視包車時間彈性安排停留長短。</p>
+          </div>
+          <div class="info-box">
+            <div class="info-label">熱海城</div>
+            <p>山丘上的展望型歷史主題觀光城堡，可俯瞰熱海灣，營業時間9:00–17:00，全年無休。</p>
+          </div>
+          <div class="info-box">
+            <div class="info-label">熱海花火會場</div>
+            <p>熱海灣（JR熱海駅步行約20分鐘），散場後周邊極度擁擠，包車直接接送可省去排隊；雨天照常舉行。</p>
           </div>
         </div>
       </article>
 
-      <!-- SPOT 3: 黃龍洞 -->
-      <article class="flip-wrap" data-spot-id="huanglong">
-        <div class="flip-inner">
-          <div class="card-face front">
-            <div class="spot-header">
-              <div>
-                <h3 class="spot-title">黃龍洞</h3>
-                <div class="pill-row">
-                  <span class="pill">武陵源</span>
-                  <span class="pill">酒店區約 15–20 分鐘</span>
-                  <span class="pill">建議遊覽 2–3 小時</span>
-                  <span class="pill">Klook 套票 HK$136</span>
-                </div>
-              </div>
-              <button class="flip-btn" type="button" data-flip-open>交通・訂票資訊</button>
-            </div>
-            <div class="gallery-shell">
-              <div class="gallery-hint">
-                <span>點擊圖片可放大 · 左右滑動查看更多</span>
-                <div class="gallery-dots" aria-hidden="true"></div>
-              </div>
-              <div class="gallery-scroll" data-gallery-id="huanglong">
-                <figure class="gallery-item" data-idx="0" data-full="https://upload.wikimedia.org/wikipedia/commons/1/1f/Huanglongdong.JPG" data-caption="黃龍洞鐘乳石大廳">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Huanglongdong.JPG" alt="黃龍洞鐘乳石大廳" width="1386" height="924" loading="lazy">
-                  <figcaption>黃龍洞鐘乳石大廳</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="1" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ecf498328e0520853d19c89f57f1c5928535dea0.jpg" data-caption="木橋與燈光區">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ecf498328e0520853d19c89f57f1c5928535dea0.jpg" alt="黃龍洞木橋步道與彩色燈光" width="3976" height="2652" loading="lazy">
-                  <figcaption>木橋與燈光區</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="2" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5bd0d0a65dcad47ad837c2274c9bacf7793dc960.jpg" data-caption="洞內高大石筍">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5bd0d0a65dcad47ad837c2274c9bacf7793dc960.jpg" alt="黃龍洞內大型石筍" width="750" height="750" loading="lazy">
-                  <figcaption>洞內高大石筍</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="3" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ecf498328e0520853d19c89f57f1c5928535dea0.jpg" data-caption="洞穴步道近景">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ecf498328e0520853d19c89f57f1c5928535dea0.jpg" alt="黃龍洞步道近景" width="3976" height="2652" loading="lazy">
-                  <figcaption>洞穴步道近景</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="card-cols">
-              <div class="fact-box"><strong>行程定位</strong><p>適合作為 Day 5 上午低強度景點，與寶峰湖組合後形成恢復型一天，減輕連續爬升負擔。</p></div>
-              <div class="fact-box"><strong>注意</strong><p>洞內地面偏濕滑、溫度較外面低，建議穿防滑鞋並帶薄外套。</p></div>
-            </div>
+      <article class="info-card">
+        <h3>表參道商圈（SIDAS／Maisen／明治神宮／Onodera）</h3>
+        <div class="pill-row">
+          <span class="pill">表參道站步行圈</span>
+          <span class="pill">分組行動</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">SIDAS Fitting Lab／Maisen（神宮前4-8-5）</div>
+            <p><a href="https://share.google/AscBOeRUM1YfxdWUR" target="_blank" rel="noopener noreferrer">地圖連結 ↗</a> 客製鞋墊檢測，建議預約時段。Maisen：<a href="https://tabelog.com/tw/tokyo/A1306/A130602/13001850/" target="_blank" rel="noopener noreferrer">Tabelog ↗</a></p>
+            <span class="metro-tag">🚇 表參道駅 A2出口 步行約2–3分鐘</span>
           </div>
-          <div class="card-face back">
-            <div class="back-header">
-              <div>
-                <h3 class="back-title">黃龍洞｜交通・訂票資訊</h3>
-              </div>
-              <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
-            </div>
-            <div class="back-intro">
-              <strong>景點簡介</strong>
-              <p class="info-text intro-static">亞洲最大的溶洞之一，洞內面積逾10萬平方米，以定海神針、龍宮等景觀著名。適合 Day 5 上午安排，配合下午寶峰湖組成輕鬆恢復日。</p>
-            </div>
-            <div class="info-grid">
-              <div class="info-box">
-                <div class="info-label">交通安排</div>
-                <p class="info-text">由武陵源景區酒店乘景區環保車或打車約15-20分鐘可達。門票¥100，含導覽約1.5-2小時。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">遊覽重點</div>
-                <p class="info-text">定海神針（世界最高石筍）、龍宮水景、天柱廳、迷宮景觀。洞內有船遊部分路段。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">注意事項</div>
-                <p class="info-text">洞內地面濕滑，建議穿防滑鞋。溫度較外面低約5°C，帶薄外套。攝影三腳架禁止攜入。</p>
-              </div>
-			  
-			  <div class="info-box">
-                <div class="info-label">套票資訊</div>
-                <p class="info-text"><a href="https://hk.trip.com/travel-guide/attraction/zhangjiajie/huanglong-cave-75851/" target="_blank" rel="noopener noreferrer">Trip.com 黃龍洞景區門票 ↗</a> HKD$136</p>
-				<p class="info-text">					</p>
-			  </div>
-            </div>
+          <div class="info-box">
+            <div class="info-label">明治神宮</div>
+            <p>境內中央御社殿，由各參道口步行約10分鐘。</p>
+            <span class="metro-tag">🚇 千代田線／副都心線「明治神宮前〈原宿〉駅」2號出口（北參道）步行約3分；或JR山手線「原宿駅」表參道口（南參道）即達</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">Onodera 表參道（神宮前5-1-6）</div>
+            <p>廻轉鮨形式，全日 10:30–22:30 營業，一般無需預約。<a href="https://tabelog.com/tw/tokyo/A1306/A130602/13264172/" target="_blank" rel="noopener noreferrer">Tabelog ↗</a></p>
+            <span class="metro-tag">🚇 銀座線／千代田線／半藏門線 表參道駅 A2出口 步行約3–5分鐘</span>
           </div>
         </div>
       </article>
 
-      <!-- SPOT 4: 寶峰湖 -->
-      <article class="flip-wrap" data-spot-id="baofeng">
-        <div class="flip-inner">
-          <div class="card-face front">
-            <div class="spot-header">
-              <div>
-                <h3 class="spot-title">寶峰湖</h3>
-                <div class="pill-row">
-                  <span class="pill">武陵源</span>
-                  <span class="pill">酒店區約 15–20 分鐘</span>
-                  <span class="pill">建議遊覽 1.5–2.5 小時</span>
-                  <span class="pill">Klook 套票 HK$127</span>
-                </div>
-              </div>
-              <button class="flip-btn" type="button" data-flip-open>交通・訂票資訊</button>
-            </div>
-            <div class="gallery-shell">
-              <div class="gallery-hint">
-                <span>點擊圖片可放大 · 左右滑動查看更多</span>
-                <div class="gallery-dots" aria-hidden="true"></div>
-              </div>
-              <div class="gallery-scroll" data-gallery-id="baofeng">
-                <figure class="gallery-item" data-idx="0" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b1fd8318fd7a8a0fbd4c1c279f96c79d7fedce8b.jpg" data-caption="寶峰湖主湖景">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b1fd8318fd7a8a0fbd4c1c279f96c79d7fedce8b.jpg" alt="寶峰湖主湖景" width="900" height="600" loading="lazy">
-                  <figcaption>寶峰湖主湖景</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="1" data-full="https://dimg04.c-ctrip.com/images/10040y000000m0hsm0A6A_Q90.jpg" data-caption="湖面">
-                  <img src="https://dimg04.c-ctrip.com/images/10040y000000m0hsm0A6A_Q90.jpg" alt="寶峰湖湖面" width="4410" height="2867" loading="lazy">
-                  <figcaption>湖面</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="2" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c5bb143f793e74cad3da6f9ab46f636d9ecd0f9.jpg" data-caption="湖邊船景">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c5bb143f793e74cad3da6f9ab46f636d9ecd0f9.jpg" alt="寶峰湖湖邊船景" width="800" height="534" loading="lazy">
-                  <figcaption>湖邊船景</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="3" data-full="https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/extslfthfzmqmaqjjbqc/%E5%AF%B6%E5%B3%AF%E6%B9%96%E6%99%AF%E5%8D%80%E5%A5%97%E7%A5%A8%EF%BC%88%E9%96%80%E7%A5%A8%E9%81%8A%E8%88%B9%EF%BC%89-Klook%E9%A6%99%E6%B8%AF.jpg" data-caption="湖面遠景">
-                  <img src="https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/extslfthfzmqmaqjjbqc/%E5%AF%B6%E5%B3%AF%E6%B9%96%E6%99%AF%E5%8D%80%E5%A5%97%E7%A5%A8%EF%BC%88%E9%96%80%E7%A5%A8%E9%81%8A%E8%88%B9%EF%BC%89-Klook%E9%A6%99%E6%B8%AF.jpg" alt="寶峰湖山水" width="1200" height="630" loading="lazy">
-                  <figcaption>湖面遠景</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="card-cols">
-              <div class="fact-box"><strong>行程定位</strong><p>適合作為 Day 5 下午搭配黃龍洞，以遊船與湖景為主，整體強度低，適合放鬆恢復。</p></div>
-              <div class="fact-box"><strong>注意</strong><p>若天氣陰霧，湖景氛圍更佳；若風大或落雨，拍照效果與等船時間可能受影響。</p></div>
-            </div>
+      <article class="info-card">
+        <h3>皮褸巡店路線：上野 → 惠比壽 → 神宮前</h3>
+        <div class="pill-row">
+          <span class="pill">7/27（一）個人／自由參加</span>
+          <span class="pill">不走回頭路</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">① AMERICAYA GENERAL GARDEN（Aero Leather）</div>
+            <p>上野6-10-22，10:30–20:00全年無休。</p>
+            <span class="metro-tag">🚇 JR上野駅不忍口／中央改札 步行約5分；或銀座線「上野廣小路」步行約3分</span>
           </div>
-          <div class="card-face back">
-            <div class="back-header">
-              <div>
-                <h3 class="back-title">寶峰湖｜交通・訂票資訊</h3>
-              </div>
-              <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
-            </div>
-            <div class="back-intro">
-              <strong>景點簡介</strong>
-              <p class="info-text intro-static">寶峯湖為攔峽建壩修築而成的人工湖，海拔400多米，水面達30公頃、水深72米，水闊處150公尺、長2.5公里、蓄水量400多萬立方公尺。寶峰湖四面環山，湖面平靜寬廣，湖水清澈見底
-			  <br>人工湖與峰林結合的湖光山色景觀，以遊船穿梭峽谷著名。適合 Day 5 下午搭配黃龍洞，整體強度低，適合恢復型半天遊。</p>
-            </div>
-            <div class="info-grid">
-              <div class="info-box">
-                <div class="info-label">交通安排</div>
-                <p class="info-text">由黃龍洞打車或景區環保車約10分鐘。門票¥82含遊船，遊覽約1-1.5小時。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">遊覽重點</div>
-                <p class="info-text">峽谷遊船（約30分鐘）、湖畔步道、土家族表演（部分時段有）</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">注意事項</div>
-                <p class="info-text">陰霧天氣湖景氛圍更佳。若風大或落雨，拍照效果與等船時間可能受影響。船班約每30分鐘一班。</p>
-              </div>
-			
-				<div class="info-box">
-                <div class="info-label">套票資訊</div>
-                <p class="info-text"><a href="https://hk.trip.com/travel-guide/attraction/zhangjiajie/baofeng-lake-10558605/" target="_blank" rel="noopener noreferrer">Trip.com 寶峯湖景點門票↗</a> HKD$127</p>
-				<p class="info-text">
-					<br>
-					</p>
-			  </div>
-			  
-			  
-            </div>
+          <div class="info-box">
+            <div class="info-label">② JELADO Flagship Store</div>
+            <p>惠比壽西1-20-3 三信ビル2F（2025年新址），12:00–19:00，<strong>星期四公休</strong>（27/7為星期一，正常營業）。</p>
+            <span class="metro-tag">🚇 JR／日比谷線「惠比壽駅」4號出口 步行約1分鐘</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">③ The Real McCoy's</div>
+            <p>神宮前6-25-8 B1F，12:00–20:00全年無休。終點與🅰🅱兩組行程同區，方便會合。</p>
+            <span class="metro-tag">🚇 千代田線／副都心線「明治神宮前〈原宿〉駅」步行約3–4分；或JR原宿駅步行約5分</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">站間銜接</div>
+            <p>上野→惠比壽：JR山手線直達約20分鐘不用轉車；惠比壽→原宿：山手線再2站約6分鐘。全程沿同一方向前進，不需回頭。</p>
           </div>
         </div>
       </article>
 
-      <!-- SPOT 5: 大峽谷玻璃橋 -->
-      <article class="flip-wrap" data-spot-id="canyon">
-        <div class="flip-inner">
-          <div class="card-face front">
-            <div class="spot-header">
-              <div>
-                <h3 class="spot-title">張家界大峽谷玻璃橋</h3>
-                <div class="pill-row">
-                  <span class="pill">慈利方向</span>
-                  <span class="pill">武陵源出發約 50–70 分鐘</span>
-                  <span class="pill">建議遊覽 3–5 小時</span>
-                  <span class="pill">Klook 套票 HK$205</span>
-                </div>
-              </div>
-              <button class="flip-btn" type="button" data-flip-open>交通・訂票資訊</button>
-            </div>
-            <div class="gallery-shell">
-              <div class="gallery-hint">
-                <span>點擊圖片可放大 · 左右滑動查看更多</span>
-                <div class="gallery-dots" aria-hidden="true"></div>
-              </div>
-              <div class="gallery-scroll" data-gallery-id="canyon">
-                <figure class="gallery-item" data-idx="0" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ff87728e0ab7d67642d55165bcdc8ce387b80264.jpg" data-caption="大峽谷玻璃橋全景">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ff87728e0ab7d67642d55165bcdc8ce387b80264.jpg" alt="大峽谷玻璃橋全景" width="2364" height="1689" loading="lazy">
-                  <figcaption>大峽谷玻璃橋全景</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="1" data-full="https://upload.wikimedia.org/wikipedia/commons/1/13/ZhangjiajieGlassByHighestBridges.jpg" data-caption="橋上人流視角">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/ZhangjiajieGlassByHighestBridges.jpg" alt="玻璃橋上遊客視角" width="5184" height="3456" loading="lazy">
-                  <figcaption>橋上人流視角</figcaption>
-                </figure>
-                <figure class="gallery-item" data-idx="2" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1b3793124843857f57f8cc2e0b17253692ab5490.jpg" data-caption="峽谷深度與透明橋面">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1b3793124843857f57f8cc2e0b17253692ab5490.jpg" alt="玻璃橋透明橋面與峽谷" width="1205" height="904" loading="lazy">
-                  <figcaption>峽谷深度與透明橋面</figcaption>
-                </figure>
-                <!--<figure class="gallery-item" data-idx="3" data-full="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ff87728e0ab7d67642d55165bcdc8ce387b80264.jpg" data-caption="空拍廣角">
-                  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ff87728e0ab7d67642d55165bcdc8ce387b80264.jpg" alt="大峽谷玻璃橋空拍" width="2364" height="1689" loading="lazy">
-                  <figcaption>空拍廣角</figcaption>
-                </figure>-->
-              </div>
-            </div>
-            <div class="card-cols">
-              <div class="fact-box"><strong>行程定位</strong><p>適合作為 Day 6 半天至大半天重點行程，完成後回永定區，為返程預留充足緩衝。</p></div>
-              <div class="fact-box"><strong>注意</strong><p>如遇風雨或霧大，橋上體驗可能受影響；建議預約早段時間，週一至五人較少。</p></div>
-            </div>
+      <article class="info-card">
+        <h3>東京迪士尼海洋</h3>
+        <div class="pill-row">
+          <span class="pill">官方 9:00–21:00</span>
+          <span class="pill">實際常提早開園</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">最近車站</div>
+            <p>JR京葉線／武蔵野線「舞浜駅」下車，轉乘園區單軌電車 Disney Resort Line 一站即達東京迪士尼海洋駅。</p>
+            <span class="metro-tag">🚇 JR京葉線 舞浜駅 ＋ Disney Resort Line</span>
           </div>
-          <div class="card-face back">
-            <div class="back-header">
-              <div>
-                <h3 class="back-title">大峽谷玻璃橋｜交通・訂票資訊</h3>
-              </div>
-              <button class="flip-btn back-btn" type="button" data-flip-close>返回正面</button>
-            </div>
-            <div class="back-intro">
-              <strong>景點簡介</strong>
-              <p class="info-text intro-static">世界最長、最高玻璃橋之一，全長430米，橋面高達300米。適合 Day 6 上午重點行程，完成後回永定區休整，為 Day 7 返港預留緩衝。</p>
-            </div>
-            <div class="info-grid">
-              <div class="info-box">
-                <div class="info-label">交通安排</div>
-                <p class="info-text">由武陵源打車約50-70分鐘至張家界大峽谷景區。建議提前一周於官網或攜程預約，早場人較少。門票¥128-141。</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">遊覽重點</div>
-                <p class="info-text">玻璃橋步行（建議留45-60分鐘）、峽谷步道、高空秋千（另收費）</p>
-              </div>
-              <div class="info-box">
-                <div class="info-label">注意事項</div>
-                <p class="info-text">遇風雨或霧大橋上體驗受影響。禁止攜帶尖銳物品上橋。畏高人士慎選。週一至五人流明顯較少。</p>
-              </div>
-			  <div class="info-box">
-                <div class="info-label">套票資訊</div>
-                <p class="info-text"><a href="https://www.klook.com/zh-HK/activity/6602-grand-canyon-glass-bridge-tickets-zhangjiajie/" target="_blank" rel="noopener noreferrer">Klook 張家界大峽谷玻璃橋景區門票 ↗</a> HKD$205</p>
-				<p class="info-text">				</p>
-			  </div>
-			  
-            </div>
+          <div class="info-box"><div class="info-label">開園提醒</div><p>現場實際開園常較官方公告提早至8:45，且遇颱風等天候不佳可能縮短營業時間，建議事前於官方App確認DPA供應狀況。</p></div>
+        </div>
+      </article>
+
+      <article class="info-card">
+        <h3>淺草寺 · 晴空塔 · 寶可夢中心</h3>
+        <div class="pill-row">
+          <span class="pill">淺草寺免費參拜</span>
+          <span class="pill">晴空塔 10:00–22:00</span>
+          <span class="pill">寶可夢中心 10:00–21:00</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">淺草寺</div>
+            <p>雷門／仲見世通方向。</p>
+            <span class="metro-tag">🚇 銀座線／東武晴空塔線／筑波快線「淺草駅」步行約5分；或都營淺草線「淺草駅」A4出口步行約5分</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">晴空塔 ＋ 寶可夢中心</div>
+            <p>寶可夢中心位於晴空塔城·索拉瑪奇東區4樓。淺草寺步行至晴空塔約15–20分鐘，搭電車僅約3–4分鐘。</p>
+            <span class="metro-tag">🚇 東武晴空塔線「とうきょうスカイツリー駅」直達；或半藏門線／都營淺草線／京成押上線「押上駅」B3或A2出口 直通塔城</span>
           </div>
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- BUDGET -->
-<section class="section" id="budget">
-  <div class="container">
-    <div class="section-head">
-      <h2>預算試算</h2>
-      <p>支援 CNY / HKD 即時換算，住宿、交通與人數可即時調整。預設以 2 位成人、6 晚計算。</p>
-    </div>
-    <div class="budget-grid">
-
-      <!-- 第1欄：景點門票 -->
-      <div class="budget-card">
-        <h3>景點門票</h3>
-        <div class="budget-table">
-          <div class="budget-row ticket-row">
-            <span>天門山</span>
-            <label class="ticket-check">
-              <input type="checkbox" id="tk_tianmen" data-hkd="332" checked>
-              <span>HK$332</span>
-            </label>
+      <article class="info-card">
+        <h3>箱根：蘆之湖 · 大涌谷 · 雕刻之森 · 箱根神社</h3>
+        <div class="pill-row">
+          <span class="pill">私人包車 10小時</span>
+          <span class="pill">出發時間待確認</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">交通方式</div>
+            <p>全程豪華7座私人包車，Airbnb往返，不需自行轉乘登山電車／纜車，超時費¥5,000日圓/小時。</p>
           </div>
-          <div class="budget-row ticket-row">
-            <span>張家界國家森林公園</span>
-            <label class="ticket-check">
-              <input type="checkbox" id="tk_forest" data-hkd="574" checked>
-              <span>HK$574</span>
-            </label>
+          <div class="info-box">
+            <div class="info-label">蘆之湖遊船（箱根海賊船）</div>
+            <p>桃源台港⇄箱根町港⇄元箱根港，航程約25–40分鐘；元箱根港方向可在船上遠眺箱根神社水中鳥居與富士山。</p>
           </div>
-          <div class="budget-row ticket-row">
-            <span>黃龍洞</span>
-            <label class="ticket-check">
-              <input type="checkbox" id="tk_huanglong" data-hkd="136" checked>
-              <span>HK$136</span>
-            </label>
+          <div class="info-box">
+            <div class="info-label">大涌谷</div>
+            <p>火山地熱景觀、黑蛋名物；纜車自2026年4月起全線通年運行，但強風、雷雨或火山氣體濃度異常時會臨時停駛，包車若遇停駛可改由公路直接接駁。</p>
           </div>
-          <div class="budget-row ticket-row">
-            <span>寶峰湖</span>
-            <label class="ticket-check">
-              <input type="checkbox" id="tk_baofeng" data-hkd="127" checked>
-              <span>HK$127</span>
-            </label>
+          <div class="info-box">
+            <div class="info-label">箱根雕刻之森美術館</div>
+            <p>戶外雕塑美術館，9:00–17:00開館，入館至閉館前30分鐘為止，全年無休。</p>
           </div>
-          <div class="budget-row ticket-row">
-            <span>大峽谷玻璃橋</span>
-            <label class="ticket-check">
-              <input type="checkbox" id="tk_canyon" data-hkd="205" checked>
-              <span>HK$205</span>
-            </label>
-          </div>
-          <div class="budget-row total">
-            <span>門票小計（全團）</span>
-            <span id="ticketSubtotal">HK$2,748</span>
+          <div class="info-box">
+            <div class="info-label">箱根神社</div>
+            <p>湖畔古神社，水中鳥居為地標，境內免費參拜。</p>
           </div>
         </div>
-        <p class="budget-footnote">勾選出行景點，金額將乘以人數計入總預算。</p>
-      </div>
-
-      <!-- 第2欄：輸入參數 -->
-      <div class="budget-card">
-        <h3>輸入參數</h3>
-        <div class="budget-controls">
-          <div class="form-group">
-            <label for="travelerCount">人數</label>
-            <input id="travelerCount" class="input" type="number" min="1" value="2">
-          </div>
-          <div class="form-group">
-            <label for="nightCount">住宿晚數</label>
-            <input id="nightCount" class="input" type="number" min="1" value="6">
-          </div>
-          <div class="form-group">
-            <label for="hotelPerNight">每晚酒店（CNY）</label>
-            <input id="hotelPerNight" class="input" type="number" min="0" value="500">
-          </div>
-          <div class="form-group">
-            <label for="localTraffic">當地交通（CNY / 全團）</label>
-            <input id="localTraffic" class="input" type="number" min="0" value="600">
-          </div>
-          <div class="form-group">
-            <label for="transportMode">香港往返方式</label>
-            <select id="transportMode" class="select">
-              <option value="flight">飛機來回（HK$2,500 / 人）</option>
-              <option value="rail">高鐵估算（HK$1,674 / 人）</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="fxRate">匯率（1 CNY → HKD）</label>
-            <input id="fxRate" class="input" type="number" min="0.5" step="0.001" value="1.1208">
-          </div>
-          <div class="form-group">
-            <label for="currencyMode">顯示貨幣</label>
-            <select id="currencyMode" class="select">
-              <option value="CNY">CNY</option>
-              <option value="HKD">HKD</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第3欄：預算結果 -->
-      <div class="budget-card">
-        <h3>預算結果</h3>
-        <div class="budget-table" id="budgetTable">
-          <div class="budget-row"><span>核心門票</span><span id="ticketCost">-</span></div>
-          <div class="budget-row"><span>香港往返交通</span><span id="crossBorderCost">-</span></div>
-          <div class="budget-row"><span>當地交通</span><span id="localTrafficCost">-</span></div>
-          <div class="budget-row"><span>住宿</span><span id="hotelCost">-</span></div>
-          <div class="budget-row total"><span>總計（估算）</span><span id="totalCost">-</span></div>
-          <div class="budget-row"><span>每人平均</span><span id="perPersonCost">-</span></div>
-        </div>
-        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.1208 HKD（2026-07 參考），可於「輸入參數」自行調整。門票以 HKD 計，其餘費用以 CNY 換算。</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- STAY -->
-<section class="section" id="stay">
-  <div class="container">
-    <div class="section-head">
-      <h2>住宿推介</h2>
-      <p>以雙基地節奏為基礎：前後兩晚住永定區，中段四晚住武陵源。</p>
-    </div>
-    <div class="hotel-grid">
-      <article class="hotel-card">
-        <h3>永定區住宿策略</h3>
-        <ul class="hotel-points">
-          <li>適合 Day 1 抵達夜與 Day 6 回程前夜，貼近機場、高鐵站及天門山索道。</li>
-          <li>優先選擇距離天門山索道站或市中心車程 15 分鐘內的酒店。</li>
-          <li>推介：張家界錦江國際酒店（永定區核心）、維也納酒店（性價比首選）。</li>
-          <li>若返程較早，永定區可顯著降低晨間轉乘風險。</li>
-        </ul>
       </article>
-      <article class="hotel-card">
-        <h3>武陵源住宿策略</h3>
-        <ul class="hotel-points">
-          <li>適合 Day 2 晚至 Day 5 晚，接近張家界國家森林公園、黃龍洞、寶峰湖。</li>
-          <li>建議選景區東門 / 標誌門一帶，餐飲與出行配套較完整。</li>
-          <li>推介：張家界青和國際酒店（武陵源核心，步行景區）、碧桂園鳳凰酒店（景觀較佳）。</li>
-          <li>若重視效率，可選步行可達上車點的酒店；若重視舒適度，選精品度假型。</li>
-        </ul>
+
+      <article class="info-card">
+        <h3>神保町 · 東京站 · 日本橋 · 銀座路線</h3>
+        <div class="pill-row">
+          <span class="pill">7/31 Eunice + Joan 分組路線</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">神保町書街 · BUNGUBOX（BBX）</div>
+            <p><a href="https://www.google.com/maps/place/BUNGUBOX/@35.6973649,139.7571425,17z" target="_blank" rel="noopener noreferrer">Google Maps ↗</a> 神保町特色文具選物店，位於靖國通沿線古書街。</p>
+            <span class="metro-tag">🚇 半藏門線／都營三田線／都營新宿線「神保町駅」A7出口方向 步行約3–5分鐘</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">東京站 · traveler's factory</div>
+            <p>TRAVELER'S FACTORY STATION 位於東京駅「Gransta丸之內」地下1樓改札外，丸之內北口即達。</p>
+            <span class="metro-tag">🚇 JR各線／東京Metro丸之內線「東京駅」丸之內北口 出站即達</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">丸善 日本橋店</div>
+            <p>東京Metro銀座線「日本橋駅」B3出口直結，步行約1分鐘。</p>
+            <span class="metro-tag">🚇 銀座線／東西線「日本橋駅」B3出口</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">日本橋三越本店</div>
+            <p>與地鐵站直結，出站即達，無需出地面。</p>
+            <span class="metro-tag">🚇 銀座線／半藏門線「三越前駅」直結出口 步行約1分鐘</span>
+          </div>
+          <div class="info-box">
+            <div class="info-label">itoya 銀座本店</div>
+            <p>銀座中央通，紅色迴紋針招牌為地標。</p>
+            <span class="metro-tag">🚇 有樂町線「銀座一丁目駅」8號出口 步行約1分鐘；或銀座線／丸之內線／日比谷線「銀座駅」A13出口 步行約3分鐘</span>
+          </div>
+        </div>
       </article>
+
+      <article class="info-card">
+        <h3>酒酒井 Premium Outlet ⇄ 成田機場</h3>
+        <div class="pill-row">
+          <span class="pill">8/1 私人專車送Outlet</span>
+          <span class="pill">計畫可能調整</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">去程：Airbnb → Outlet</div>
+            <p>私人專車（10座海獅）單程直送，出發時間待確認，免費等待30分鐘。</p>
+          </div>
+          <div class="info-box">
+            <div class="info-label">回程：Outlet → 機場（暫定自理）</div>
+            <p>暫定自行搭乘酒酒井⇄機場接駁巴士，T1第30號／T2第3號乘車處，單程¥1,300，無需預約、先到先上車；原定15:45有一班，需視抵達Outlet時間再確認是否趕得上。</p>
+          </div>
+          <div class="info-box">
+            <div class="info-label">成田機場車站</div>
+            <p>機場本身另有JR成田線、京成本線「成田空港駅」（第1航廈）／「空港第2ビル駅」（第2航廈）可轉乘市區，非本次行程使用。</p>
+            <span class="metro-tag">🚇 JR成田線／京成本線</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1328,58 +624,46 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   <div class="container">
     <div class="section-head">
       <h2>需注意事項</h2>
-      <p>10 月中旬整體屬理想季節，但山區天氣與交通安排仍需保留備援。</p>
+      <p>7月下旬東京炎熱潮濕，部分日子分組行動，出發前建議再確認以下重點。</p>
     </div>
     <div class="warn-grid">
       <article class="warn-card">
         <h3>氣候與裝備</h3>
-        <ul class="hotel-points">
-          <li>早晚溫差明顯（18–24°C），建議洋蔥式穿搭，備薄外套與防滑鞋。</li>
-          <li>山區可能突然起霧或落雨，手機防水袋與輕便雨具實用。</li>
-          <li>連續兩天山區步行後，安排一日低強度景點（如黃龍洞 + 寶峰湖）有助恢復。</li>
-          <li>天門山與大峽谷玻璃橋高空區域風大，需注意保暖。</li>
+        <ul class="info-points">
+          <li>7月下旬東京日均高溫約31–34°C，濕度大，慎防中暑，建議隨身攜帶水及防曬用品。</li>
+          <li>熱海花火大會、箱根戶外行程日照時間長，建議準備帽子、風扇及濕紙巾。</li>
+          <li>迪士尼海洋、箱根一日遊皆為長時間戶外活動，建議穿著舒適防滑鞋。</li>
         </ul>
       </article>
       <article class="warn-card">
-        <h3>訂票與節奏</h3>
-        <ul class="hotel-points">
-          <li>天門山與大峽谷玻璃橋宜提前預約早段時段，降低排隊風險。</li>
-          <li>張家界國家森林公園範圍大，不建議把高位與低位景點擠在同一天。</li>
-          <li>返程日前一晚留在永定區，可降低交通延誤對航班 / 高鐵的影響。</li>
-          <li>10 月中旬國慶假期已過，人潮較少，景區體驗相對舒適。</li>
+        <h3>分組行動與訂位提醒</h3>
+        <ul class="info-points">
+          <li>27/7 分組已確認：🅰 Cherry + LokSang；🅱 Lyann + Eunice + duodu + Joan；🅲 皮褸巡店（個人／自由參加，上野→惠比壽→神宮前）。31/7 分組：🅰 Eunice + Joan；🅱 Lyann + Cherry + LokSang + duodu。</li>
+          <li>皮褸巡店建議10:30準時到上野開店，若延誤將壓縮到JELADO（12:00開店）與Real McCoy's的時間；全程約3.5–4小時，14:00左右可在神宮前與🅰🅱組會合。</li>
+          <li>Onodera 表參道為迴轉壽司形式，一般免預約；如改為坐席套餐用餐，建議提前致電確認。</li>
+          <li>迪士尼海洋建議入園前於官方App完成優先入場預約，旺季DPA售罄速度快。</li>
+          <li>7/26、7/30 為私人包車，若行程超過約定10小時需支付¥5,000日圓/小時超時費，建議預留緩衝、避免拖點。</li>
+          <li>8/1 專車送Outlet後改自行搭接駁巴士回機場的安排屬暫定，務必在出發前與家人／司機再次確認，避免銜接不上18:30航班。</li>
         </ul>
       </article>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="container">
-    張家界 14/10 – 20/10 旅行計劃 · 景點卡可翻轉查看交通與訂票詳情 · 點擊圖片放大 · 深色模式可切換
+    東京 7/25 – 8/1 家庭旅行計劃（6位成員）· 27/7、31/7 為分組行動日 · 7/26、7/30、8/1 含私人包車 · 資料整理自行程Excel、接送訂單並核實景點交通與開放時間 · 深色模式可切換
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="圖片放大檢視">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" type="button" aria-label="關閉">×</button>
-    <button class="lb-nav lb-prev" type="button" aria-label="上一張">‹</button>
-    <img id="lightboxImg" src="" alt="">
-    <button class="lb-nav lb-next" type="button" aria-label="下一張">›</button>
-    <p class="lightbox-caption" id="lightboxCaption"></p>
-  </div>
-</div>
-
-</main>
 <script>
-
 /* ===== THEME TOGGLE ===== */
 (function(){
   const t = document.querySelector('[data-theme-toggle]');
   const r = document.documentElement;
-  let saved = null;
-  try { saved = localStorage.getItem('zjj-theme'); } catch(e){}
-  let d = 'light'
+  let d = 'light';
   r.setAttribute('data-theme', d);
   if(!t) return;
   const setIcon = (mode) => {
@@ -1395,239 +679,6 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   });
 })();
 
-/* ===== FLIP CARDS ===== */
-/* FIX: syncHeight ensures flip-inner is tall enough for back face */
-function syncFlipHeight(wrap) {
-  const inner = wrap.querySelector('.flip-inner');
-  const front = wrap.querySelector('.card-face.front');
-  const back  = wrap.querySelector('.card-face.back');
-  if (!front || !back || !inner) return;
-  // Reset so measurement is natural
-  inner.style.minHeight = '';
-  back.style.overflowY = 'hidden';
-  const fh = front.scrollHeight;
-  const bh = back.scrollHeight;
-  inner.style.minHeight = Math.max(fh, bh) + 'px';
-  back.style.overflowY = 'auto';
-}
-
-document.querySelectorAll('.flip-wrap').forEach(wrap => {
-  const inner = wrap.querySelector('.flip-inner');
-  const openBtn = wrap.querySelector('[data-flip-open]');
-  const closeBtn = wrap.querySelector('[data-flip-close]');
-
-  syncFlipHeight(wrap);
-
-  openBtn && openBtn.addEventListener('click', () => {
-    wrap.classList.add('is-flipped');
-    syncFlipHeight(wrap);
-    // 翻轉後將焦點移至返回按鈕（鍵盤操作友善）
-    setTimeout(() => {
-      const c = wrap.querySelector('[data-flip-close]');
-      if (c) c.focus();
-    }, 740);
-  });
-
-  closeBtn && closeBtn.addEventListener('click', () => {
-    wrap.classList.remove('is-flipped');
-  });
-});
-
-
-/* ===== LIGHTBOX ===== */
-const lb        = document.getElementById('lightbox');
-const lbImg     = document.getElementById('lightboxImg');
-const lbCaption = document.getElementById('lightboxCaption');
-const lbClose   = lb ? lb.querySelector('.lightbox-close') : null;
-const lbPrev    = lb ? lb.querySelector('.lb-prev') : null;
-const lbNext    = lb ? lb.querySelector('.lb-next') : null;
-
-let lbItems = [];   // all figures in current gallery
-let lbIdx   = 0;
-
-function openLightbox(figure) {
-  const galleryScroll = figure.closest('.gallery-scroll');
-  lbItems = galleryScroll ? Array.from(galleryScroll.querySelectorAll('.gallery-item')) : [figure];
-  lbIdx   = lbItems.indexOf(figure);
-  showLbItem(lbIdx);
-  lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  lbClose && lbClose.focus();
-}
-
-function showLbItem(i) {
-  if (window.lbMapMode) {
-    const slides = window.lbMapSlides;
-    window.lbMapCur = (i + slides.length) % slides.length;
-    const s = slides[window.lbMapCur];
-    lbImg.src = s.url;
-    lbImg.alt = s.caption;
-    lbCaption.textContent = s.caption;
-  } else {
-    lbIdx = (i + lbItems.length) % lbItems.length;
-    const fig = lbItems[lbIdx];
-    lbImg.src = fig.dataset.full || fig.querySelector('img').src;
-    lbImg.alt = fig.querySelector('img').alt;
-    lbCaption.textContent = fig.dataset.caption;
-  }
-  	const isPng = lbImg.src && lbImg.src.includes('tripcdn.com');
-	lbImg.style.background = isPng ? '#ffffff' : 'transparent';
-	lbImg.style.borderRadius = isPng ? '8px' : '';
-}
-
-function closeLightbox() {
-  lb.classList.remove('open');
-  document.body.style.overflow = '';
-  window.lbMapMode = false; 
-}
-
-document.querySelectorAll('.gallery-item').forEach(fig => {
-  fig.addEventListener('click', () => openLightbox(fig));
-  fig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(fig); }});
-});
-
-/* ── 相簿指示點：依圖片數動態生成 + IntersectionObserver 同步 ── */
-(function(){
-  document.querySelectorAll('.gallery-scroll').forEach(scroll => {
-    const items = Array.from(scroll.querySelectorAll('.gallery-item'));
-    const shell = scroll.closest('.gallery-shell');
-    const dotsWrap = shell ? shell.querySelector('.gallery-dots') : null;
-    if (!dotsWrap || !items.length) return;
-    dotsWrap.innerHTML = '';
-    items.forEach((_, i) => {
-      const d = document.createElement('span');
-      d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-      dotsWrap.appendChild(d);
-    });
-    if (!('IntersectionObserver' in window)) return; // 舊環境降級：不同步但不中斷後續腳本
-    const dots = dotsWrap.querySelectorAll('.gallery-dot');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const idx = items.indexOf(entry.target);
-          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-        }
-      });
-    }, { root: scroll, threshold: 0.6 });
-    items.forEach(item => obs.observe(item));
-  });
-})();
-
-lbClose && lbClose.addEventListener('click', closeLightbox);
-lbPrev && lbPrev.addEventListener('click', () => {
-  if (window.lbMapMode) showLbItem(window.lbMapCur - 1);
-  else showLbItem(lbIdx - 1);
-});
-lbNext && lbNext.addEventListener('click', () => {
-  if (window.lbMapMode) showLbItem(window.lbMapCur + 1);
-  else showLbItem(lbIdx + 1);
-});
-
-lb && lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-
-/* ── Mobile swipe support for lightbox ── */
-(function(){
-  if (!lb) return;
-  let touchStartX = 0, touchStartY = 0;
-  lb.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-  }, {passive:true});
-  lb.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].screenX - touchStartX;
-    const dy = e.changedTouches[0].screenY - touchStartY;
-    if (Math.abs(dx) < 30 || Math.abs(dy) > Math.abs(dx)) return; // ignore taps & vertical swipes
-    if (dx < 0) { // swipe left → next
-      if (window.lbMapMode) showLbItem(window.lbMapCur + 1);
-      else showLbItem(lbIdx + 1);
-    } else { // swipe right → prev
-      if (window.lbMapMode) showLbItem(window.lbMapCur - 1);
-      else showLbItem(lbIdx - 1);
-    }
-  }, {passive:true});
-})();
-document.addEventListener('keydown', e => {
-  if (!lb || !lb.classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft')  {
-    if (window.lbMapMode) showLbItem(window.lbMapCur - 1);
-    else showLbItem(lbIdx - 1);
-  }
-  if (e.key === 'ArrowRight') {
-    if (window.lbMapMode) showLbItem(window.lbMapCur + 1);
-    else showLbItem(lbIdx + 1);
-  }
-});
-
-/* ===== BUDGET CALCULATOR ===== */
-// 匯率改由「輸入參數」的 #fxRate 欄位讀取（預設 1.1208，2026-07 參考價）
-
-function calcTicketSubtotal() {
-  const checkboxes = document.querySelectorAll('.ticket-check input[type="checkbox"]');
-  let totalHKD = 0;
-  checkboxes.forEach(cb => { if (cb.checked) totalHKD += parseFloat(cb.dataset.hkd) || 0; });
-  return totalHKD;
-}
-
-function calcBudget() {
-  const CNYTOHKD     = parseFloat(document.getElementById('fxRate')?.value) || 1.1208;
-  const travelers    = parseInt(document.getElementById('travelerCount')?.value)  || 2;
-  const nights       = parseInt(document.getElementById('nightCount')?.value)     || 6;
-  const hotelNight   = parseFloat(document.getElementById('hotelPerNight')?.value)|| 500;
-  const localT       = parseFloat(document.getElementById('localTraffic')?.value) || 600;
-  const transport    = document.getElementById('transportMode')?.value  || 'flight';
-  const currency     = document.getElementById('currencyMode')?.value   || 'CNY';
-
-  const HKD_PER_PERSON   = transport === 'flight' ? 2500 : 1674;
-  const crossBorderHKD   = HKD_PER_PERSON * travelers;
-  const crossBorderCNY   = crossBorderHKD / CNYTOHKD;
-
-  // 景點門票：HKD 小計 × 人數，再換算 CNY
-  const ticketPerPersonHKD = calcTicketSubtotal();
-  const ticketTotalHKD     = ticketPerPersonHKD * travelers;
-  const ticketTotalCNY     = ticketTotalHKD / CNYTOHKD;
-
-  // 更新門票小計顯示（固定 HKD）
-  document.getElementById('ticketSubtotal').textContent =
-    'HK$' + Math.round(ticketPerPersonHKD).toLocaleString() + ' × ' + travelers + ' = HK$' + Math.round(ticketTotalHKD).toLocaleString();
-
-  const hotelCNY  = hotelNight * nights;
-  const totalCNY  = ticketTotalCNY + crossBorderCNY + localT + hotelCNY;
-  const totalHKD  = totalCNY * CNYTOHKD;
-
-  const fmt = cny => currency === 'HKD'
-    ? 'HK$' + Math.round(cny * CNYTOHKD).toLocaleString()
-    : '¥'   + Math.round(cny).toLocaleString();
-
-  document.getElementById('ticketCost').textContent      = fmt(ticketTotalCNY);
-  document.getElementById('crossBorderCost').textContent = fmt(crossBorderCNY);
-  document.getElementById('localTrafficCost').textContent= fmt(localT);
-  document.getElementById('hotelCost').textContent       = fmt(hotelCNY);
-  document.getElementById('totalCost').textContent       = fmt(totalCNY);
-  document.getElementById('perPersonCost').textContent    = fmt(totalCNY / travelers);
-
-  // Hero 統計卡與試算器連動
-  const heroStat = document.getElementById('heroTicketStat');
-  if (heroStat) heroStat.textContent =
-    '約 HK$' + Math.round(ticketTotalHKD).toLocaleString() + ' / ' + travelers + '人';
-}
-
-// 監聽所有輸入
-document.querySelectorAll('#travelerCount,#nightCount,#hotelPerNight,#localTraffic,#transportMode,#currencyMode,#fxRate')
-  .forEach(el => el.addEventListener('input', calcBudget));
-
-// 監聽門票 checkbox
-document.querySelectorAll('.ticket-check input[type="checkbox"]')
-  .forEach(cb => cb.addEventListener('change', calcBudget));
-
-calcBudget();
-
-/* ===== RE-SYNC FLIP HEIGHT ON WINDOW RESIZE ===== */
-window.addEventListener('resize', () => {
-  document.querySelectorAll('.flip-wrap').forEach(syncFlipHeight);
-});
-
-
 /* ===== MOBILE NAV TOGGLE ===== */
 (function(){
   const toggle = document.getElementById('navToggle');
@@ -1636,20 +687,14 @@ window.addEventListener('resize', () => {
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('nav-open');
     toggle.setAttribute('aria-expanded', open);
-    toggle.innerHTML = open
-      ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
-      : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
   });
-  // Close nav when a link is clicked
   nav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       nav.classList.remove('nav-open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     });
   });
 })();
-
 
 /* ===== NAV SCROLL-SPY ===== */
 (function(){
@@ -1664,130 +709,6 @@ window.addEventListener('resize', () => {
   window.addEventListener('scroll', spy, { passive: true });
   spy();
 })();
-
-/* ===== MAP CAROUSEL ===== */
-(function(){
-  /* ── ADD MORE MAPS HERE ───────────────────────────────── */
-  const mapSlides = [
-    {
-      url:     'https://intranet.travel4u.com.tw/eWeb_t4u/IMGDB/000002/001283/001430/00031427.JPG',
-      caption: ''
-    },
-	
-	{ url: 'https://i.imgur.com/L2Agasi.jpeg', caption: '' },
-	
-    /* 在下方繼續新增:
-    { url: 'YOUR_URL_HERE', caption: '地圖標題' },
-    */
-  ];
-  /* ─────────────────────────────────────────────────────── */
-
-  const track   = document.getElementById('mapTrack');
-  const dotsEl  = document.getElementById('mapDots');
-  const caption = document.getElementById('mapCaption');
-  const counter = document.getElementById('mapCounter');
-  const prevBtn = document.getElementById('mapPrev');
-  const nextBtn = document.getElementById('mapNext');
-  const lb      = document.getElementById('lightbox');
-  const lbImg   = document.getElementById('lightboxImg');
-  const lbCap   = document.getElementById('lightboxCaption');
-
-  if (!track || !mapSlides.length) return;
-
-  let cur = 0;
-  let isAnimating = false;
-
-  // Build slides
-  mapSlides.forEach((s, i) => {
-    const div = document.createElement('div');
-    div.className = 'map-slide' + (i === 0 ? ' active' : '');
-    div.dataset.idx = i;
-    div.setAttribute('role', 'img');
-    div.setAttribute('aria-label', s.caption);
-    const img = document.createElement('img');
-    img.src     = s.url;
-    img.alt     = s.caption;
-    img.loading = i === 0 ? 'eager' : 'lazy';
-    img.width   = 1200; img.height = 800;
-    div.appendChild(img);
-    // click → open lightbox with all map slides
-    div.addEventListener('click', () => {
-      if (!lb) return;
-      // Override lightbox with map slides
-      window.lbMapMode = true;
-      window.lbMapSlides = mapSlides;
-      window.lbMapCur   = i;
-      if (lbImg && lbCap) {
-        lbImg.src = s.url;
-        lbImg.alt = s.caption;
-        lbCap.textContent = s.caption;
-      }
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-    track.appendChild(div);
-  });
-
-  // Build dots
-  mapSlides.forEach((s, i) => {
-    const d = document.createElement('div');
-    d.className = 'map-dot' + (i === 0 ? ' active' : '');
-    d.addEventListener('click', () => goTo(i));
-    dotsEl.appendChild(d);
-  });
-
-  function updateUI() {
-    caption.textContent  = mapSlides[cur].caption;
-    counter.textContent  = (cur + 1) + ' / ' + mapSlides.length;
-    dotsEl.querySelectorAll('.map-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-    prevBtn.disabled = mapSlides.length <= 1;
-    nextBtn.disabled = mapSlides.length <= 1;
-  }
-
-  function goTo(next) {
-    if (isAnimating || next === cur) return;
-    isAnimating = true;
-    const slides = track.querySelectorAll('.map-slide');
-    const dir    = next > cur ? 1 : -1;
-
-    // exit current
-    slides[cur].classList.add('exit-left');
-    slides[cur].classList.remove('active');
-
-    // prepare next
-    slides[next].style.transform = 'translateX(' + (dir * 40) + 'px)';
-    slides[next].style.opacity   = '0';
-    slides[next].classList.add('active');
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        slides[next].style.transform = '';
-        slides[next].style.opacity   = '';
-      });
-    });
-
-    setTimeout(() => {
-      slides[cur].classList.remove('exit-left');
-      slides[cur].style.transform = '';
-      slides[cur].style.opacity   = '';
-      cur = next;
-      isAnimating = false;
-      updateUI();
-    }, 460);
-  }
-
-  prevBtn.addEventListener('click', () => goTo((cur - 1 + mapSlides.length) % mapSlides.length));
-  nextBtn.addEventListener('click', () => goTo((cur + 1) % mapSlides.length));
-
-  // Keyboard when carousel is focused
-  document.getElementById('mapCarousel').addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft')  goTo((cur - 1 + mapSlides.length) % mapSlides.length);
-    if (e.key === 'ArrowRight') goTo((cur + 1) % mapSlides.length);
-  });
-
-  updateUI();
-})();
-
 </script>
 </body>
 </html>
