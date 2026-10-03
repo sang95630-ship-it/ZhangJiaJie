@@ -638,7 +638,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 	  涵蓋天門山、七星山、張家界國家森林公園、黃龍洞、寶峰湖與大峽谷玻璃橋</p>
       <div class="stats">
         <div class="stat-card"><span>住宿（已訂 5 晚）</span><strong>永定區 1 晚 + 武陵源 4 晚</strong></div>
-        <div class="stat-card"><span>已確認支出</span><strong>HK$5,580.3 + ¥1,113</strong></div>
+        <div class="stat-card"><span>已確認支出</span><strong>HK$5,580.3 + ¥2,226</strong></div>
         <div class="stat-card"><span>去程高鐵（已購）</span><strong>14/10 西九龍 08:07 → 張家界西 14:49</strong></div>
         <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
       </div>
@@ -1283,10 +1283,10 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
         <div class="booking-row head" role="row"><span>項目</span><span>日期</span><span>金額</span></div>
         <div class="booking-row" role="row"><span>天門山希爾頓歡朋酒店（1 晚）</span><span>14/10 – 15/10</span><span>HK$635</span></div>
         <div class="booking-row" role="row"><span>武陵源希爾頓花園酒店・森林公園店（4 晚）</span><span>15/10 – 19/10</span><span>HK$3,257</span></div>
-        <div class="booking-row" role="row"><span>高鐵 香港西九龍 → 張家界西（08:07 – 14:49）</span><span>14/10</span><span>¥1,113</span></div>
+        <div class="booking-row" role="row"><span>高鐵 香港西九龍 → 張家界西 ×2（08:07 – 14:49，¥1,113/人）</span><span>14/10</span><span>¥2,226</span></div>
         <div class="booking-row" role="row"><span>天門山景區套票 C 線 ×2</span><span>15/10</span><span>HK$615.3</span></div>
         <div class="booking-row" role="row"><span>張家界國家森林公園門票 ×2</span><span>16/10</span><span>HK$1,073</span></div>
-        <div class="booking-row total" role="row"><span>已付合計</span><span></span><span id="paidTotal">HK$5,580.3 + ¥1,113</span></div>
+        <div class="booking-row total" role="row"><span>已付合計</span><span></span><span id="paidTotal">HK$5,580.3 + ¥2,226</span></div>
       </div>
     </div>
 
@@ -1355,7 +1355,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="form-group">
             <label for="transportMode">回程方式（未訂）</label>
             <select id="transportMode" class="select">
-              <option value="rail">高鐵（約 ¥557/人）</option>
+              <option value="rail">高鐵（約 ¥1,113/人）</option>
               <option value="flight">飛機（約 HK$1,250/人）</option>
             </select>
           </div>
@@ -1386,7 +1386,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="budget-row total"><span>總計（已付 + 估算）</span><span id="totalCost">-</span></div>
           <div class="budget-row"><span>每人平均</span><span id="perPersonCost">-</span></div>
         </div>
-        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.1208 HKD（2026-07 參考），可於「輸入參數」自行調整。已付的 ¥1,113 高鐵票亦按此匯率換算。高鐵回程以去程票價估算，飛機為估算值。</p>
+        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.1208 HKD（2026-07 參考），可於「輸入參數」自行調整。已付的 ¥2,226 高鐵票亦按此匯率換算。高鐵回程以去程票價估算，飛機為估算值。</p>
       </div>
 
     </div>
@@ -1675,10 +1675,10 @@ document.addEventListener('keydown', e => {
 
 // 已確認預訂（實付，全團總額，不乘人數）
 const PAID_HKD = 635 + 3257 + 615.3 + 1073;   // 酒店 ×2 + 天門山 C 線 + 森林公園
-const PAID_CNY = 1113;                         // 去程高鐵
+const PAID_CNY = 1113 * 2;                     // 去程高鐵 ¥1,113/人 ×2
 
 // 回程估算（每人）
-const RETURN_RAIL_CNY_PP   = 1113 / 2;  // 參考去程票價
+const RETURN_RAIL_CNY_PP   = 1113;      // 參考去程票價（每人）
 const RETURN_FLIGHT_HKD_PP = 1250;
 
 function numOr(id, fallback) {
