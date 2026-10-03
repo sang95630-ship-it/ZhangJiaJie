@@ -131,7 +131,6 @@ h1{font-size:var(--text-2xl)}
 .booked-tag{display:inline-block;padding:.14rem .6rem;border-radius:var(--radius-full);
   font-size:var(--text-xs);font-weight:600;background:#e3eedd;color:#3f6b35}
 .pill.booked-tag{padding:.4rem .75rem}
-.qx-photo{margin-bottom:var(--space-4)}
 .booked-tag.pending{background:#f6e6cf;color:#8a5a1c}
 [data-theme="dark"] .booked-tag{background:#2f3d2b;color:#b9d8ad}
 [data-theme="dark"] .booked-tag.pending{background:#45361f;color:#e8c493}
@@ -639,7 +638,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       <div class="stats">
         <div class="stat-card"><span>住宿（已訂 5 晚）</span><strong>永定區 1 晚 + 武陵源 4 晚</strong></div>
         <div class="stat-card"><span>已確認支出</span><strong>HK$5,580.3 + ¥2,226</strong></div>
-        <div class="stat-card"><span>去程高鐵（已購）</span><strong>14/10 西九龍 08:07 → 張家界西 14:49</strong></div>
+        <div class="stat-card"><span>去程高鐵一等座（已購）</span><strong>14/10 西九龍 08:07 → 張家界西 14:49</strong></div>
         <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
       </div>
       <aside class="hero-aside">
@@ -648,7 +647,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <li>Day 1 下午抵達張家界西，入住天門山希爾頓歡朋酒店（天門山索道站對面）</li>
           <li>Day 2 天門山 C 線（約 4–5 小時），時間許可加遊七星山，傍晚轉住武陵源希爾頓花園酒店</li>
           <li>張家界國家森林公園拆分兩天（16–17/10）遊覽，酒店距武陵源東門約 0.5 公里</li>
-          <li>Day 6 大峽谷玻璃橋後：方案 A 即日坐高鐵回港；方案 B 回永定區住一晚，20/10 返港</li>
+          <li>Day 6 大峽谷玻璃橋後：方案 A 即日回港（高鐵或 20:15 HB873 航班）；方案 B 回永定區住一晚，20/10 返港</li>
 		  <li><strong>待辦：決定 19/10 方案，再訂回程交通（及方案 B 的 19/10 住宿）</strong></li>
         </ul>
       </aside>
@@ -748,7 +747,8 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="booked-row"><span class="booked-tag pending">⏳ 回程未訂</span></div>
           <ul class="day-list">
             <li>早上退房，連行李包車前往大峽谷（武陵源出發約 50–70 分鐘），建議預約早段入場。</li>
-            <li><strong>方案 A：</strong>遊畢直接到張家界西坐直通車回港。直通車每日約一班，下午開出，須以 12306 / 港鐵最新時刻表確認趕得及。</li>
+            <li><strong>方案 A1（高鐵）：</strong>遊畢直接到張家界西坐直通車回港。直通車每日約一班，下午開出，須以 12306 / 港鐵最新時刻表確認趕得及。</li>
+            <li><strong>方案 A2（飛機）：</strong>大灣區航空 HB873，<strong>20:15</strong> 荷花機場 → <strong>22:10</strong> 香港，HK$3,342/人；遊大峽谷時間最寬裕。</li>
             <li><strong>方案 B：</strong>下午回永定區住一晚（未訂），20/10 返港。</li>
           </ul>
         </div>
@@ -890,9 +890,37 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
               </div>
               <button class="flip-btn" type="button" data-flip-open>交通・訂票資訊</button>
             </div>
-            <div class="back-intro qx-photo">
-              <strong>景點相片</strong>
-              <p class="info-text intro-static"><a href="https://hk.trip.com/moments/detail/zhangjiajie-23-141458087/" target="_blank" rel="noopener noreferrer">Trip.com 七星山「天空之城」打卡指南 ↗</a></p>
+            <div class="gallery-shell">
+              <div class="gallery-hint">
+                <span>點擊圖片可放大 · 左右滑動查看更多</span>
+                <div class="gallery-dots" aria-hidden="true"></div>
+              </div>
+              <div class="gallery-scroll" data-gallery-id="qixing">
+                <figure class="gallery-item" data-idx="0" data-full="https://ak-d.tripcdn.com/images/1mi4z12000mqrwnk0ACBB_W_640_0_R5_Q80.jpg?proc=source/trip" data-caption="七星山風光 1">
+                  <img src="https://ak-d.tripcdn.com/images/1mi4z12000mqrwnk0ACBB_W_640_0_R5_Q80.jpg?proc=source/trip" alt="張家界七星山風光 1" width="800" height="600" loading="lazy" referrerpolicy="no-referrer">
+                  <figcaption>七星山風光 1</figcaption>
+                </figure>
+                <figure class="gallery-item" data-idx="1" data-full="https://ak-d.tripcdn.com/images/1mi6e12000mqrwl265CD2_W_640_0_R5_Q80.jpg?proc=source/trip" data-caption="七星山風光 2">
+                  <img src="https://ak-d.tripcdn.com/images/1mi6e12000mqrwl265CD2_W_640_0_R5_Q80.jpg?proc=source/trip" alt="張家界七星山風光 2" width="800" height="600" loading="lazy" referrerpolicy="no-referrer">
+                  <figcaption>七星山風光 2</figcaption>
+                </figure>
+                <figure class="gallery-item" data-idx="2" data-full="https://bkimg.cdn.bcebos.com/pic/54fbb2fb43166d224f4a5fafe67b1ef79052982274cd?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080" data-caption="七星山孤峰台地">
+                  <img src="https://bkimg.cdn.bcebos.com/pic/54fbb2fb43166d224f4a5fafe67b1ef79052982274cd?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080" alt="張家界七星山孤峰台地" width="800" height="600" loading="lazy" referrerpolicy="no-referrer">
+                  <figcaption>七星山孤峰台地</figcaption>
+                </figure>
+                <figure class="gallery-item" data-idx="3" data-full="https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb43166d22c96cb8fc512309f7905275d6?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080" data-caption="七星山懸崖絕壁">
+                  <img src="https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb43166d22c96cb8fc512309f7905275d6?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080" alt="張家界七星山懸崖絕壁" width="800" height="600" loading="lazy" referrerpolicy="no-referrer">
+                  <figcaption>七星山懸崖絕壁</figcaption>
+                </figure>
+                <figure class="gallery-item" data-idx="4" data-full="https://ak-d.tripcdn.com/images/0HJ6d12000u0m7skzFCC0_W_1200_0_R5_Q60.webp?proc=source/trip&amp;proc=source/trip" data-caption="七星山風光 3">
+                  <img src="https://ak-d.tripcdn.com/images/0HJ6d12000u0m7skzFCC0_W_1200_0_R5_Q60.webp?proc=source/trip&amp;proc=source/trip" alt="張家界七星山風光 3" width="800" height="600" loading="lazy" referrerpolicy="no-referrer">
+                  <figcaption>七星山風光 3</figcaption>
+                </figure>
+                <figure class="gallery-item" data-idx="5" data-full="https://ak-d.tripcdn.com/images/1lo4612000hb84uiwD50E_W_1200_0_R5_Q60.webp?proc=source/trip&amp;proc=source/trip" data-caption="七星山風光 4">
+                  <img src="https://ak-d.tripcdn.com/images/1lo4612000hb84uiwD50E_W_1200_0_R5_Q60.webp?proc=source/trip&amp;proc=source/trip" alt="張家界七星山風光 4" width="800" height="600" loading="lazy" referrerpolicy="no-referrer">
+                  <figcaption>七星山風光 4</figcaption>
+                </figure>
+              </div>
             </div>
             <div class="card-cols">
               <div class="fact-box"><strong>行程定位</strong><p>Day 2（15/10）下午可選行程，接天門山 C 線之後。景區 16:30 關門，天門山若 13:00 後才完成，建議取消。</p></div>
@@ -1283,7 +1311,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
         <div class="booking-row head" role="row"><span>項目</span><span>日期</span><span>金額</span></div>
         <div class="booking-row" role="row"><span>天門山希爾頓歡朋酒店（1 晚）</span><span>14/10 – 15/10</span><span>HK$635</span></div>
         <div class="booking-row" role="row"><span>武陵源希爾頓花園酒店・森林公園店（4 晚）</span><span>15/10 – 19/10</span><span>HK$3,257</span></div>
-        <div class="booking-row" role="row"><span>高鐵 香港西九龍 → 張家界西 ×2（08:07 – 14:49，¥1,113/人）</span><span>14/10</span><span>¥2,226</span></div>
+        <div class="booking-row" role="row"><span>高鐵一等座 香港西九龍 → 張家界西 ×2（08:07 – 14:49，¥1,113/人）</span><span>14/10</span><span>¥2,226</span></div>
         <div class="booking-row" role="row"><span>天門山景區套票 C 線 ×2</span><span>15/10</span><span>HK$615.3</span></div>
         <div class="booking-row" role="row"><span>張家界國家森林公園門票 ×2</span><span>16/10</span><span>HK$1,073</span></div>
         <div class="booking-row total" role="row"><span>已付合計</span><span></span><span id="paidTotal">HK$5,580.3 + ¥2,226</span></div>
@@ -1355,8 +1383,9 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="form-group">
             <label for="transportMode">回程方式（未訂）</label>
             <select id="transportMode" class="select">
-              <option value="rail">高鐵（約 ¥1,113/人）</option>
-              <option value="flight">飛機（約 HK$1,250/人）</option>
+              <option value="rail">高鐵一等座（¥1,113/人）</option>
+              <option value="flight">HB873 直航（HK$3,342/人）</option>
+              <option value="flightLow">機票最低價（HK$1,238/人起）</option>
             </select>
           </div>
           <div class="form-group">
@@ -1386,7 +1415,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="budget-row total"><span>總計（已付 + 估算）</span><span id="totalCost">-</span></div>
           <div class="budget-row"><span>每人平均</span><span id="perPersonCost">-</span></div>
         </div>
-        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.1208 HKD（2026-07 參考），可於「輸入參數」自行調整。已付的 ¥2,226 高鐵票亦按此匯率換算。高鐵回程以去程票價估算，飛機為估算值。</p>
+        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.1208 HKD（2026-07 參考），可於「輸入參數」自行調整。已付的 ¥2,226 高鐵票亦按此匯率換算。高鐵回程以去程一等座票價估算；機票價格來自 Google Flights 19/10 單程查詢（每位成人，含稅），最低價航班未必直航。</p>
       </div>
 
     </div>
@@ -1425,7 +1454,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
         <h3>19/10 晚（待定）</h3>
         <div class="booked-row"><span class="booked-tag pending">⏳ 視乎回程方案</span></div>
         <ul class="hotel-points">
-          <li><strong>方案 A：</strong>大峽谷後直接往張家界西坐高鐵回港，毋須住宿。</li>
+          <li><strong>方案 A：</strong>大峽谷後即日回港，毋須住宿。高鐵（下午開）或大灣區航空 HB873（20:15 荷花機場起飛，22:10 抵港，HK$3,342/人）。</li>
           <li><strong>方案 B：</strong>回永定區住一晚，20/10 返港；可再訂天門山歡朋或附近酒店。</li>
           <li>直通車每日約一班，須先查清 19/10 南行班次時間，再決定大峽谷入場時段。</li>
         </ul>
@@ -1475,7 +1504,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   <div class="lightbox-inner">
     <button class="lightbox-close" type="button" aria-label="關閉">×</button>
     <button class="lb-nav lb-prev" type="button" aria-label="上一張">‹</button>
-    <img id="lightboxImg" src="" alt="">
+    <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer">
     <button class="lb-nav lb-next" type="button" aria-label="下一張">›</button>
     <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
@@ -1678,8 +1707,8 @@ const PAID_HKD = 635 + 3257 + 615.3 + 1073;   // 酒店 ×2 + 天門山 C 線 + 
 const PAID_CNY = 1113 * 2;                     // 去程高鐵 ¥1,113/人 ×2
 
 // 回程估算（每人）
-const RETURN_RAIL_CNY_PP   = 1113;      // 參考去程票價（每人）
-const RETURN_FLIGHT_HKD_PP = 1250;
+const RETURN_RAIL_CNY_PP   = 1113;      // 參考去程一等座票價（每人）
+const RETURN_FLIGHT_HKD_PP = { flight: 3342, flightLow: 1238 };  // 19/10 單程：HB873 直航 / 最低價
 
 function numOr(id, fallback) {
   const v = parseFloat(document.getElementById(id)?.value);
@@ -1708,8 +1737,8 @@ function calcBudget() {
 
   const paidCNY = PAID_HKD / CNYTOHKD + PAID_CNY;
 
-  const crossBorderCNY = transport === 'flight'
-    ? RETURN_FLIGHT_HKD_PP * travelers / CNYTOHKD
+  const crossBorderCNY = RETURN_FLIGHT_HKD_PP[transport]
+    ? RETURN_FLIGHT_HKD_PP[transport] * travelers / CNYTOHKD
     : RETURN_RAIL_CNY_PP * travelers;
 
   const ticketPerPersonCNY = calcTicketSubtotalCNY(CNYTOHKD);
