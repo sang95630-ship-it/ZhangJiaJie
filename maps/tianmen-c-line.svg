@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei','WenQuanYi Zen Hei',sans-serif" role="img" aria-label="天門山 C 線遊覽路線示意圖">
+<title>天門山 C 線遊覽路線示意圖</title>
+<rect width="600" height="900" fill="#f7f1eb"/>
+<text x="32" y="52" font-size="26" font-weight="700" fill="#3b312a" text-anchor="start">天門山 · C 線遊覽路線</text>
+<text x="32" y="80" font-size="13" font-weight="500" fill="#78685b" text-anchor="start">側面示意，高度及距離非按比例 · 橙色＝已購 C 線</text>
+<rect x="20" y="100" width="560" height="560" rx="22" fill="#eef1ef"/>
+<path d="M20 420 C40 380 70 330 110 325 C140 322 150 380 170 440 L170 660 L20 660Z" fill="#dcd6cc"/>
+<text x="40" y="350" font-size="13" font-weight="500" fill="#78685b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">七星山</text>
+<text x="40" y="368" font-size="11" font-weight="500" fill="#a69486" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">（隔谷相望）</text>
+<path d="M150 660 L175 470 C182 360 190 290 215 255 C260 228 420 222 500 238 C540 250 548 300 552 380 L570 660Z" fill="#cdb9a3"/>
+<path d="M200 270 C204 330 197 390 202 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M214 270 C218 330 211 390 216 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M228 270 C232 330 225 390 230 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M242 270 C246 330 239 390 244 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M256 270 C260 330 253 390 258 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M270 270 C274 330 267 390 272 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M284 270 C288 330 281 390 286 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M298 270 C302 330 295 390 300 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M312 270 C316 330 309 390 314 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M326 270 C330 330 323 390 328 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M340 270 C344 330 337 390 342 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M354 270 C358 330 351 390 356 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M368 270 C372 330 365 390 370 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M382 270 C386 330 379 390 384 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M396 270 C400 330 393 390 398 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M410 270 C414 330 407 390 412 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M424 270 C428 330 421 390 426 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M438 270 C442 330 435 390 440 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M452 270 C456 330 449 390 454 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M466 270 C470 330 463 390 468 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M480 270 C484 330 477 390 482 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M494 270 C498 330 491 390 496 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M508 270 C512 330 505 390 510 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M522 270 C526 330 519 390 524 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M536 270 C540 330 533 390 538 450" stroke="#a8907a" stroke-width="1" opacity=".35" fill="none"/>
+<path d="M212 258 C260 232 420 226 500 240 C470 252 260 262 212 258Z" fill="#9fb08f"/>
+<path d="M370 470 L370 400 C370 360 420 360 420 400 L420 470Z" fill="#eef1ef" stroke="#a8907a" stroke-width="2"/>
+<text x="395" y="388" font-size="13" font-weight="700" fill="#3b312a" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">天門洞</text>
+<line x1="360" y1="470" x2="430" y2="470" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="357" y1="476" x2="433" y2="476" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="354" y1="482" x2="436" y2="482" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="351" y1="488" x2="439" y2="488" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="348" y1="494" x2="442" y2="494" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="345" y1="500" x2="445" y2="500" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="342" y1="506" x2="448" y2="506" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="339" y1="512" x2="451" y2="512" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<line x1="336" y1="518" x2="454" y2="518" stroke="#fffaf6" stroke-width="1.6" opacity=".9"/>
+<text x="440" y="512" font-size="12" font-weight="500" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">999 級天梯</text>
+<rect x="20" y="640" width="560" height="20" fill="#d9ccb9"/>
+<path d="M210 640 L300 630 L220 614 L300 598 L220 582 L300 566 L220 550 L300 534 L220 518 L300 502 L220 486 L360 488" stroke="#fffaf6" stroke-width="3" fill="none" opacity=".85"/>
+<text x="160" y="500" font-size="12" font-weight="500" fill="#78685b" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">通天大道</text>
+<text x="160" y="516" font-size="11" font-weight="500" fill="#78685b" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">（99 彎，A/B 線坐車）</text>
+<path d="M40 700 L215 560 L250 262" stroke="#b3a395" stroke-width="2.5" stroke-dasharray="6 5" fill="none"/>
+<circle cx="215" cy="560" r="4" fill="#b3a395" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="222" y="572" font-size="11" font-weight="500" fill="#78685b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">中站</text>
+<circle cx="40" cy="700" r="5" fill="#b3a395" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="36" y="722" font-size="11" font-weight="500" fill="#78685b" text-anchor="start">市區索道下站（歡朋酒店對面）· A/B 線用，C 線不含</text>
+<path d="M330 640 L392 486" stroke="#c2552b" stroke-width="5" stroke-linecap="round"/>
+<path d="M330 640 L392 486" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 8"/>
+<text x="352" y="600" font-size="13" font-weight="700" fill="#c2552b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">快線索道</text>
+<text x="352" y="616" font-size="11" font-weight="500" fill="#c2552b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">（飛越通天大道）</text>
+<path d="M418 440 C450 400 470 330 460 262" stroke="#c2552b" stroke-width="5" stroke-dasharray="10 6" fill="none" stroke-linecap="round"/>
+<text x="474" y="350" font-size="13" font-weight="700" fill="#c2552b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">穿山扶梯</text>
+<text x="474" y="366" font-size="11" font-weight="500" fill="#c2552b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">（山體內 7 級）</text>
+<ellipse cx="350" cy="246" rx="125" ry="11" stroke="#c2552b" stroke-width="4" fill="none"/>
+<text x="250" y="224" font-size="12" font-weight="700" fill="#3b312a" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">鬼谷棧道 / 玻璃棧道</text>
+<text x="432" y="222" font-size="12" font-weight="500" fill="#3b312a" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">天門山寺</text>
+<text x="350" y="206" font-size="13" font-weight="700" fill="#3b312a" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">山頂環線 · 主峰 1,518.6 m</text>
+<circle cx="250" cy="262" r="4" fill="#b3a395" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="232" y="284" font-size="11" font-weight="500" fill="#78685b" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">索道上站</text>
+<circle cx="330" cy="640" r="8" fill="#c2552b" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="345" y="684" font-size="14" font-weight="700" fill="#3b312a" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">天門山山門（C 線入口 / 出口）</text>
+<circle cx="312" cy="650" r="12" fill="#c2552b"/><text x="312" y="655" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<circle cx="372" cy="540" r="12" fill="#c2552b"/><text x="372" y="545" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<circle cx="400" cy="455" r="12" fill="#c2552b"/><text x="400" y="460" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<circle cx="455" cy="300" r="12" fill="#c2552b"/><text x="455" y="305" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<circle cx="470" cy="246" r="12" fill="#c2552b"/><text x="470" y="251" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+<text x="36" y="752" font-size="14" font-weight="500" fill="#3b312a" text-anchor="start">① 07:45 山門檢票 → 快線索道上山</text>
+<text x="36" y="776" font-size="14" font-weight="500" fill="#3b312a" text-anchor="start">② 抵天門洞停車場，步行上 999 級天梯</text>
+<text x="36" y="800" font-size="14" font-weight="500" fill="#3b312a" text-anchor="start">③ 遊天門洞</text>
+<text x="36" y="824" font-size="14" font-weight="500" fill="#3b312a" text-anchor="start">④ 洞後坐穿山扶梯直上山頂</text>
+<text x="36" y="848" font-size="14" font-weight="500" fill="#3b312a" text-anchor="start">⑤ 山頂環線：鬼谷棧道、玻璃棧道、天門山寺</text>
+<text x="36" y="872" font-size="14" font-weight="500" fill="#3b312a" text-anchor="start">⑥ 原路扶梯返天門洞 → 快線索道下山，山門出</text>
+</svg>
