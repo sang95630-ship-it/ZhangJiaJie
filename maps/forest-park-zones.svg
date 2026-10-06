@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei','WenQuanYi Zen Hei',sans-serif" role="img" aria-label="張家界國家森林公園兩日路線示意圖">
+<title>張家界國家森林公園兩日路線示意圖</title>
+<rect width="600" height="900" fill="#f7f1eb"/>
+<text x="32" y="52" font-size="26" font-weight="700" fill="#3b312a" text-anchor="start">國家森林公園 · 兩大區域</text>
+<text x="32" y="80" font-size="13" font-weight="500" fill="#78685b" text-anchor="start">俯視示意，非按比例 · 上層＝山頂台地，下層＝峽谷溪澗</text>
+<rect x="20" y="100" width="560" height="560" rx="22" fill="#e4ead9"/>
+<path d="M60 200 C80 150 200 140 300 170 C340 185 350 250 330 330 C300 360 220 360 150 330 C90 300 50 260 60 200Z" fill="#cdb9a3" stroke="#a8907a" stroke-width="2"/>
+<path d="M330 130 C380 110 480 120 520 150 C545 190 520 240 470 250 C420 255 360 230 340 190 C330 165 325 145 330 130Z" fill="#cdb9a3" stroke="#a8907a" stroke-width="2"/>
+<path d="M60 500 C80 470 150 470 175 500 C185 530 160 570 120 575 C80 575 55 545 60 500Z" fill="#cdb9a3" stroke="#a8907a" stroke-width="2"/>
+<rect x="360" y="147" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="184" y="223" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="367" y="186" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="382" y="147" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="482" y="162" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="125" y="216" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="303" y="292" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="382" y="191" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="403" y="213" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="197" y="147" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="102" y="478" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="257" y="186" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="479" y="138" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="355" y="138" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="209" y="153" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="155" y="302" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="353" y="188" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="80" y="509" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="174" y="253" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="363" y="145" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="181" y="323" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="235" y="259" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="204" y="288" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="431" y="130" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="209" y="218" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="446" y="225" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="150" y="314" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="395" y="164" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="215" y="268" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="471" y="194" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="168" y="172" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="314" y="204" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="148" y="243" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="122" y="249" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<rect x="226" y="306" width="4" height="12" rx="2" fill="#a8907a" opacity=".5"/>
+<text x="195" y="118" font-size="1" font-weight="500" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round"></text>
+<text x="300" y="380" font-size="13" fill="#78685b" text-anchor="middle" letter-spacing="2">— 上層：山頂台地 ↑ · ↓ 下層：峽谷溪澗 —</text>
+<path d="M85 615 C150 600 200 620 250 590 C300 560 330 520 390 470" stroke="#a9cbd6" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M390 470 C420 420 450 360 470 300" stroke="#fffaf6" stroke-width="5" fill="none"/>
+<path d="M390 470 C450 480 500 500 545 520" stroke="#fffaf6" stroke-width="5" fill="none"/>
+<path d="M250 260 C300 230 340 210 400 190" stroke="#fffaf6" stroke-width="3" fill="none" stroke-dasharray="5 4"/>
+<path d="M210 270 C170 260 140 250 110 235" stroke="#fffaf6" stroke-width="3" fill="none" stroke-dasharray="5 4"/>
+<path d="M545 520 C500 500 450 480 392 472" stroke="#c2552b" stroke-width="4" fill="none"/>
+<path d="M392 470 L322 300" stroke="#c2552b" stroke-width="5" stroke-linecap="round"/>
+<path d="M322 300 C290 285 260 275 240 268" stroke="#c2552b" stroke-width="4" fill="none"/>
+<path d="M240 268 C300 235 345 210 410 188" stroke="#c2552b" stroke-width="4" fill="none" stroke-dasharray="8 5"/>
+<path d="M410 188 L470 302" stroke="#c2552b" stroke-width="5" stroke-linecap="round"/>
+<path d="M470 302 C455 360 425 420 395 466" stroke="#c2552b" stroke-width="3" fill="none" stroke-dasharray="3 5"/>
+<path d="M545 520 C500 505 450 485 392 476" stroke="#3f7a6b" stroke-width="3" fill="none" stroke-dasharray="2 6" stroke-linecap="round"/>
+<path d="M388 478 C330 528 300 568 250 598 C200 628 150 610 88 622" stroke="#3f7a6b" stroke-width="4" fill="none"/>
+<path d="M95 610 L120 540" stroke="#3f7a6b" stroke-width="4" stroke-dasharray="7 5" stroke-linecap="round"/>
+<circle cx="392" cy="472" r="5" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="404" y="490" font-size="12" font-weight="500" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">水繞四門</text>
+<circle cx="322" cy="300" r="5" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="332" y="306" font-size="12" font-weight="500" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">百龍天梯（上）</text>
+<circle cx="240" cy="268" r="7" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="230" y="258" font-size="15" font-weight="700" fill="#3b312a" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">袁家界</text>
+<circle cx="410" cy="188" r="7" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="400" y="178" font-size="15" font-weight="700" fill="#3b312a" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">天子山</text>
+<circle cx="470" cy="302" r="5" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="480" y="308" font-size="12" font-weight="500" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">天子山索道下站</text>
+<circle cx="110" cy="235" r="7" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="104" y="223" font-size="15" font-weight="700" fill="#3b312a" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">楊家界</text>
+<circle cx="120" cy="540" r="7" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="132" y="532" font-size="15" font-weight="700" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">黃石寨</text>
+<circle cx="88" cy="620" r="5" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="84" y="646" font-size="12" font-weight="500" fill="#3b312a" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">森林公園門票站</text>
+<circle cx="545" cy="520" r="5" fill="#3b312a" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="543" y="552" font-size="12" font-weight="500" fill="#3b312a" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">武陵源門票站</text>
+<text x="240" y="290" font-size="11" font-weight="500" fill="#78685b" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">阿凡達峰林 · 迷魂台</text>
+<text x="410" y="160" font-size="11" font-weight="500" fill="#78685b" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">御筆峰 · 賀龍公園</text>
+<text x="352" y="400" font-size="13" font-weight="700" fill="#c2552b" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">百龍天梯</text>
+<text x="452" y="262" font-size="13" font-weight="700" fill="#c2552b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">索道</text>
+<text x="445" y="415" font-size="12" font-weight="500" fill="#78685b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">十里畫廊</text>
+<text x="250" y="640" font-size="13" font-weight="700" fill="#3f7a6b" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">金鞭溪步道（平路）</text>
+<text x="64" y="470" font-size="11" font-weight="500" fill="#78685b" text-anchor="start" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">黃石寨索道</text>
+<circle cx="565" cy="556" r="7" fill="#8d6e63" stroke="#fffaf6" stroke-width="2.5"/>
+<text x="560" y="584" font-size="11" font-weight="700" fill="#8d6e63" text-anchor="end" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">酒店 0.5 km</text>
+<circle cx="520" cy="500" r="12" fill="#c2552b"/><text x="520" y="505" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<circle cx="300" cy="560" r="12" fill="#3f7a6b"/><text x="300" y="565" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<line x1="36" y1="695" x2="66" y2="695" stroke="#c2552b" stroke-width="4"/><text x="76" y="700" font-size="15" font-weight="700" fill="#3b312a" text-anchor="start">Day 3（16/10）高位峰林</text>
+<text x="76" y="726" font-size="13" font-weight="500" fill="#3b312a" text-anchor="start">武陵源門票站 → 環保車 → 水繞四門 → 百龍天梯上山</text>
+<text x="76" y="748" font-size="13" font-weight="500" fill="#3b312a" text-anchor="start">→ 袁家界 → 環保車 → 天子山 → 天子山索道下山 → 回程</text>
+<line x1="36" y1="775" x2="66" y2="775" stroke="#3f7a6b" stroke-width="4"/><text x="76" y="780" font-size="15" font-weight="700" fill="#3b312a" text-anchor="start">Day 4（17/10）低位溪谷</text>
+<text x="76" y="806" font-size="13" font-weight="500" fill="#3b312a" text-anchor="start">武陵源門票站 → 水繞四門 → 金鞭溪（約 2–3 小時）</text>
+<text x="76" y="828" font-size="13" font-weight="500" fill="#3b312a" text-anchor="start">→ 森林公園門票站；體力許可加黃石寨或楊家界</text>
+<g transform="translate(548,132)"><path d="M0 -14 L7 8 L0 3 L-7 8Z" fill="#3b312a"/></g><text x="548" y="160" font-size="12" font-weight="700" fill="#3b312a" text-anchor="middle" paint-order="stroke" stroke="#f7f1eb" stroke-width="4" stroke-linejoin="round">N</text>
+</svg>
