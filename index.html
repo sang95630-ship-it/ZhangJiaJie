@@ -135,8 +135,18 @@ h1{font-size:var(--text-2xl)}
 [data-theme="dark"] .booked-tag{background:#2f3d2b;color:#b9d8ad}
 [data-theme="dark"] .booked-tag.pending{background:#45361f;color:#e8c493}
 
+.wx-badge{display:inline-block;margin-left:.55rem;padding:.16rem .65rem;border-radius:var(--radius-full);
+  font-size:var(--text-xs);font-weight:600;background:#e2ecf3;color:#35607a;vertical-align:.12em;
+  white-space:nowrap;font-family:var(--font-body);cursor:help}
+.wx-badge.wx-uncertain{border:1px dashed #6f93ab}
+[data-theme="dark"] .wx-badge{background:#253543;color:#a9cbe0}
+.section-head .wx-note{font-size:var(--text-xs);color:var(--color-text-faint);max-width:none}
+.section-head .wx-note a{color:var(--color-primary);text-decoration:underline;text-underline-offset:2px}
+
 /* ===== FLIP CARD (FIX: flip-inner needs explicit min-height) ===== */
 .spot-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:var(--space-6)}
+.spot-grid>.flip-wrap{min-width:0}
+.pill{max-width:100%}
 .flip-wrap{perspective:1600px}
 /* FIX: flip-inner must have a set height so .back (position:absolute) can size correctly */
 .flip-inner{
@@ -685,11 +695,12 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 <!-- ITINERARY -->
 <section class="section" id="itinerary">
   <div class="container">
-    <div class="section-head"><h2>每日行程大要</h2><p>Day 1–5 住宿與主要門票已確認；Day 6 視乎回程方案二選一，Day 7 只適用於方案 B。</p></div>
+    <div class="section-head"><h2>每日行程大要</h2><p>Day 1–5 住宿與主要門票已確認；Day 6 視乎回程方案二選一，Day 7 只適用於方案 B。</p>
+      <p class="wx-note">🌤️ 天氣為 9/10 查詢的永定區預報，綜合 4 個來源取中位數（東方天氣、timeanddate、easeweather、weather25）；⚠ 表示來源分歧較大。山頂（天門山、天子山）氣溫再低約 5–8°C。官方 7 天預報暫未覆蓋行程日期，出發前請以 <a href="https://weather.cma.cn/web/weather/57558" target="_blank" rel="noopener noreferrer">中國氣象局</a> / <a href="https://www.nmc.cn/publish/forecast/AHN/zhangjiajie.html" target="_blank" rel="noopener noreferrer">中央氣象台</a> 最新預報為準。</p></div>
     <div class="timeline">
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 1</span><strong>14/10</strong></div>
-        <div class="day-body"><h3>高鐵抵達 · 入住天門山歡朋<span class="stay-badge">宿：天門山希爾頓歡朋</span></h3>
+        <div class="day-body"><h3>高鐵抵達 · 入住天門山歡朋<span class="stay-badge">宿：天門山希爾頓歡朋</span><span class="wx-badge" title="多雲，14–26°C"><span aria-hidden="true">⛅</span> 多雲 · 14–26°C</span></h3>
           <div class="booked-row"><span class="booked-tag">✅ 高鐵已購</span><span class="booked-tag">✅ 酒店已訂</span></div>
           <ul class="day-list">
             <li><strong>08:07</strong> 香港西九龍開出，建議 07:20 前到站辦理通關。</li>
@@ -701,7 +712,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 2</span><strong>15/10</strong></div>
-        <div class="day-body"><h3>天門山 C 線 + 七星山 · 轉住武陵源<span class="stay-badge">宿：武陵源希爾頓花園（第 1 晚）</span></h3>
+        <div class="day-body"><h3>天門山 C 線 + 七星山 · 轉住武陵源<span class="stay-badge">宿：武陵源希爾頓花園（第 1 晚）</span><span class="wx-badge wx-uncertain" title="陰，傍晚或有驟雨，13–22°C（來源分歧：高溫 19–26°C；山頂氣溫再低約 5–8°C）"><span aria-hidden="true">🌥️</span> 陰，傍晚或有驟雨 · 13–22°C ⚠</span></h3>
           <div class="booked-row"><span class="booked-tag">✅ 天門山 C 線 ×2</span><span class="booked-tag">✅ 酒店已訂</span></div>
           <ul class="day-list">
             <li><strong>07:15</strong> 退房，連行李上包車，前往天門山山門（約 15–25 分鐘）。</li>
@@ -713,7 +724,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 3</span><strong>16/10</strong></div>
-        <div class="day-body"><h3>張家界國家森林公園 I：袁家界 · 天子山<span class="stay-badge">宿：武陵源希爾頓花園（第 2 晚）</span></h3>
+        <div class="day-body"><h3>張家界國家森林公園 I：袁家界 · 天子山<span class="stay-badge">宿：武陵源希爾頓花園（第 2 晚）</span><span class="wx-badge wx-uncertain" title="陰，有雨機會，14–22°C（來源分歧：由陰天至大雨均有）"><span aria-hidden="true">🌧️</span> 陰，有雨機會 · 14–22°C ⚠</span></h3>
           <div class="booked-row"><span class="booked-tag">✅ 森林公園門票 ×2</span></div>
           <ul class="day-list">
             <li>由武陵源東門入園（距酒店約 0.5 公里），首次入園登記人臉 / 指紋。</li>
@@ -724,7 +735,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 4</span><strong>17/10</strong></div>
-        <div class="day-body"><h3>張家界國家森林公園 II：金鞭溪 · 楊家界<span class="stay-badge">宿：武陵源希爾頓花園（第 3 晚）</span></h3>
+        <div class="day-body"><h3>張家界國家森林公園 II：金鞭溪 · 楊家界<span class="stay-badge">宿：武陵源希爾頓花園（第 3 晚）</span><span class="wx-badge wx-uncertain" title="陰有雨，13–21°C（來源分歧：一個來源預報大雨）"><span aria-hidden="true">🌧️</span> 陰有雨 · 13–21°C ⚠</span></h3>
           <div class="booked-row"><span class="booked-tag">✅ 沿用 16/10 門票</span></div>
           <ul class="day-list">
             <li>以首日登記的人臉 / 指紋二次入園。</li>
@@ -735,7 +746,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 5</span><strong>18/10</strong></div>
-        <div class="day-body"><h3>黃龍洞 + 寶峰湖<span class="stay-badge">宿：武陵源希爾頓花園（第 4 晚）</span></h3>
+        <div class="day-body"><h3>黃龍洞 + 寶峰湖<span class="stay-badge">宿：武陵源希爾頓花園（第 4 晚）</span><span class="wx-badge wx-uncertain" title="多雲，或有陣雨，11–23°C（來源分歧：晴至陣雨均有）"><span aria-hidden="true">⛅</span> 多雲，或有陣雨 · 11–23°C ⚠</span></h3>
           <ul class="day-list">
             <li>黃龍洞建議早上先行，避開團客高峰。</li>
             <li>下午寶峰湖遊船（酒店位於寶峰路，車程短）。</li>
@@ -745,7 +756,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 6</span><strong>19/10</strong></div>
-        <div class="day-body"><h3>大峽谷玻璃橋 · 回港方案待定<span class="stay-badge">宿：待定</span></h3>
+        <div class="day-body"><h3>大峽谷玻璃橋 · 回港方案待定<span class="stay-badge">宿：待定</span><span class="wx-badge" title="多雲，間中小雨，9–19°C"><span aria-hidden="true">🌦️</span> 多雲，間中小雨 · 9–19°C</span></h3>
           <div class="booked-row"><span class="booked-tag pending">⏳ 回程未訂</span></div>
           <ul class="day-list">
             <li>早上退房，連行李包車前往大峽谷（武陵源出發約 50–70 分鐘），建議預約早段入場。</li>
@@ -757,7 +768,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 7</span><strong>20/10</strong></div>
-        <div class="day-body"><h3>返程日（只適用於方案 B）</h3>
+        <div class="day-body"><h3>返程日（只適用於方案 B）<span class="wx-badge" title="陰，或有微雨，7–15°C"><span aria-hidden="true">🌦️</span> 陰，或有微雨 · 7–15°C</span></h3>
           <ul class="day-list">
             <li>按高鐵 / 航班時間退房與出發。</li>
             <li>如為下午離開，可安排購手信或咖啡時段。</li>
