@@ -536,9 +536,10 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 }
 @media(max-width:600px){
   .map-arrow{width:38px;height:38px}
-  /* 手機觸控：隱藏左右箭咀（改用手指橫掃），顯示滑動提示 */
+  /* 手機觸控：隱藏輪播及燈箱的左右箭咀（改用手指橫掃），顯示滑動提示 */
   @media (pointer:coarse){
     .map-arrow{display:none}
+    .lb-nav{display:none}
     .map-swipe-hint{display:inline}
   }
   .map-prev{left:var(--space-2)}
