@@ -103,6 +103,9 @@ h1{font-size:var(--text-2xl)}
   box-shadow:var(--shadow-sm)}
 .stat-card span{display:block;font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:.25rem}
 .stat-card strong{font-size:var(--text-base)}
+.stat-card strong{display:block}
+.stat-card .stat-sub{margin:.15rem 0 0;font-size:var(--text-xs);color:var(--color-text-muted)}
+.stat-card .stat-gap{margin-top:.6rem}
 .hero-aside h2,.section-head h2{font-size:var(--text-xl)}
 .hero-aside h2{margin-bottom:.6rem}
 .stay-badge{display:inline-block;margin-left:.55rem;padding:.16rem .65rem;border-radius:var(--radius-full);
@@ -661,7 +664,11 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       <div class="stats">
         <div class="stat-card"><span>住宿（已訂 5 晚）</span><strong>永定區 1 晚 + 武陵源 4 晚</strong></div>
         <div class="stat-card"><span>已確認支出</span><strong>HK$6,999.4 + ¥3,764</strong></div>
-        <div class="stat-card"><span>去程高鐵一等座（已購）</span><strong>14/10 西九龍 08:07 → 張家界西 14:49</strong></div>
+        <div class="stat-card"><span>來回高鐵（已購）</span>
+          <strong>去程 14/10 G6080 西九龍 08:07 → 張家界西 14:49</strong>
+          <span class="stat-sub">一等座 16 車 03A / 03C · 6B 檢票口</span>
+          <strong class="stat-gap">回程 19/10 G6079 張家界西 15:10 → 西九龍</strong>
+          <span class="stat-sub">二等座 05 車 18D / 18F · 2 樓檢票口</span></div>
         <div class="stat-card"><span>10 月中氣候</span><strong>約 18–24°C，早晚需外套</strong></div>
       </div>
       <aside class="hero-aside">
