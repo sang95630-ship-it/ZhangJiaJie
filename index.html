@@ -299,6 +299,15 @@ h1{font-size:var(--text-2xl)}
 .lb-nav:hover{background:rgba(255,255,255,.32)}
 .lb-prev{left: 1rem}.lb-next{right: 1rem}
 
+/* ===== GIF 大小版本：縮圖與燈箱 ===== */
+.map-slide picture{display:block}
+.lightbox img.lb-gif{width:960px;max-width:min(100%,100vw);max-height:90vh;height:auto;object-fit:contain}
+.lb-loading{display:none;position:absolute;left:50%;top:1rem;transform:translateX(-50%);
+  padding:.35rem .9rem;border-radius:999px;background:rgba(0,0,0,.6);color:#fff;font-size:var(--text-xs);
+  pointer-events:none}
+.lightbox.is-loading .lb-loading{display:block}
+@media(max-width:600px){.lightbox.is-gif{padding-inline:0}}
+
 /* FOOTER */
 footer .footer-credit{margin-top:.6rem;font-size:var(--text-xs);color:var(--color-text-faint)}
 footer .footer-credit a{color:var(--color-primary)}
@@ -1509,6 +1518,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
     <button class="lightbox-close" type="button" aria-label="關閉">×</button>
     <button class="lb-nav lb-prev" type="button" aria-label="上一張">‹</button>
     <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer">
+    <div class="lb-loading" aria-live="polite">載入高清版中…</div>
     <button class="lb-nav lb-next" type="button" aria-label="下一張">›</button>
     <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
@@ -1587,6 +1597,7 @@ const lbPrev    = lb ? lb.querySelector('.lb-prev') : null;
 const lbNext    = lb ? lb.querySelector('.lb-next') : null;
 
 let lbItems = [];   // all figures in current gallery
+let lbFullToken = 0; // 燈箱大版本載入序號（換圖或關閉時作廢舊請求）
 let lbIdx   = 0;
 
 function openLightbox(figure) {
@@ -1604,10 +1615,28 @@ function showLbItem(i) {
     const slides = window.lbMapSlides;
     window.lbMapCur = (i + slides.length) % slides.length;
     const s = slides[window.lbMapCur];
-    lbImg.src = s.url;
-    lbImg.alt = s.caption;
+    lbImg.alt = s.alt || s.caption;
     lbCaption.textContent = s.caption;
+    lbImg.classList.toggle('lb-gif', !!s.full);
+    lb.classList.toggle('is-gif', !!s.full);
+    if (s.full) {
+      // 燈箱一律指定大版本：先顯示已載入的小版本 + 「載入中」，大版本到齊才替換
+      const token = ++lbFullToken;
+      lbImg.src = s.url;
+      lb.classList.add('is-loading');
+      const big = new Image();
+      big.onload = () => { if (token !== lbFullToken) return; lbImg.src = s.full; lb.classList.remove('is-loading'); };
+      big.onerror = () => { if (token === lbFullToken) lb.classList.remove('is-loading'); };
+      big.src = s.full;
+    } else {
+      lbFullToken++;
+      lb.classList.remove('is-loading');
+      lbImg.src = s.url;
+    }
   } else {
+    lbFullToken++;
+    lb.classList.remove('is-loading', 'is-gif');
+    lbImg.classList.remove('lb-gif');
     lbIdx = (i + lbItems.length) % lbItems.length;
     const fig = lbItems[lbIdx];
     lbImg.src = fig.dataset.full || fig.querySelector('img').src;
@@ -1620,7 +1649,8 @@ function showLbItem(i) {
 }
 
 function closeLightbox() {
-  lb.classList.remove('open');
+  lbFullToken++;                       // 取消未完成的大版本替換
+  lb.classList.remove('open', 'is-loading', 'is-gif');
   document.body.style.overflow = '';
   window.lbMapMode = false; 
 }
@@ -1818,6 +1848,20 @@ window.addEventListener('resize', () => {
   spy();
 })();
 
+/* ===== GIF 大小版本切換 =====
+   縮圖：預設小版本；只有實際顯示寬度 > 760px 才用大版本。
+   用 <picture> + media query（CSS px，不受手機螢幕像素密度影響），
+   避免 srcset 在高 DPR 手機上誤選 20MB+ 的大版本。
+   ≤1024px：地圖面板寬約 85vw → 視窗 ≥ 895px 時 > 760px；
+   >1024px：面板約 0.3825vw − 14px → 視窗 ≥ 2025px 時 > 760px。 */
+const GIF_LARGE_MQ = '(min-width: 895px) and (max-width: 1024px), (min-width: 2025px)';
+const gifPreloaded = new Set();
+function preloadFull(url) {
+  if (!url || gifPreloaded.has(url)) return;
+  gifPreloaded.add(url);
+  new Image().src = url;
+}
+
 /* ===== MAP CAROUSEL ===== */
 (function(){
   /* ── ADD MORE MAPS HERE ───────────────────────────────── */
@@ -1829,12 +1873,20 @@ window.addEventListener('resize', () => {
 	
 	{ url: 'https://i.imgur.com/L2Agasi.jpeg', caption: '' },
 
-	/* 3D 地圖動畫 GIF（來源：YouTube「三维地图看世界」，見頁尾） */
-	{ url: 'https://i.imgur.com/YUhrR1O.gif', caption: '張家界全區 3D 地圖' },
-	{ url: 'https://i.imgur.com/mraLpn8.gif', caption: '天門山 A / B 線 · 通天大道' },
-	{ url: 'https://i.imgur.com/F0nEYSO.gif', caption: '天門山閉環路線' },
-	{ url: 'https://i.imgur.com/ky8EZI0.gif', caption: '張家界國家森林公園' },
-	{ url: 'https://i.imgur.com/5GvGTFk.gif', caption: '森林公園兩大區域' },
+	/* 3D 地圖動畫 GIF（新色調；來源：YouTube「三维地图看世界」，見頁尾）
+	   url = 小版本（縮圖用），full = 大版本（燈箱 / 寬版面用），w×h = 小版本尺寸 */
+	{ url: 'https://i.imgur.com/iLeC9an.gif', full: 'https://i.imgur.com/v5XqvZ8.gif', w: 720, h: 405,
+	  caption: '交通（鐵路、機場）', alt: '張家界交通地圖動畫：高鐵、焦柳鐵路與荷花國際機場' },
+	{ url: 'https://i.imgur.com/eeTt8v5.gif', full: 'https://i.imgur.com/X6S8t04.gif', w: 720, h: 405,
+	  caption: '天門山索道與大巴', alt: '天門山交通地圖動畫：天門山索道與景區大巴路線' },
+	{ url: 'https://i.imgur.com/q7sTiWL.gif', full: 'https://i.imgur.com/S227s8C.gif', w: 720, h: 405,
+	  caption: '天門山頂環線', alt: '天門山山頂環線步道地圖動畫' },
+	{ url: 'https://i.imgur.com/hpqLq8u.gif', full: 'https://i.imgur.com/HZq6LZB.gif', w: 720, h: 405,
+	  caption: '武陵源一票制', alt: '武陵源景區一票制範圍地圖動畫' },
+	{ url: 'https://i.imgur.com/aOcfojq.gif', full: 'https://i.imgur.com/KUhF7nF.gif', w: 640, h: 360,
+	  caption: '武陵源山上與山下', alt: '武陵源山上與山下景區分佈地圖動畫：山頂台地與峽谷溪澗' },
+	{ url: 'https://i.imgur.com/FqBDgJZ.gif', full: 'https://i.imgur.com/ilcYNVe.gif', w: 720, h: 405,
+	  caption: '張家界森林公園 A & B 線', alt: '張家界國家森林公園 A 線與 B 線遊覽路線地圖動畫' },
 	
     /* 在下方繼續新增:
     { url: 'YOUR_URL_HERE', caption: '地圖標題' },
@@ -1866,22 +1918,32 @@ window.addEventListener('resize', () => {
     div.setAttribute('aria-label', s.caption);
     const img = document.createElement('img');
     img.src     = s.url;
-    img.alt     = s.caption;
+    img.alt     = s.alt || s.caption;
     img.loading = i === 0 ? 'eager' : 'lazy';
-    img.width   = 1200; img.height = 800;
-    div.appendChild(img);
+    img.decoding = 'async';
+    img.width   = s.w || 1200; img.height = s.h || 800;
+    if (s.full) {
+      // 大小版本：預設小版本；實際顯示寬度 > 760px 時由 <source> 改用大版本
+      img.dataset.full = s.full;
+      const pic = document.createElement('picture');
+      const src = document.createElement('source');
+      src.media  = GIF_LARGE_MQ;
+      src.srcset = s.full;
+      pic.append(src, img);
+      div.appendChild(pic);
+      // hover / 觸碰 / 鍵盤焦點時預載大版本，令燈箱開得更快
+      ['mouseenter', 'touchstart', 'focusin'].forEach(ev =>
+        div.addEventListener(ev, () => preloadFull(s.full), { passive: true }));
+    } else {
+      div.appendChild(img);
+    }
     // click → open lightbox with all map slides
     div.addEventListener('click', () => {
       if (!lb) return;
       // Override lightbox with map slides
       window.lbMapMode = true;
       window.lbMapSlides = mapSlides;
-      window.lbMapCur   = i;
-      if (lbImg && lbCap) {
-        lbImg.src = s.url;
-        lbImg.alt = s.caption;
-        lbCap.textContent = s.caption;
-      }
+      showLbItem(i);
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
