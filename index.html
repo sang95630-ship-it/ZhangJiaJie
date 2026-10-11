@@ -301,12 +301,14 @@ h1{font-size:var(--text-2xl)}
 
 /* ===== GIF 大小版本：縮圖與燈箱 ===== */
 .map-slide picture{display:block}
-.lightbox img.lb-gif{width:960px;max-width:min(100%,100vw);max-height:90vh;height:auto;object-fit:contain}
+/* 燈箱 GIF：保持 16:9，盡量填滿視窗（約 92vw 或 84vh，取較小者）；手機為全寬 */
+.lightbox.is-gif .lightbox-inner{max-width:none}
+.lightbox img.lb-gif{width:min(92vw,calc(84vh * 16 / 9));max-width:100vw;max-height:84vh;height:auto;aspect-ratio:16/9;object-fit:contain}
 .lb-loading{display:none;position:absolute;left:50%;top:1rem;transform:translateX(-50%);
   padding:.35rem .9rem;border-radius:999px;background:rgba(0,0,0,.6);color:#fff;font-size:var(--text-xs);
   pointer-events:none}
 .lightbox.is-loading .lb-loading{display:block}
-@media(max-width:600px){.lightbox.is-gif{padding-inline:0}}
+@media(max-width:600px){.lightbox.is-gif{padding-inline:0}.lightbox img.lb-gif{width:100vw}}
 
 /* FOOTER */
 footer .footer-credit{margin-top:.6rem;font-size:var(--text-xs);color:var(--color-text-faint)}
