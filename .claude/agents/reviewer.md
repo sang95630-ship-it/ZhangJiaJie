@@ -1,7 +1,7 @@
 ---
 name: reviewer
 description: 獨立審查員。任何交付前（網頁改動、VBA／Excel、數據分析、文件）都應主動使用，以全新 context 核對正確性、數據來源與遺漏。只報告問題，不修改檔案。
-tools: Read, Grep, Glob
+tools: Read, Grep, Glob, WebFetch, WebSearch
 model: opus
 ---
 
