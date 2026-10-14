@@ -1562,7 +1562,9 @@ function syncFlipHeight(wrap) {
   back.style.overflowY = 'hidden';
   const fh = front.scrollHeight;
   const bh = back.scrollHeight;
-  inner.style.minHeight = Math.max(fh, bh) + 'px';
+  // 未翻轉時只按正面高度，避免手機版背面較高而在卡片之間留下大片空白；
+  // 翻轉後才撐到背面高度
+  inner.style.minHeight = (wrap.classList.contains('is-flipped') ? Math.max(fh, bh) : fh) + 'px';
   back.style.overflowY = 'auto';
 }
 
@@ -1585,6 +1587,8 @@ document.querySelectorAll('.flip-wrap').forEach(wrap => {
 
   closeBtn && closeBtn.addEventListener('click', () => {
     wrap.classList.remove('is-flipped');
+    // 翻回正面的動畫（約 0.72 秒）完成後，才收回背面高度
+    setTimeout(() => { if (!wrap.classList.contains('is-flipped')) syncFlipHeight(wrap); }, 740);
   });
 });
 
