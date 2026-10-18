@@ -60,6 +60,13 @@ button{border:none;background:none;cursor:pointer;color:inherit}
   color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
 
 /* HEADER */
+/* 向下捲動後縮細頁頂：只保留圖示及日期，選單與深色模式按鈕照舊可用 */
+.header-inner,.brand-mark,.theme-btn,.nav-toggle{transition:padding .2s,width .2s,height .2s}
+.site-header.is-compact .header-inner{padding:.35rem 0}
+.site-header.is-compact .brand-text span{display:none}
+.site-header.is-compact .brand-mark{width:32px;height:32px;padding:.35rem;border-radius:.75rem}
+.site-header.is-compact .theme-btn,.site-header.is-compact .nav-toggle{width:36px;height:36px}
+.site-header.is-compact nav a{font-size:var(--text-xs)}
 .site-header{position:sticky;top:0;z-index:30;
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   background:color-mix(in srgb,var(--color-bg) 86%,transparent);
@@ -448,7 +455,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   }
   nav.nav-open{display:flex}
   nav a{font-size:var(--text-base);padding:.6rem 0;border-bottom:1px solid var(--color-divider);width:100%}
-  .site-header{position:relative}
+  .site-header{position:sticky}   /* 手機版同樣置頂 */
   .header-inner{position:relative}
 }
 
@@ -673,16 +680,17 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 	  涵蓋天門山、張家界國家森林公園、黃龍洞、寶峰湖與七星山</p>
       <div class="stats">
         <div class="stat-card"><span>住宿（已訂 5 晚）</span><strong>永定區 1 晚 + 武陵源 4 晚</strong></div>
-        <div class="stat-card"><span>已確認支出</span><strong>HK$6,941.4 + ¥4,452</strong></div>
+        <div class="stat-card"><span>已確認支出（已付，港幣合計）</span><strong id="heroPaidHKD">HK$12,195</strong>
+          <span class="stat-sub" id="heroPaidNote">HK$6,941.4 + ¥4,452（以 1 CNY ≈ 1.18 HKD 換算）</span></div>
         <div class="stat-card"><span>來回高鐵（已購）</span>
           <strong>去程 14/10 G6080 西九龍 08:07 → 張家界西 14:49</strong>
           <span class="stat-sub">一等座 16 車 03A / 03C · 6B 檢票口</span>
           <strong class="stat-gap">回程 19/10 G6079 張家界西 15:10 → 西九龍</strong>
           <span class="stat-sub">一等座 02 車 08C / 08D · 2 樓檢票口 · 21:51 抵港</span></div>
         <div class="stat-card"><span>行程期間預報（14–19/10）</span>
-          <strong>約 15–31°C，全程有雨</strong>
-          <span class="stat-sub">⚠ 17/10 日間最高 31°C、夜間暴雨 · 18/10 中雨轉小雨 · 19/10 小雨 16–19°C</span>
-          <span class="stat-sub">山頂再低約 5–8°C · 16–19/10 為中央氣象台 16/10 20:00 預報，詳見每日行程</span></div>
+          <strong>約 14–31°C，全程有雨</strong>
+          <span class="stat-sub">19/10 陰轉小雨 14–18°C，日間（11:00–20:00）預報無降水</span>
+          <span class="stat-sub">山頂再低約 5–8°C · 中央氣象台 18/10 20:00 預報，詳見每日行程</span></div>
       </div>
       <aside class="hero-aside">
         <h2>行程設計邏輯</h2>
@@ -727,7 +735,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 <section class="section" id="itinerary">
   <div class="container">
     <div class="section-head"><h2>每日行程大要</h2><p>住宿、來回高鐵及主要門票已確認；18/10 遊黃龍洞 + 寶峰湖（取消大峽谷），19/10 上午七星山飛拉達後即日回港。</p>
-      <p class="wx-note">🌧️ 天氣為 <a href="https://www.nmc.cn/publish/forecast/AHN/zhangjiajie.html" target="_blank" rel="noopener noreferrer">中央氣象台</a> / <a href="https://www.weather.com.cn/weather/101251101.shtml" target="_blank" rel="noopener noreferrer">中國天氣網</a> 16/10 20:00 發布的張家界 7 天預報（18/10 複核未有更新）；⚠ 表示有大雨以上風險。山頂氣溫再低約 5–8°C。</p></div>
+      <p class="wx-note">🌧️ 天氣為 <a href="https://www.nmc.cn/publish/forecast/AHN/zhangjiajie.html" target="_blank" rel="noopener noreferrer">中央氣象台</a> / <a href="https://www.weather.com.cn/weather/101251101.shtml" target="_blank" rel="noopener noreferrer">中國天氣網</a> 最新發布的張家界預報（18–19/10 為 18/10 20:00 發布）；⚠ 表示有大雨以上風險。山頂氣溫再低約 5–8°C。</p></div>
     <div class="timeline">
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 1</span><strong>14/10</strong></div>
@@ -776,7 +784,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 5</span><strong>18/10</strong></div>
-        <div class="day-body"><h3>黃龍洞 + 寶峰湖<span class="stay-badge">宿：武陵源希爾頓花園（第 4 晚）</span><span class="wx-badge" title="中雨轉小雨，15–24°C（中央氣象台 / 中國天氣網 16/10 20:00 發布）"><span aria-hidden="true">🌧️</span> 中雨轉小雨 · 15–24°C</span></h3>
+        <div class="day-body"><h3>黃龍洞 + 寶峰湖<span class="stay-badge">宿：武陵源希爾頓花園（第 4 晚）</span><span class="wx-badge" title="中雨轉小雨，14–23°C（中央氣象台 / 中國天氣網 18/10 20:00 發布）"><span aria-hidden="true">🌧️</span> 中雨轉小雨 · 14–23°C</span></h3>
           <div class="booked-row"><span class="booked-tag">✅ 寶峰湖 + 黃龍洞套票 ×2（門票 & 遊船）</span><span class="booked-tag pending">⛔ 大峽谷已取消</span></div>
           <ul class="day-list">
             <li>黃龍洞：溶洞屬室內景點，雨天亦適合（約 1.5–2 小時）。</li>
@@ -787,7 +795,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       </article>
       <article class="day-card">
         <div class="day-meta"><span class="label">Day 6</span><strong>19/10</strong></div>
-        <div class="day-body"><h3>七星山飛拉達 · 高鐵回港<span class="stay-badge">G6079 15:10</span><span class="wx-badge" title="小雨，16–19°C（中央氣象台 16/10 20:00 發布）；日間逐小時降水約 0–0.3mm，氣溫約 18°C"><span aria-hidden="true">🌦️</span> 小雨 · 16–19°C</span></h3>
+        <div class="day-body"><h3>七星山飛拉達 · 高鐵回港<span class="stay-badge">G6079 15:10</span><span class="wx-badge" title="陰轉小雨，14–18°C（中央氣象台 / 中國天氣網 18/10 20:00 發布）；11:00–20:00 逐小時預報無降水，約 16–17°C，23:00 後才有小雨"><span aria-hidden="true">☁️</span> 陰轉小雨 · 14–18°C（日間無雨）</span></h3>
           <div class="booked-row"><span class="booked-tag">✅ 七星山飛拉達 ×1</span><span class="booked-tag">✅ 回程一等座 ×2</span></div>
           <ul class="day-list">
             <li><strong>07:00</strong> 退房，連行李包車前往七星山（天門山鎮；武陵源出發約 70–90 分鐘，估算）。</li>
@@ -1476,7 +1484,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       <article class="warn-card">
         <h3>氣候與裝備</h3>
         <ul class="hotel-points">
-          <li>行程期間預報約 15–31°C 且全程有雨（14 晚至 15/10 曾有大到暴雨預警；17/10 夜間有暴雨），早晚溫差明顯（18/10 低至 15°C，山頂再低約 5–8°C），建議洋蔥式穿搭，備防水外套、雨具與防滑鞋。</li>
+          <li>行程期間預報約 14–31°C 且全程有雨（14 晚至 15/10 曾有大到暴雨預警；17/10 夜間有暴雨），早晚溫差明顯（18–19/10 低至 14°C，山頂再低約 5–8°C），建議洋蔥式穿搭，備防水外套、雨具與防滑鞋。</li>
           <li>山區可能突然起霧或落雨，手機防水袋與輕便雨具實用。</li>
           <li>18/10 黃龍洞 + 寶峰湖屬低強度日，為 19/10 飛拉達後趕高鐵保留體力。</li>
           <li>天門山、七星山高空區域風大，需注意保暖。</li>
@@ -1780,6 +1788,13 @@ function calcBudget() {
   document.getElementById('hotelCost').textContent        = fmt(hotelCNY);
   document.getElementById('totalCost').textContent        = fmt(totalCNY);
   document.getElementById('perPersonCost').textContent    = fmt(totalCNY / travelers);
+
+  // 頁首「已確認支出」：固定以港幣顯示已付合計，隨匯率輸入更新
+  const heroPaid = document.getElementById('heroPaidHKD');
+  if (heroPaid) heroPaid.textContent = 'HK$' + Math.round(paidCNY * CNYTOHKD).toLocaleString();
+  const heroNote = document.getElementById('heroPaidNote');
+  if (heroNote) heroNote.textContent = 'HK$' + PAID_HKD.toLocaleString(undefined, {maximumFractionDigits: 1}) +
+    ' + ¥' + PAID_CNY.toLocaleString() + '（以 1 CNY ≈ ' + CNYTOHKD + ' HKD 換算）';
 }
 
 // 監聽所有輸入
@@ -1848,6 +1863,15 @@ function preloadFull(url) {
   gifPreloaded.add(url);
   new Image().src = url;
 }
+
+/* ===== 頁頂捲動縮細 ===== */
+(function(){
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('is-compact', window.scrollY > 40);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
 
 /* ===== MAP CAROUSEL ===== */
 (function(){
