@@ -1396,8 +1396,8 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             <input id="hotelPerNight" class="input" type="number" min="0" value="500">
           </div>
           <div class="form-group">
-            <label for="localTraffic">當地交通（CNY / 全團）</label>
-            <input id="localTraffic" class="input" type="number" min="0" value="1000">
+            <label for="localTraffic">當地交通（HKD / 全團）</label>
+            <input id="localTraffic" class="input" type="number" min="0" value="500">
           </div>
           <div class="form-group">
             <label for="fxRate">匯率（1 CNY → HKD）</label>
@@ -1411,7 +1411,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </select>
           </div>
         </div>
-        <p class="budget-footnote">已訂住宿 5 晚，19/10 即日回港，額外住宿預設 0。當地交通已預留 15/10 及 19/10 包車。</p>
+        <p class="budget-footnote">已訂住宿 5 晚，19/10 即日回港，額外住宿預設 0。當地交通以港幣輸入（預設 HK$500，截至 18/10 實際打車約 HK$201）。</p>
       </div>
 
       <!-- 第3欄：預算結果 -->
@@ -1766,9 +1766,10 @@ function calcBudget() {
   const travelers  = Math.max(1, Math.round(numOr('travelerCount', 2))) || 2;
   const nights     = Math.round(numOr('nightCount', 0));
   const hotelNight = numOr('hotelPerNight', 500);
-  const localT     = numOr('localTraffic', 1000);
+  const localHKD   = numOr('localTraffic', 500);
   const currency   = document.getElementById('currencyMode')?.value  || 'HKD';
 
+  const localT  = localHKD / CNYTOHKD;           // 當地交通以港幣輸入，換算為 CNY 統一計算
   const paidCNY = PAID_HKD / CNYTOHKD + PAID_CNY;
 
 
