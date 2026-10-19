@@ -1345,7 +1345,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   <div class="container">
     <div class="section-head">
       <h2>預訂與預算</h2>
-      <p>上方為已確認預訂（實付金額，不隨人數變動）；下方試算只計算尚未預訂的項目。</p>
+      <p>上方為已確認預訂（實付金額，不隨人數變動）；下方「預算結果」加入行程期間實際現場支出（向下取整至百位）。</p>
     </div>
 
     <div class="budget-card booking-card">
@@ -1393,11 +1393,11 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           </div>
           <div class="form-group">
             <label for="hotelPerNight">待訂酒店每晚（CNY）</label>
-            <input id="hotelPerNight" class="input" type="number" min="0" value="500">
+            <input id="hotelPerNight" class="input" type="number" min="0" value="0">
           </div>
           <div class="form-group">
             <label for="localTraffic">當地交通（HKD / 全團）</label>
-            <input id="localTraffic" class="input" type="number" min="0" value="500">
+            <input id="localTraffic" class="input" type="number" min="0" value="0">
           </div>
           <div class="form-group">
             <label for="fxRate">匯率（1 CNY → HKD）</label>
@@ -1411,7 +1411,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
             </select>
           </div>
         </div>
-        <p class="budget-footnote">已訂住宿 5 晚，19/10 即日回港，額外住宿預設 0。當地交通以港幣輸入（預設 HK$500，截至 18/10 實際打車約 HK$201）。</p>
+        <p class="budget-footnote">行程已完成：額外住宿及當地交通預設 0（打車已計入「現場實際支出」）。如日後重用本頁作估算，可在此輸入金額。</p>
       </div>
 
       <!-- 第3欄：預算結果 -->
@@ -1422,10 +1422,11 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
           <div class="budget-row"><span>待購門票</span><span id="ticketCost">-</span></div>
           <div class="budget-row"><span>當地交通</span><span id="localTrafficCost">-</span></div>
           <div class="budget-row"><span>額外住宿</span><span id="hotelCost">-</span></div>
-          <div class="budget-row total"><span>總計（已付 + 估算）</span><span id="totalCost">-</span></div>
+          <div class="budget-row"><span>現場實際支出（餐飲、按摩、打車等）</span><span id="onsiteCost">-</span></div>
+          <div class="budget-row total"><span>總計（已付 + 現場實際 + 估算）</span><span id="totalCost">-</span></div>
           <div class="budget-row"><span>每人平均</span><span id="perPersonCost">-</span></div>
         </div>
-        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.18 HKD（依 10/16 高鐵實際扣款推算），可於「輸入參數」自行調整。已付的 ¥4,452 來回高鐵票亦按此匯率換算。</p>
+        <p class="budget-footnote">匯率預設 1 CNY ≈ 1.18 HKD（依 10/16 高鐵實際扣款推算），可於「輸入參數」自行調整。已付的 ¥4,452 來回高鐵票亦按此匯率換算。現場實際支出為 14–19/10 電子支付紀錄 HK$1,978.37，向下取整至 HK$1,900（不含已列於已確認預訂的高鐵及飛拉達）。</p>
       </div>
 
     </div>
@@ -1740,6 +1741,8 @@ document.addEventListener('keydown', e => {
 
 // 已確認預訂（實付，全團總額，不乘人數）
 const PAID_HKD = 635 + 3257 + 632.3 + 923.3 + 1073 + 420.8;   // 酒店 ×2 + 天門山 C 線 + 七星山飛拉達 + 森林公園 + 寶峰湖/黃龍洞
+// 14–19/10 現場實際支出（餐飲、按摩、打車、購物、行李托運），HK$1,978.37 向下取整至百位
+const ONSITE_ACTUAL_HKD = 1900;
 const PAID_CNY = 1113 * 2 + 1113 * 2;          // 去程一等座 ¥1,113/人 ×2 + 回程一等座（改簽）¥1,113/人 ×2
 
 // 回程估算（每人）
@@ -1776,7 +1779,8 @@ function calcBudget() {
   const ticketTotalCNY = calcTicketTotalCNY(CNYTOHKD, travelers);
 
   const hotelCNY = hotelNight * nights;
-  const totalCNY = paidCNY + ticketTotalCNY + localT + hotelCNY;
+  const onsiteCNY = ONSITE_ACTUAL_HKD / CNYTOHKD;
+  const totalCNY = paidCNY + ticketTotalCNY + localT + hotelCNY + onsiteCNY;
 
   const fmt = cny => currency === 'HKD'
     ? 'HK$' + Math.round(cny * CNYTOHKD).toLocaleString()
@@ -1789,6 +1793,7 @@ function calcBudget() {
   document.getElementById('hotelCost').textContent        = fmt(hotelCNY);
   document.getElementById('totalCost').textContent        = fmt(totalCNY);
   document.getElementById('perPersonCost').textContent    = fmt(totalCNY / travelers);
+  document.getElementById('onsiteCost').textContent       = fmt(onsiteCNY);
 
   // 頁首「已確認支出」：固定以港幣顯示已付合計，隨匯率輸入更新
   const heroPaid = document.getElementById('heroPaidHKD');
