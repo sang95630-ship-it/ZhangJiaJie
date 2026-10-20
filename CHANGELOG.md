@@ -3,6 +3,13 @@
 需要收回某項修改時，可在 GitHub 打開該 PR，按頁面底部的 **Revert** 建立還原 PR 再合併；
 或在本機執行表中的 `git revert` 指令後推送。
 
+## 2026-10-20 · 修正燈箱多出空白影片窗格；刪除旅行相簿相片說明
+
+- **Bug**：燈箱以 `hidden` 隱藏影片 / 相片，但 `.lightbox video{display:block}` 蓋過 `hidden`，令相片模式下方多出空白影片播放器（電腦及手機均出現）。加入 `.lightbox img[hidden],.lightbox video[hidden]{display:none!important}` 修正。
+- **相片說明**：旅行相簿縮圖不再顯示「天門山 1」等說明；燈箱只顯示「第幾 / 共幾」。景點卡相簿說明不變。
+- **復測**（Chromium 375px / 1400px，以實際顯示狀態檢查）：相片模式影片窗格 display:none、高度 0；影片模式相片隱藏；景點卡相簿及地圖輪播正常；無溢出、無 JS 錯誤。
+- **收回方法**：在本修改的 PR 按 **Revert**。
+
 ## 2026-10-20 · 修正旅行相簿 10 條相片網址
 
 - 補回漏抄字元：3NNq4Ft、6OaNbZS、wY4Ct9B、Sc4FXmM、hsDDOys、a3OHmiH、LL0JI9b、qdwMC1S、frVB2nb、zoQh2cS；46 項網址編號均為 7 位。

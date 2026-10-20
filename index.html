@@ -335,13 +335,15 @@ h1{font-size:var(--text-2xl)}
 .album-more:hover{background:var(--color-primary-highlight)}
 .gallery-item--video{position:relative}
 .gallery-item--video video{aspect-ratio:4/3;object-fit:cover;width:100%;display:block;background:#000}
-.album-play{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;
+.album-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;
   display:grid;place-items:center;background:rgba(0,0,0,.55);color:#fff;font-size:18px;pointer-events:none}
 .lightbox video{max-width:100%;max-height:80vh;border-radius:var(--radius-lg);display:block;background:#000}
+/* 燈箱切換相片 / 影片時用 hidden 隱藏另一個，須蓋過上面的 display:block */
+.lightbox img[hidden],.lightbox video[hidden]{display:none!important}
 @media(max-width:600px){.gallery-item--video video{aspect-ratio:16/9}.lightbox video{max-height:70vh}}
 .gallery-item.is-broken img,.gallery-item.is-broken video{visibility:hidden}
 .gallery-item.is-broken{position:relative}
-.gallery-item.is-broken::before{content:'⚠ 相片未能載入';position:absolute;inset:0 0 2.2rem;display:grid;place-items:center;
+.gallery-item.is-broken::before{content:'⚠ 相片未能載入';position:absolute;inset:0;display:grid;place-items:center;
   color:var(--color-text-faint);font-size:var(--text-xs);z-index:1}
 .album-empty{padding:var(--space-6);border:1px dashed var(--color-border);border-radius:var(--radius-lg);
   color:var(--color-text-faint);font-size:var(--text-sm);text-align:center;background:var(--color-surface)}
@@ -1645,8 +1647,8 @@ const ALBUM_PREVIEW = 6;   // 每組預設只顯示首 6 項，其餘按「查�
     fig.tabIndex = 0;
     fig.setAttribute('role', 'button');
     fig.innerHTML = isVideo
-      ? `<video src="${esc(it.src)}" muted loop playsinline preload="metadata" aria-label="${esc(cap)}"></video><span class="album-play" aria-hidden="true">▶</span><figcaption>🎬 ${esc(cap)}</figcaption>`
-      : `<img src="${esc(it.src)}" alt="${esc(cap)}" loading="lazy" decoding="async"><figcaption>${esc(cap)}</figcaption>`;
+      ? `<video src="${esc(it.src)}" muted loop playsinline preload="metadata" aria-label="${esc(cap)}"></video><span class="album-play" aria-hidden="true">▶</span>`
+      : `<img src="${esc(it.src)}" alt="${esc(cap)}" loading="lazy" decoding="async">`;
     // 相片 / 影片未能載入時顯示提示，避免破圖
     const media = fig.querySelector('img, video');
     media.addEventListener('error', () => fig.classList.add('is-broken'));
@@ -1858,7 +1860,9 @@ function showLbItem(i) {
       lbImg.src = fig.dataset.full || (im && im.src) || '';
       lbImg.alt = im ? im.alt : fig.dataset.caption;
     }
-    lbCaption.textContent = fig.dataset.caption + (fig.dataset.album && lbItems.length > 1 ? `（${lbIdx + 1} / ${lbItems.length}）` : '');
+    lbCaption.textContent = fig.dataset.album
+      ? (lbItems.length > 1 ? `${lbIdx + 1} / ${lbItems.length}` : '')   // 旅行相簿不顯示說明，只顯示張數
+      : fig.dataset.caption;
   }
   	const isPng = lbImg.src && lbImg.src.includes('tripcdn.com');
 	lbImg.style.background = isPng ? '#ffffff' : 'transparent';
