@@ -324,6 +324,9 @@ h1{font-size:var(--text-2xl)}
 
 /* ===== 旅行相簿 ===== */
 .album-groups{display:grid;gap:var(--space-6)}
+.album-group{min-width:0}   /* 防止展開後指示點撐闊網格 */
+.album-group .gallery-hint{gap:var(--space-3)}
+.album-group .gallery-dots{flex-wrap:wrap;justify-content:flex-end;min-width:0}
 .album-group-title{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-3);display:flex;align-items:baseline;gap:.5rem}
 .album-count{font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
 .album-more{margin-top:var(--space-3);padding:.5rem 1.1rem;border-radius:var(--radius-full);
@@ -336,6 +339,10 @@ h1{font-size:var(--text-2xl)}
   display:grid;place-items:center;background:rgba(0,0,0,.55);color:#fff;font-size:18px;pointer-events:none}
 .lightbox video{max-width:100%;max-height:80vh;border-radius:var(--radius-lg);display:block;background:#000}
 @media(max-width:600px){.gallery-item--video video{aspect-ratio:16/9}.lightbox video{max-height:70vh}}
+.gallery-item.is-broken img,.gallery-item.is-broken video{visibility:hidden}
+.gallery-item.is-broken{position:relative}
+.gallery-item.is-broken::before{content:'⚠ 相片未能載入';position:absolute;inset:0 0 2.2rem;display:grid;place-items:center;
+  color:var(--color-text-faint);font-size:var(--text-xs);z-index:1}
 .album-empty{padding:var(--space-6);border:1px dashed var(--color-border);border-radius:var(--radius-lg);
   color:var(--color-text-faint);font-size:var(--text-sm);text-align:center;background:var(--color-surface)}
 
@@ -1363,7 +1370,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   <div class="container">
     <div class="section-head">
       <h2>📸 旅行相簿</h2>
-      <p>14–19/10 實拍相片，按景點分組 · 點擊放大 · 左右滑動查看更多</p>
+      <p>15–19/10 實拍相片及影片，按景點分組 · 點擊放大 / 播放 · 左右滑動查看更多</p>
     </div>
     <div class="album-groups" id="albumGroups"></div>
   </div>
@@ -1560,11 +1567,63 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
    相片：{ src: '網址', title: '說明（可留空）' }
    影片：{ type: 'video', src: '網址（.mp4）', title: '說明（可留空）' } */
 const MEMORY_GROUPS = {
-  '天門山': [],
-  '張家界國家森林公園': [],
-  '黃龍洞': [],
-  '寶峰湖': [],
-  '七星山': [],
+  // 寶峰湖暫不顯示
+  '天門山': [
+    { src: 'https://i.imgur.com/aDZ9VuK.jpeg' },
+    { src: 'https://i.imgur.com/3NNq4F.jpeg' },
+    { src: 'https://i.imgur.com/0LnEwma.jpeg' },
+    { src: 'https://i.imgur.com/6OaNbZ.jpeg' },
+    { src: 'https://i.imgur.com/zzdQo0W.jpeg' },
+    { src: 'https://i.imgur.com/N2Tjdh6.jpeg' },
+    { src: 'https://i.imgur.com/Fjr9oxE.jpeg' },
+    { src: 'https://i.imgur.com/wY4Ct9.jpeg' },
+    { src: 'https://i.imgur.com/sc7bWdZ.jpeg' },
+    { src: 'https://i.imgur.com/kRmkEsA.jpeg' },
+    { src: 'https://i.imgur.com/nNi8zVE.jpeg' },
+  ],
+  '張家界國家森林公園 Day 1': [
+    { src: 'https://i.imgur.com/udiC8GN.jpeg' },
+    { src: 'https://i.imgur.com/VtH0Bo6.jpeg' },
+    { src: 'https://i.imgur.com/24FKRE8.jpeg' },
+    { src: 'https://i.imgur.com/Sc4FXm.jpeg' },
+    { src: 'https://i.imgur.com/mIpgDRp.jpeg' },
+    { src: 'https://i.imgur.com/2mLb56X.jpeg' },
+    { src: 'https://i.imgur.com/xzVvuM0.jpeg' },
+    { src: 'https://i.imgur.com/dsNJMyp.jpeg' },
+  ],
+  '張家界國家森林公園 Day 2': [
+    { src: 'https://i.imgur.com/hsDDOy.jpeg' },
+    { src: 'https://i.imgur.com/a3OHmi.jpeg' },
+    { src: 'https://i.imgur.com/DtzzeRv.jpeg' },
+    { src: 'https://i.imgur.com/uv6CY3P.jpeg' },
+    { src: 'https://i.imgur.com/4nM9tv5.jpeg' },
+    { src: 'https://i.imgur.com/sTP0gdv.jpeg' },
+    { src: 'https://i.imgur.com/1THE9gA.jpeg' },
+    { src: 'https://i.imgur.com/f9zwbja.jpeg' },
+    { src: 'https://i.imgur.com/mxwRtlP.jpeg' },
+    { src: 'https://i.imgur.com/20Ijl9I.jpeg' },
+    { src: 'https://i.imgur.com/us1G9ZY.jpeg' },
+    { src: 'https://i.imgur.com/Bdg0YZk.jpeg' },
+    { src: 'https://i.imgur.com/ZWwarRe.jpeg' },
+  ],
+  '黃龍洞': [
+    { src: 'https://i.imgur.com/7VoPI4Y.jpeg' },
+    { src: 'https://i.imgur.com/s4Apc8z.jpeg' },
+    { src: 'https://i.imgur.com/qAw6scr.jpeg' },
+    { src: 'https://i.imgur.com/LL0JI9.jpeg' },
+    { src: 'https://i.imgur.com/qdwMC1.jpeg' },
+    { src: 'https://i.imgur.com/jLmeKFD.jpeg' },
+  ],
+  '七星山': [
+    { src: 'https://i.imgur.com/L47zdwU.jpeg' },
+    { src: 'https://i.imgur.com/frVB2n.jpeg' },
+    { src: 'https://i.imgur.com/zoQh2c.jpeg' },
+    { src: 'https://i.imgur.com/GjelEmG.jpeg' },
+    { src: 'https://i.imgur.com/Gvosoo3.jpeg' },
+    { type: 'video', src: 'https://i.imgur.com/mR8bcAd.mp4' },
+    { type: 'video', src: 'https://i.imgur.com/yV8VAuq.mp4' },
+    { type: 'video', src: 'https://i.imgur.com/nCKtFTN.mp4' },
+  ],
 };
 const ALBUM_PREVIEW = 6;   // 每組預設只顯示首 6 項，其餘按「查看全部」才載入
 
@@ -1588,6 +1647,9 @@ const ALBUM_PREVIEW = 6;   // 每組預設只顯示首 6 項，其餘按「查�
     fig.innerHTML = isVideo
       ? `<video src="${esc(it.src)}" muted loop playsinline preload="metadata" aria-label="${esc(cap)}"></video><span class="album-play" aria-hidden="true">▶</span><figcaption>🎬 ${esc(cap)}</figcaption>`
       : `<img src="${esc(it.src)}" alt="${esc(cap)}" loading="lazy" decoding="async"><figcaption>${esc(cap)}</figcaption>`;
+    // 相片 / 影片未能載入時顯示提示，避免破圖
+    const media = fig.querySelector('img, video');
+    media.addEventListener('error', () => fig.classList.add('is-broken'));
     if (isVideo) {   // 電腦版：滑鼠移過時靜音預覽
       const v = fig.querySelector('video');
       fig.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
