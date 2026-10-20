@@ -322,6 +322,13 @@ h1{font-size:var(--text-2xl)}
 .lightbox.is-loading .lb-loading{display:block}
 @media(max-width:600px){.lightbox.is-gif{padding-inline:0}.lightbox img.lb-gif{width:100vw}}
 
+/* ===== 旅行相簿 ===== */
+.album-groups{display:grid;gap:var(--space-6)}
+.album-group-title{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-3);display:flex;align-items:baseline;gap:.5rem}
+.album-count{font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
+.album-empty{padding:var(--space-6);border:1px dashed var(--color-border);border-radius:var(--radius-lg);
+  color:var(--color-text-faint);font-size:var(--text-sm);text-align:center;background:var(--color-surface)}
+
 /* FOOTER */
 footer .footer-credit{margin-top:.6rem;font-size:var(--text-xs);color:var(--color-text-faint)}
 footer .footer-credit a{color:var(--color-primary)}
@@ -653,6 +660,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
       <a href="#overview">總覽</a>
       <a href="#itinerary">每日行程</a>
       <a href="#spots">景點詳情</a>
+      <a href="#album">旅行相簿</a>
       <a href="#budget">預訂與預算</a>
       <a href="#stay">住宿安排</a>
       <a href="#notes">注意事項</a>
@@ -1340,6 +1348,17 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
   </div>
 </section>
 
+<!-- ALBUM：由 MEMORY_GROUPS 自動生成 -->
+<section class="section" id="album">
+  <div class="container">
+    <div class="section-head">
+      <h2>📸 旅行相簿</h2>
+      <p>14–19/10 實拍相片，按景點分組 · 點擊放大 · 左右滑動查看更多</p>
+    </div>
+    <div class="album-groups" id="albumGroups"></div>
+  </div>
+</section>
+
 <!-- BUDGET -->
 <section class="section" id="budget">
   <div class="container">
@@ -1525,6 +1544,51 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 
 </main>
 <script>
+
+/* ===== 旅行相簿資料（單一資料來源：新增相片只需改此陣列）=====
+   每項：{ src: '相片網址', title: '說明（可留空）' } */
+const MEMORY_GROUPS = {
+  '天門山': [],
+  '張家界國家森林公園': [],
+  '黃龍洞': [],
+  '寶峰湖': [],
+  '七星山': [],
+};
+
+/* 須在相簿 / 燈箱事件綁定之前生成 DOM，令其沿用現有相簿點、燈箱及滑動功能 */
+(function(){
+  const wrap = document.getElementById('albumGroups');
+  if (!wrap) return;
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  Object.keys(MEMORY_GROUPS).forEach((group, g) => {
+    const items = MEMORY_GROUPS[group];
+    const el = document.createElement('div');
+    el.className = 'album-group';
+    if (!items.length) {
+      el.innerHTML = `<h3 class="album-group-title">📷 ${esc(group)}<span class="album-count">待加入</span></h3>
+        <div class="album-empty">相片稍後加入</div>`;
+    } else {
+      el.innerHTML = `<h3 class="album-group-title">📷 ${esc(group)}<span class="album-count">${items.length} 張</span></h3>
+        <div class="gallery-shell">
+          <div class="gallery-hint"><span>點擊圖片可放大 · 左右滑動查看更多</span><div class="gallery-dots" aria-hidden="true"></div></div>
+          <div class="gallery-scroll" data-gallery-id="album-${g}"></div>
+        </div>`;
+      const scroll = el.querySelector('.gallery-scroll');
+      items.forEach((it, i) => {
+        const cap = it.title || `${group} ${i + 1}`;
+        const fig = document.createElement('figure');
+        fig.className = 'gallery-item';
+        fig.dataset.idx = i;
+        fig.dataset.full = it.src;
+        fig.dataset.caption = cap;
+        fig.tabIndex = 0;
+        fig.innerHTML = `<img src="${esc(it.src)}" alt="${esc(cap)}" loading="lazy" decoding="async"><figcaption>${esc(cap)}</figcaption>`;
+        scroll.appendChild(fig);
+      });
+    }
+    wrap.appendChild(el);
+  });
+})();
 
 /* ===== THEME TOGGLE ===== */
 (function(){
