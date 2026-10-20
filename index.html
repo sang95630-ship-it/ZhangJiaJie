@@ -326,6 +326,16 @@ h1{font-size:var(--text-2xl)}
 .album-groups{display:grid;gap:var(--space-6)}
 .album-group-title{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-3);display:flex;align-items:baseline;gap:.5rem}
 .album-count{font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
+.album-more{margin-top:var(--space-3);padding:.5rem 1.1rem;border-radius:var(--radius-full);
+  border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-primary);
+  font-size:var(--text-sm);font-weight:600}
+.album-more:hover{background:var(--color-primary-highlight)}
+.gallery-item--video{position:relative}
+.gallery-item--video video{aspect-ratio:4/3;object-fit:cover;width:100%;display:block;background:#000}
+.album-play{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(0,0,0,.55);color:#fff;font-size:18px;pointer-events:none}
+.lightbox video{max-width:100%;max-height:80vh;border-radius:var(--radius-lg);display:block;background:#000}
+@media(max-width:600px){.gallery-item--video video{aspect-ratio:16/9}.lightbox video{max-height:70vh}}
 .album-empty{padding:var(--space-6);border:1px dashed var(--color-border);border-radius:var(--radius-lg);
   color:var(--color-text-faint);font-size:var(--text-sm);text-align:center;background:var(--color-surface)}
 
@@ -1536,6 +1546,7 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
     <button class="lightbox-close" type="button" aria-label="關閉">×</button>
     <button class="lb-nav lb-prev" type="button" aria-label="上一張">‹</button>
     <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer">
+    <video id="lightboxVideo" controls playsinline hidden></video>
     <div class="lb-loading" aria-live="polite">載入高清版中…</div>
     <button class="lb-nav lb-next" type="button" aria-label="下一張">›</button>
     <p class="lightbox-caption" id="lightboxCaption"></p>
@@ -1545,8 +1556,9 @@ footer{padding:var(--space-8) 0;color:var(--color-text-muted);
 </main>
 <script>
 
-/* ===== 旅行相簿資料（單一資料來源：新增相片只需改此陣列）=====
-   每項：{ src: '相片網址', title: '說明（可留空）' } */
+/* ===== 旅行相簿資料（單一資料來源：新增相片 / 影片只需改此陣列）=====
+   相片：{ src: '網址', title: '說明（可留空）' }
+   影片：{ type: 'video', src: '網址（.mp4）', title: '說明（可留空）' } */
 const MEMORY_GROUPS = {
   '天門山': [],
   '張家界國家森林公園': [],
@@ -1554,39 +1566,98 @@ const MEMORY_GROUPS = {
   '寶峰湖': [],
   '七星山': [],
 };
+const ALBUM_PREVIEW = 6;   // 每組預設只顯示首 6 項，其餘按「查看全部」才載入
 
-/* 須在相簿 / 燈箱事件綁定之前生成 DOM，令其沿用現有相簿點、燈箱及滑動功能 */
 (function(){
   const wrap = document.getElementById('albumGroups');
   if (!wrap) return;
   const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  function makeItem(group, it, i) {
+    const isVideo = it.type === 'video';
+    const cap = it.title || `${group} ${i + 1}`;
+    const fig = document.createElement('figure');
+    fig.className = 'gallery-item' + (isVideo ? ' gallery-item--video' : '');
+    fig.dataset.album = '1';
+    fig.dataset.idx = i;
+    fig.dataset.full = it.src;
+    fig.dataset.caption = cap;
+    fig.dataset.type = isVideo ? 'video' : 'image';
+    fig.tabIndex = 0;
+    fig.setAttribute('role', 'button');
+    fig.innerHTML = isVideo
+      ? `<video src="${esc(it.src)}" muted loop playsinline preload="metadata" aria-label="${esc(cap)}"></video><span class="album-play" aria-hidden="true">▶</span><figcaption>🎬 ${esc(cap)}</figcaption>`
+      : `<img src="${esc(it.src)}" alt="${esc(cap)}" loading="lazy" decoding="async"><figcaption>${esc(cap)}</figcaption>`;
+    if (isVideo) {   // 電腦版：滑鼠移過時靜音預覽
+      const v = fig.querySelector('video');
+      fig.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
+      fig.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+    }
+    return fig;
+  }
+
+  // 指示點：每項一點，IntersectionObserver 同步；展開後重建
+  function buildDots(scroll) {
+    const dotsWrap = scroll.closest('.gallery-shell').querySelector('.gallery-dots');
+    const items = Array.from(scroll.querySelectorAll('.gallery-item'));
+    if (scroll._obs) scroll._obs.disconnect();
+    dotsWrap.innerHTML = items.map((_, i) => `<span class="gallery-dot${i ? '' : ' active'}"></span>`).join('');
+    if (!('IntersectionObserver' in window)) return;
+    const dots = dotsWrap.querySelectorAll('.gallery-dot');
+    scroll._obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { const k = items.indexOf(e.target); dots.forEach((d, j) => d.classList.toggle('active', j === k)); }
+    }), { root: scroll, threshold: 0.6 });
+    items.forEach(it => scroll._obs.observe(it));
+  }
+
   Object.keys(MEMORY_GROUPS).forEach((group, g) => {
     const items = MEMORY_GROUPS[group];
+    const nV = items.filter(it => it.type === 'video').length;
+    const count = items.length ? `${items.length - nV} 張相片${nV ? ` · ${nV} 段影片` : ''}` : '待加入';
     const el = document.createElement('div');
     el.className = 'album-group';
+    el.innerHTML = `<h3 class="album-group-title">📷 ${esc(group)}<span class="album-count">${count}</span></h3>`;
     if (!items.length) {
-      el.innerHTML = `<h3 class="album-group-title">📷 ${esc(group)}<span class="album-count">待加入</span></h3>
-        <div class="album-empty">相片稍後加入</div>`;
-    } else {
-      el.innerHTML = `<h3 class="album-group-title">📷 ${esc(group)}<span class="album-count">${items.length} 張</span></h3>
-        <div class="gallery-shell">
-          <div class="gallery-hint"><span>點擊圖片可放大 · 左右滑動查看更多</span><div class="gallery-dots" aria-hidden="true"></div></div>
-          <div class="gallery-scroll" data-gallery-id="album-${g}"></div>
-        </div>`;
-      const scroll = el.querySelector('.gallery-scroll');
-      items.forEach((it, i) => {
-        const cap = it.title || `${group} ${i + 1}`;
-        const fig = document.createElement('figure');
-        fig.className = 'gallery-item';
-        fig.dataset.idx = i;
-        fig.dataset.full = it.src;
-        fig.dataset.caption = cap;
-        fig.tabIndex = 0;
-        fig.innerHTML = `<img src="${esc(it.src)}" alt="${esc(cap)}" loading="lazy" decoding="async"><figcaption>${esc(cap)}</figcaption>`;
-        scroll.appendChild(fig);
+      el.insertAdjacentHTML('beforeend', '<div class="album-empty">相片稍後加入</div>');
+      wrap.appendChild(el);
+      return;
+    }
+    el.insertAdjacentHTML('beforeend', `<div class="gallery-shell">
+        <div class="gallery-hint"><span>點擊可放大 / 播放 · 左右滑動查看更多</span><div class="gallery-dots" aria-hidden="true"></div></div>
+        <div class="gallery-scroll" data-album="1" data-gallery-id="album-${g}"></div>
+      </div>`);
+    const scroll = el.querySelector('.gallery-scroll');
+    items.slice(0, ALBUM_PREVIEW).forEach((it, i) => scroll.appendChild(makeItem(group, it, i)));
+    if (items.length > ALBUM_PREVIEW) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'album-more';
+      btn.textContent = `查看全部（${items.length}）`;
+      btn.addEventListener('click', () => {
+        const expanded = btn.dataset.expanded === '1';
+        if (!expanded) {
+          items.slice(ALBUM_PREVIEW).forEach((it, i) => scroll.appendChild(makeItem(group, it, ALBUM_PREVIEW + i)));
+          btn.textContent = '收起';
+          btn.dataset.expanded = '1';
+        } else {
+          scroll.querySelectorAll('.gallery-item').forEach((f, i) => { if (i >= ALBUM_PREVIEW) f.remove(); });
+          scroll.scrollLeft = 0;
+          btn.textContent = `查看全部（${items.length}）`;
+          btn.dataset.expanded = '';
+        }
+        buildDots(scroll);
       });
+      el.appendChild(btn);
     }
     wrap.appendChild(el);
+    buildDots(scroll);
+  });
+
+  // 事件委派：點擊 / Enter 開燈箱（展開後新增的項目同樣有效）
+  wrap.addEventListener('click', e => { const f = e.target.closest('.gallery-item'); if (f) openLightbox(f); });
+  wrap.addEventListener('keydown', e => {
+    const f = e.target.closest('.gallery-item');
+    if (f && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openLightbox(f); }
   });
 })();
 
@@ -1664,7 +1735,14 @@ const lbPrev    = lb ? lb.querySelector('.lb-prev') : null;
 const lbNext    = lb ? lb.querySelector('.lb-next') : null;
 
 let lbItems = [];   // all figures in current gallery
-let lbFullToken = 0; // 燈箱大版本載入序號（換圖或關閉時作廢舊請求）
+let lbFullToken = 0;
+const lbVideo = document.getElementById('lightboxVideo');
+/* 燈箱影片：顯示時隱藏圖片；切換或關閉時停止播放並釋放 */
+function lbStopVideo() {
+  if (!lbVideo) return;
+  lbVideo.pause(); lbVideo.removeAttribute('src'); lbVideo.load(); lbVideo.hidden = true;
+  lbImg.hidden = false;
+} // 燈箱大版本載入序號（換圖或關閉時作廢舊請求）
 let lbIdx   = 0;
 
 function openLightbox(figure) {
@@ -1679,6 +1757,7 @@ function openLightbox(figure) {
 
 function showLbItem(i) {
   if (window.lbMapMode) {
+    lbStopVideo();
     const slides = window.lbMapSlides;
     window.lbMapCur = (i + slides.length) % slides.length;
     const s = slides[window.lbMapCur];
@@ -1706,9 +1785,18 @@ function showLbItem(i) {
     lbImg.classList.remove('lb-gif');
     lbIdx = (i + lbItems.length) % lbItems.length;
     const fig = lbItems[lbIdx];
-    lbImg.src = fig.dataset.full || fig.querySelector('img').src;
-    lbImg.alt = fig.querySelector('img').alt;
-    lbCaption.textContent = fig.dataset.caption;
+    lbStopVideo();
+    if (fig.dataset.type === 'video' && lbVideo) {
+      lbImg.hidden = true;
+      lbVideo.hidden = false;
+      lbVideo.src = fig.dataset.full;
+      lbVideo.play().catch(() => {});
+    } else {
+      const im = fig.querySelector('img');
+      lbImg.src = fig.dataset.full || (im && im.src) || '';
+      lbImg.alt = im ? im.alt : fig.dataset.caption;
+    }
+    lbCaption.textContent = fig.dataset.caption + (fig.dataset.album && lbItems.length > 1 ? `（${lbIdx + 1} / ${lbItems.length}）` : '');
   }
   	const isPng = lbImg.src && lbImg.src.includes('tripcdn.com');
 	lbImg.style.background = isPng ? '#ffffff' : 'transparent';
@@ -1716,20 +1804,21 @@ function showLbItem(i) {
 }
 
 function closeLightbox() {
+  lbStopVideo();
   lbFullToken++;                       // 取消未完成的大版本替換
   lb.classList.remove('open', 'is-loading', 'is-gif');
   document.body.style.overflow = '';
   window.lbMapMode = false; 
 }
 
-document.querySelectorAll('.gallery-item').forEach(fig => {
+document.querySelectorAll('.gallery-item:not([data-album])').forEach(fig => {
   fig.addEventListener('click', () => openLightbox(fig));
   fig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(fig); }});
 });
 
 /* ── 相簿指示點：依圖片數動態生成 + IntersectionObserver 同步 ── */
 (function(){
-  document.querySelectorAll('.gallery-scroll').forEach(scroll => {
+  document.querySelectorAll('.gallery-scroll:not([data-album])').forEach(scroll => {
     const items = Array.from(scroll.querySelectorAll('.gallery-item'));
     const shell = scroll.closest('.gallery-shell');
     const dotsWrap = shell ? shell.querySelector('.gallery-dots') : null;
